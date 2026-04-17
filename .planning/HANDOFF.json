@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-04-17T01:35:55.990Z",
+  "phase": "3",
+  "phase_name": "Pages, Docs & Build",
+  "phase_dir": ".planning/phases/03-pages-docs-build",
+  "plan": null,
+  "task": null,
+  "total_tasks": null,
+  "status": "paused",
+  "completed_tasks": [],
+  "remaining_tasks": [
+    {"id": 1, "name": "03-01: Root layout + homepage", "status": "not_started"},
+    {"id": 2, "name": "03-02: Docs pages, 404, MDX component map", "status": "not_started"},
+    {"id": 3, "name": "03-03: Docs content + public assets", "status": "not_started"},
+    {"id": 4, "name": "03-04: Build/lint verification + visual human check", "status": "not_started"}
+  ],
+  "blockers": [],
+  "human_actions_pending": [],
+  "decisions": [
+    {"decision": "UI-SPEC force-approved with spacing block override", "rationale": "20px/30px are Ghostty pixel-perfect constants that cannot be rounded to 4px grid without breaking layout match. Documented as Pixel-Perfect Ghostty Constants outside the spacing contract.", "phase": "3"},
+    {"decision": "D-12 overrides ASSET-01 for v1", "rationale": "SVG-only favicons for v1; PNG variants deferred. Confirmed in RESEARCH.md open questions.", "phase": "3"}
+  ],
+  "uncommitted_files": [],
+  "next_action": "Run /gsd-execute-phase 3 in a fresh context window",
+  "context_notes": "Phase 3 planning is fully complete. 4 plans in 2 waves. Wave 1 (03-01, 03-02, 03-03) runs in parallel — root layout/homepage, docs pages/404/MDX map, docs content/assets. Wave 2 (03-04) is a human verification checkpoint. All 17 requirement IDs covered. Research, pattern map, and UI-SPEC all committed."
+}

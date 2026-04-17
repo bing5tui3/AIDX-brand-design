@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "type": "folder",
+      "path": "/getting-started",
+      "title": "Getting Started",
+      "children": [
+        { "type": "link", "path": "/", "title": "Overview" },
+        { "type": "link", "path": "/quick-start", "title": "Quick Start" }
+      ]
+    }
+  ]
+}
