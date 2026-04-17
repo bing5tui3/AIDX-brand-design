@@ -4,7 +4,7 @@
 
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-04-17)
 - ✅ **v1.1 Animation Fix** — Phase 4 (shipped 2026-04-17)
-- 🔄 **v1.2 Brand Asset Organization** — Phase 5 (planned)
+- ✅ **v1.2 Brand Asset Organization** — Phase 5 (shipped 2026-04-17)
 
 ## Phases
 
@@ -32,7 +32,7 @@
 **Goal:** Consolidate all scattered brand design assets (SVGs, photos, scripts) into proper project directories, and serve brand-report.html as a static web page via `public/`.
 
 **Plans:**
-- [ ] 05-01-PLAN.md — Move SVGs to `src/assets/brand/`, update navbar import, move scripts/photos/cleanup
+- [ ] 05-01-PLAN.md — Move SVGs to `src/assets/brand/`, update navbar import, move scripts/photos/cleanup ✅
 
 ## Progress
 

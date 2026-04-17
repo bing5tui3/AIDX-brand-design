@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 32" fill="none">
+  <!-- Ghost 1: farthest -->
+  <g opacity="0.06">
+    <line x1="1" y1="5" x2="23" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    <line x1="23" y1="5" x2="1" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- Ghost 2 -->
+  <g opacity="0.15">
+    <line x1="3.5" y1="5" x2="25.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    <line x1="25.5" y1="5" x2="3.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- Ghost 3 -->
+  <g opacity="0.32">
+    <line x1="6" y1="5" x2="28" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    <line x1="28" y1="5" x2="6" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- Ghost 4 -->
+  <g opacity="0.55">
+    <line x1="8.5" y1="5" x2="30.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    <line x1="30.5" y1="5" x2="8.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- Main X -->
+  <line x1="11" y1="5" x2="33" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+  <line x1="33" y1="5" x2="11" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ho" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5DADE2"/><stop offset="40%" stop-color="#2E6DB4"/><stop offset="100%" stop-color="#0ff"/>
+    </linearGradient>
+    <linearGradient id="hH" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#041830"/><stop offset="60%" stop-color="#063970"/><stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <radialGradient id="fG" cx="0.5" cy="0.4" r="0.5">
+      <stop offset="0%" stop-color="#6888A8"/><stop offset="100%" stop-color="#3A5878"/>
+    </radialGradient>
+    <filter id="hs"><feGaussianBlur stdDeviation="0.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- Ambient glow -->
+  <ellipse cx="32" cy="30" rx="28" ry="30" fill="#1565C0" opacity="0.06"/>
+  <!-- Long hair -->
+  <path d="M 32 6 C 52 6 56 16 56 28 C 56 36 55 42 54 47 C 53 52 50 54 46 51 C 43 49 43 43 42 36 C 42 31 44 26 46 23 C 43 18 38 20 32 20 C 26 20 21 18 18 23 C 20 26 22 31 22 36 C 21 43 21 49 18 51 C 14 54 11 52 10 47 C 9 42 8 36 8 28 C 8 16 12 6 32 6 Z" fill="url(#hH)"/>
+  <path d="M 32 6 C 52 6 56 16 56 28 C 56 36 55 42 54 47 C 53 52 50 54 46 51 C 43 49 43 43 42 36 C 42 31 44 26 46 23 C 43 18 38 20 32 20 C 26 20 21 18 18 23 C 20 26 22 31 22 36 C 21 43 21 49 18 51 C 14 54 11 52 10 47 C 9 42 8 36 8 28 C 8 16 12 6 32 6 Z" fill="none" stroke="url(#ho)" stroke-width="0.8" opacity="0.5"/>
+  <!-- Face -->
+  <ellipse cx="32" cy="30" rx="16" ry="18" fill="url(#fG)"/>
+  <ellipse cx="32" cy="30" rx="16" ry="18" fill="none" stroke="#1565C0" stroke-width="0.4" opacity="0.25"/>
+  <!-- Bangs -->
+  <path d="M 16 32 C 16 18 22 12 32 12 C 42 12 48 18 48 30 C 43 28 37 27 32 28 C 27 29 20 30 16 32 Z" fill="url(#hH)"/>
+  <!-- Hair light streak -->
+  <path d="M 18 20 Q 28 14 48 22" fill="none" stroke="#5DADE2" stroke-width="0.6" opacity="0.3"/>
+  <!-- HUD visor -->
+  <defs>
+    <linearGradient id="visor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5DADE2" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#5DADE2" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#5DADE2" stop-opacity="0.28"/>
+    </linearGradient>
+  </defs>
+  <!-- Visor glass -->
+  <rect x="17" y="29" width="30" height="11" rx="3" fill="url(#visor)"/>
+  <!-- Visor frame: top edge bright, bottom edge dim -->
+  <line x1="20" y1="29" x2="44" y2="29" stroke="#5DADE2" stroke-width="1" opacity="0.7" stroke-linecap="round"/>
+  <line x1="20" y1="40" x2="44" y2="40" stroke="#5DADE2" stroke-width="0.6" opacity="0.35" stroke-linecap="round"/>
+  <!-- Side arms -->
+  <line x1="17" y1="33" x2="12" y2="31" stroke="#5DADE2" stroke-width="0.7" opacity="0.5" stroke-linecap="round"/>
+  <line x1="47" y1="33" x2="52" y2="31" stroke="#5DADE2" stroke-width="0.7" opacity="0.5" stroke-linecap="round"/>
+  <!-- Center bridge -->
+  <line x1="30" y1="34" x2="34" y2="34" stroke="#5DADE2" stroke-width="0.7" opacity="0.4" stroke-linecap="round"/>
+  <!-- Scan line across visor -->
+  <line x1="18" y1="35.5" x2="46" y2="35.5" stroke="#5DADE2" stroke-width="0.4" opacity="0.2"/>
+  <!-- Eyes: >- -->
+  <polyline points="22,31 26,34 22,37" fill="none" stroke="#5DADE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="36" y1="34" x2="42" y2="34" stroke="#5DADE2" stroke-width="2" stroke-linecap="round"/>
+</svg>

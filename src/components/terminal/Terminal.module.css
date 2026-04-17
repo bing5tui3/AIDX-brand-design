@@ -116,6 +116,18 @@
       & :global(.b) {
         color: var(--brand-color);
       }
+      & :global(.e) {
+        color: #7ec8f0;
+      }
+      & :global(.h) {
+        color: #3A5ECF;
+      }
+      & :global(.g) {
+        color: #5577dd;
+      }
+      & :global(.o) {
+        color: #6699ff;
+      }
     }
   }
 

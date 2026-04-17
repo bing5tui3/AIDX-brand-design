@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="0" y="0" width="48" height="48" rx="12" fill="#0d0d1a"/>
+  <path d="
+    M 24 5 C 37 5 41 12 41 21 C 41 30 37 38 30 41
+    C 26 42 22 42 18 41 C 11 38 7 30 7 21 C 7 12 11 5 24 5 Z
+  " fill="#2a2a4e"/>
+  <ellipse cx="24" cy="26" rx="11" ry="11.5" fill="#0d0d1a"/>
+  <path d="
+    M 13 24 Q 13 17 19 14 Q 24 12 30 14
+    Q 35 16 35 21 Q 30 18 24 19 Q 18 20 13 24 Z
+  " fill="#2a2a4e"/>
+  <polyline points="17,25 22,28.5 17,32" fill="none" stroke="#5DADE2"
+    stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="27" y1="28.5" x2="33" y2="28.5" stroke="#5DADE2"
+    stroke-width="2.8" stroke-linecap="round"/>
+</svg>

@@ -13,7 +13,7 @@ import NavTree, {
   type NavTreeNode,
 } from "../nav-tree";
 import { DOCS_PAGES_ROOT_PATH } from "@/lib/docs/config";
-import AidxWordmark from "./aidx-wordmark.svg";
+import AidxWordmark from "@/assets/brand/aidx-wordmark.svg";
 import s from "./Navbar.module.css";
 
 export interface NavbarProps {

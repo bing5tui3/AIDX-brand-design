@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIDX — AI-powered Developer Experience</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f0f11;color:#e0e0e0;font-family:-apple-system,'SF Pro Text','Helvetica Neue','PingFang SC',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+
+/* Terminal window */
+.terminal{width:min(90vw,720px);border-radius:10px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.5);border:1px solid #2a2a3a}
+.terminal-header{background:#1e1e28;padding:10px 16px;display:flex;align-items:center;gap:8px;user-select:none}
+.dots{display:flex;gap:6px}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot.r{background:#FF5F57}.dot.y{background:#FEBC2E}.dot.g{background:#28C840}
+.terminal-title{flex:1;text-align:center;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:13px;color:#888;margin-right:44px}
+.terminal-body{background:#0d1117;padding:20px 24px;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+/* ASCII art */
+#ascii-art{font-family:'JetBrains Mono','SF Mono','Fira Code','Cascadia Code','Courier New',monospace;font-size:min(1.5vw,11px);font-weight:800;line-height:1.05;color:#3A5ECF;white-space:pre;letter-spacing:0;text-align:center;display:inline-block}
+#ascii-art .e{color:#7ec8f0;font-weight:bold}
+#ascii-art .h{color:#3A5ECF}
+#ascii-art .g{color:#5577dd}
+#ascii-art .o{color:#6699ff}
+
+/* Loading state */
+#ascii-art.loading{color:#2a3a5a;font-size:12px}
+
+/* Content below terminal */
+.content{text-align:center;margin-top:40px;max-width:600px}
+.content h2{font-family:'SF Mono','Fira Code',monospace;font-size:15px;color:#5DADE2;font-weight:400;letter-spacing:2px;margin-bottom:12px}
+.content p{font-size:16px;color:#888;line-height:1.7;margin-bottom:32px}
+.buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{font-family:'SF Mono','Fira Code',monospace;font-size:14px;padding:12px 28px;border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
+.btn-primary{background:#5DADE2;color:#0f0f11;font-weight:600}
+.btn-primary:hover{background:#7ec8f0;transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:#5DADE2;border:1px solid #5DADE2}
+.btn-secondary:hover{background:rgba(93,173,226,0.1);transform:translateY(-1px)}
+
+@media(max-width:600px){
+  #ascii-art{font-size:1.8vw}
+  .terminal-body{padding:12px;min-height:300px}
+  .content h2{font-size:13px}
+  .content p{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<div class="terminal">
+  <div class="terminal-header">
+    <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+    <div class="terminal-title">AIDX</div>
+  </div>
+  <div class="terminal-body">
+    <div id="ascii-art" class="loading">loading...</div>
+  </div>
+</div>
+
+<div class="content">
+  <h2>&gt;_ AIDX</h2>
+  <p>AI-powered Developer Experience Platform<br>Accelerate your development workflow with intelligent tools.</p>
+  <div class="buttons">
+    <a class="btn btn-primary" href="#">Get Started</a>
+    <a class="btn btn-secondary" href="#">Documentation</a>
+  </div>
+</div>
+
+<script>
+const el = document.getElementById('ascii-art');
+const FRAME_MS = 31; // 对齐 Ghostty：31ms < 2×16.67ms，RAF 抖动下第 2 tick 必然触发
+
+// 预建行 div，避免每帧重建 DOM
+function setupLineDivs(rowCount) {
+  el.innerHTML = '';
+  const divs = [];
+  for (let i = 0; i < rowCount; i++) {
+    const d = document.createElement('div');
+    el.appendChild(d);
+    divs.push(d);
+  }
+  return divs;
+}
+
+// ─── AnimationManager（对齐 Ghostty 逻辑）───────────────────────────────────
+class AnimationManager {
+  constructor(divs, frames, frameMs) {
+    this.divs = divs; this.frames = frames; this.frameMs = frameMs;
+    this.fi = 16;
+    this.lastTs = -1; this.rafId = null;
+    this.speedMult = 1;
+    this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.prevLines = null;
+
+    // 对齐 Ghostty：window focus/blur（非 visibilitychange）
+    window.addEventListener('focus', () => this.start());
+    window.addEventListener('blur',  () => this.pause());
+
+    const seq = [], code = [38,38,40,40,37,39,37,39,66,65];
+    document.addEventListener('keydown', e => {
+      seq.push(e.keyCode);
+      if (seq.length > 10) seq.shift();
+      if (seq.join(',') === code.join(','))
+        this.speedMult = this.speedMult === 8 ? 1 : 8;
+    });
+  }
+
+  // 对齐 Ghostty：start() 不重置 lastTs
+  start() {
+    if (this.rafId != null) return;
+    if (this.reducedMotion) { this._renderFrame(this.frames[this.fi]); return; }
+    this.rafId = requestAnimationFrame(this.update);
+  }
+
+  // 对齐 Ghostty：pause() 重置 lastTs = -1
+  pause() {
+    if (this.rafId == null) return;
+    this.lastTs = -1;
+    cancelAnimationFrame(this.rafId);
+    this.rafId = null;
+  }
+
+  _renderFrame(lines) {
+    const prev = this.prevLines;
+    for (let i = 0; i < lines.length; i++) {
+      if (!prev || prev[i] !== lines[i]) {
+        this.divs[i].innerHTML = lines[i];
+      }
+    }
+    this.prevLines = lines;
+  }
+
+  // 对齐 Ghostty：箭头函数绑定 this，直接传给 RAF
+  update = (ts) => {
+    const { lastTs } = this;
+    let delta = (ts - lastTs) * this.speedMult;
+    if (lastTs === -1) {
+      this.lastTs = ts;
+    } else {
+      while (delta >= this.frameMs) {
+        this._renderFrame(this.frames[this.fi % this.frames.length]);
+        this.fi++;
+        delta -= this.frameMs;
+        this.lastTs += this.frameMs / this.speedMult;
+      }
+    }
+    this.rafId = requestAnimationFrame(this.update);
+  }
+}
+
+// ─── 加载（单次请求）────────────────────────────────────────────────────────
+fetch('terminals/home/frames.json')
+  .then(r => r.json())
+  .then(frames => {
+    const rowCount = frames[0].length;
+    const divs = setupLineDivs(rowCount);
+    el.classList.remove('loading');
+    const mgr = new AnimationManager(divs, frames, FRAME_MS);
+    // 对齐 Ghostty：检查 visibilityState 再启动
+    if (document.visibilityState === 'visible') mgr.start();
+  })
+  .catch(err => {
+    el.textContent = 'failed to load frames';
+    console.error(err);
+  });
+</script>
+</body>
+</html>

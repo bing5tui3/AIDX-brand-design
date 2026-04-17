@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 42">
+  <text x="11" y="33" transform="skewX(-10)"
+    font-family="'SF Pro Display','Helvetica Neue','PingFang SC',Arial,sans-serif"
+    font-size="34" font-weight="900" letter-spacing="3" fill="#063970"
+    stroke="#063970" stroke-width="1.5" paint-order="stroke">AID</text>
+  <svg x="66" y="3" width="50" height="36" viewBox="0 0 34 32" fill="none">
+    <g opacity="0.06">
+      <line x1="1" y1="5" x2="23" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+      <line x1="23" y1="5" x2="1" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g opacity="0.15">
+      <line x1="3.5" y1="5" x2="25.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+      <line x1="25.5" y1="5" x2="3.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g opacity="0.32">
+      <line x1="6" y1="5" x2="28" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+      <line x1="28" y1="5" x2="6" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g opacity="0.55">
+      <line x1="8.5" y1="5" x2="30.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+      <line x1="30.5" y1="5" x2="8.5" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <line x1="11" y1="5" x2="33" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+    <line x1="33" y1="5" x2="11" y2="27" stroke="#063970" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+</svg>
