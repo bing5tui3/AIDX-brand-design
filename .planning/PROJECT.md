@@ -28,6 +28,8 @@ A polished, fast, fully-static Next.js site with an animated terminal hero on th
 
 ### Active
 
+- [ ] Animation frame color classes `e`/`g`/`h`/`o` styled in Terminal.module.css (v1.1)
+- [ ] AnimatedTerminal ref-based direct DOM patching for smooth rendering (v1.1)
 - [ ] Mermaid diagram rendering in MDX (v2)
 - [ ] GitHub issue link processor `GH-123 → link` (v2)
 - [ ] Search functionality (v2)
