@@ -26,6 +26,15 @@ A polished, fast, fully-static Next.js site with an animated terminal hero on th
 - ✓ 404 page — v1.0
 - ✓ Favicon SVG and AIDX logo in `public/` — v1.0
 
+## Current Milestone: v1.3 Eye Animation Enhancement
+
+**Goal:** Port the Ghostty "eye becoming round" animation effect to the AIDX homepage character (颜小慧), making her squinting eyes evolve into round circles during the animation loop.
+
+**Target features:**
+- Regenerate animation frames so eyes transition from squinting (`>` / `-`) to round circles
+- Match Ghostty's eye-opening visual quality and timing
+- Keep animation smooth at 31ms/frame, 235 frames
+
 ### Active
 
 - [ ] Animation frame color classes `e`/`g`/`h`/`o` styled in Terminal.module.css (v1.1)

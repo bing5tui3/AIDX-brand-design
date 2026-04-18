@@ -1,16 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.2
-milestone_name: Brand Asset Organization
-status: complete
-last_updated: "2026-04-17T14:00:00.000Z"
-last_activity: 2026-04-17
+milestone: v1.3
+milestone_name: Eye Animation Enhancement
+status: in_progress
+last_updated: "2026-04-18T00:00:00.000Z"
+last_activity: 2026-04-18
 progress:
-  total_phases: 1
-  completed_phases: 1
-  total_plans: 1
-  completed_plans: 1
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -20,14 +20,14 @@ progress:
 See: .planning/PROJECT.md
 
 **Core value:** A polished, fast, fully-static Next.js site with animated terminal hero and MDX docs — mirroring Ghostty website architecture exactly.
-**Current focus:** Phase 05 — brand-asset-organization
+**Current focus:** Milestone v1.3 — Eye Animation Enhancement
 
 ## Current Position
 
-Phase: 05
-Plan: Not started
-Status: Milestone v1.2 planned — ready for /gsd-plan-phase 5
-Last activity: 2026-04-17
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-18 — Milestone v1.3 started
 
 Progress: [__________] 0%
 
@@ -35,12 +35,10 @@ Progress: [__________] 0%
 
 ### Decisions
 
-- brand-report.html → public/brand-report.html (static hosting, no Next.js route)
-- Brand SVGs → src/assets/brand/ (centralized design asset store)
-- Photos → public/brand/photos/
-- Scripts (generate-frames.js, variants.js) → scripts/
-- aidx-brand-assets.zip → delete
-- ghostty-shots/ → scripts/ghostty-shots/
+- Animation frames are pre-generated ASCII art in terminals/home/animation_frames/
+- Character eyes currently use `>` (left eye) and `-` (right eye) — squinting shape
+- Ghostty ghost eyes use empty circular areas that grow into round circles across frames
+- Frame generation script is at scripts/generate-frames.js
 
 ### Pending Todos
 
