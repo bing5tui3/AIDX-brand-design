@@ -16,7 +16,7 @@ Extract structured learnings from completed phase artifacts (PLAN.md, SUMMARY.md
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/extract_learnings.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/extract_learnings.md
 </execution_context>
 
-Execute the extract-learnings workflow from @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/extract_learnings.md end-to-end.
+Execute the extract-learnings workflow from @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/extract_learnings.md end-to-end.

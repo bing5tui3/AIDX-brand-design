@@ -22,7 +22,7 @@ Output: updated SECURITY.md.
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/secure-phase.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/secure-phase.md
 </execution_context>
 
 <context>
@@ -30,6 +30,6 @@ Phase: $ARGUMENTS — optional, defaults to last completed phase.
 </context>
 
 <process>
-Execute @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/secure-phase.md.
+Execute @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/secure-phase.md.
 Preserve all workflow gates.
 </process>

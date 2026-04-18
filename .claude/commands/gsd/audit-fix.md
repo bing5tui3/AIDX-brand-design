@@ -25,9 +25,9 @@ Flags:
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/audit-fix.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/audit-fix.md
 </execution_context>
 
 <process>
-Execute the audit-fix workflow from @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/audit-fix.md end-to-end.
+Execute the audit-fix workflow from @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/audit-fix.md end-to-end.
 </process>

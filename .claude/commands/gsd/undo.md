@@ -20,9 +20,9 @@ Three modes:
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/undo.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/ui-brand.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/gate-prompts.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/undo.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/ui-brand.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/gate-prompts.md
 </execution_context>
 
 <context>
@@ -30,5 +30,5 @@ $ARGUMENTS
 </context>
 
 <process>
-Execute the undo workflow from @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/undo.md end-to-end.
+Execute the undo workflow from @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/undo.md end-to-end.
 </process>

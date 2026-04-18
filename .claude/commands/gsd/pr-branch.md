@@ -17,9 +17,9 @@ changes that are irrelevant to code review.
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/pr-branch.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/pr-branch.md
 </execution_context>
 
 <process>
-Execute the pr-branch workflow from @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/pr-branch.md end-to-end.
+Execute the pr-branch workflow from @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/pr-branch.md end-to-end.
 </process>

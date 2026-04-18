@@ -18,9 +18,9 @@ Lightweight alternative to `/gsd-map-codebase` — spawns one mapper agent inste
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/scan.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/scan.md
 </execution_context>
 
 <process>
-Execute the scan workflow from @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/scan.md end-to-end.
+Execute the scan workflow from @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/scan.md end-to-end.
 </process>

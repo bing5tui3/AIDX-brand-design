@@ -40,7 +40,7 @@ works via Bash and produces equivalent output.
 </documentation_lookup>
 
 <required_reading>
-Read `/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/ai-evals.md` — specifically the rubric design and domain expert sections.
+Read `/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/ai-evals.md` — specifically the rubric design and domain expert sections.
 </required_reading>
 
 <input>

@@ -25,7 +25,7 @@ fi
 **Run health validation:**
 
 ```bash
-node "/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/bin/gsd-tools.cjs" validate health $REPAIR_FLAG
+gsd-sdk query validate.health $REPAIR_FLAG
 ```
 
 Parse JSON output:
@@ -112,7 +112,7 @@ If yes, re-run with --repair flag and display results.
 Re-run health check without --repair to confirm issues are resolved:
 
 ```bash
-node "/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/bin/gsd-tools.cjs" validate health
+gsd-sdk query validate.health
 ```
 
 Report final status.
@@ -166,13 +166,13 @@ When `--repair` is active, detect and clean up:
 
 ```bash
 # Check for stale task directories (older than 24 hours)
-TASKS_DIR="/Users/ruiwang/Developments/webank/aidx/.claude/tasks"
+TASKS_DIR="/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/tasks"
 if [ -d "$TASKS_DIR" ]; then
   STALE_COUNT=$( (find "$TASKS_DIR" -maxdepth 1 -type d -mtime +1 2>/dev/null || true) | wc -l )
   if [ "$STALE_COUNT" -gt 0 ]; then
-    echo "⚠️  Found $STALE_COUNT stale task directories in /Users/ruiwang/Developments/webank/aidx/.claude/tasks/"
+    echo "⚠️  Found $STALE_COUNT stale task directories in /Users/ruidemacbookair/Development/AIDX-brand-design/.claude/tasks/"
     echo "   These are leftover from crashed subagent sessions."
-    echo "   Run: rm -rf /Users/ruiwang/Developments/webank/aidx/.claude/tasks/*  (safe — only affects dead sessions)"
+    echo "   Run: rm -rf /Users/ruidemacbookair/Development/AIDX-brand-design/.claude/tasks/*  (safe — only affects dead sessions)"
   fi
 fi
 ```

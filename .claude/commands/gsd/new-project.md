@@ -33,14 +33,14 @@ Initialize a new project through unified flow: questioning → research (optiona
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/new-project.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/questioning.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/ui-brand.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/templates/project.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/templates/requirements.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/new-project.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/questioning.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/ui-brand.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/templates/project.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/templates/requirements.md
 </execution_context>
 
 <process>
-Execute the new-project workflow from @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/new-project.md end-to-end.
+Execute the new-project workflow from @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/new-project.md end-to-end.
 Preserve all workflow gates (validation, approvals, commits, routing).
 </process>

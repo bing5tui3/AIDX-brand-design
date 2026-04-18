@@ -13,6 +13,12 @@ AIDX is an AI-powered developer experience product. This project refactors the c
 - **Static**: No server-side rendering, no API routes, no serverless functions
 - **Fonts**: Pretendard Std Variable (local woff2) + JetBrains Mono (Google Fonts)
 - **Brand**: AIDX brand color `#3A5ECF`, dark theme `#0f0f11` background
+
+### Template Reference
+
+The Ghostty website (`https://github.com/ghostty-org/website.git`) is the canonical template for this project. It is included as a git subtree at `./ghostty/`. The AIDX site must match its architecture, layout, and visual quality as closely as possible, adapted to AIDX brand and content.
+
+To update the subtree: `git subtree pull --prefix=ghostty https://github.com/ghostty-org/website.git main --squash`
 <!-- GSD:project-end -->
 
 <!-- GSD:stack-start source:STACK.md -->
@@ -60,3 +66,16 @@ Do not make direct repo edits outside a GSD workflow unless the user explicitly 
 > Profile not yet configured. Run `/gsd-profile-user` to generate your developer profile.
 > This section is managed by `generate-claude-profile` -- do not edit manually.
 <!-- GSD:profile-end -->
+
+
+
+## Browser Automation
+
+Use `agent-browser` for web automation. Run `agent-browser --help` for all commands.
+
+Core workflow:
+
+1. `agent-browser open <url>` - Navigate to page
+2. `agent-browser snapshot -i` - Get interactive elements with refs (@e1, @e2)
+3. `agent-browser click @e1` / `fill @e2 "text"` - Interact using refs
+4. Re-snapshot after page changes

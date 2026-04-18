@@ -216,7 +216,7 @@ get-shit-done/
 
 **New Workflow:**
 - Implementation: `get-shit-done/workflows/{name}.md`
-- Usage: Reference from command with `@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/{name}.md`
+- Usage: Reference from command with `@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/{name}.md`
 
 **New Reference Document:**
 - Implementation: `get-shit-done/references/{name}.md`
@@ -229,12 +229,12 @@ get-shit-done/
 ## Special Directories
 
 **get-shit-done/**
-- Purpose: Resources installed to /Users/ruiwang/Developments/webank/aidx/.claude/
+- Purpose: Resources installed to /Users/ruidemacbookair/Development/AIDX-brand-design/.claude/
 - Source: Copied by bin/install.js during installation
 - Committed: Yes (source of truth)
 
 **commands/**
-- Purpose: Slash commands installed to /Users/ruiwang/Developments/webank/aidx/.claude/commands/
+- Purpose: Slash commands installed to /Users/ruidemacbookair/Development/AIDX-brand-design/.claude/commands/
 - Source: Copied by bin/install.js during installation
 - Committed: Yes (source of truth)
 

@@ -18,8 +18,8 @@ Output: {phase_num}-UI-REVIEW.md
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/ui-review.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/ui-brand.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/ui-review.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/ui-brand.md
 </execution_context>
 
 <context>
@@ -27,6 +27,6 @@ Phase: $ARGUMENTS — optional, defaults to last completed phase.
 </context>
 
 <process>
-Execute @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/ui-review.md end-to-end.
+Execute @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/ui-review.md end-to-end.
 Preserve all workflow gates.
 </process>

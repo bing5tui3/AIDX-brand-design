@@ -21,9 +21,9 @@ Flow: Select Framework → Research Docs → Research Domain → Design Eval Str
 </objective>
 
 <execution_context>
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/ai-integration-phase.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/ai-frameworks.md
-@/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/references/ai-evals.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/ai-integration-phase.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/ai-frameworks.md
+@/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/references/ai-evals.md
 </execution_context>
 
 <context>
@@ -31,6 +31,6 @@ Phase number: $ARGUMENTS — optional, auto-detects next unplanned phase if omit
 </context>
 
 <process>
-Execute @/Users/ruiwang/Developments/webank/aidx/.claude/get-shit-done/workflows/ai-integration-phase.md end-to-end.
+Execute @/Users/ruidemacbookair/Development/AIDX-brand-design/.claude/get-shit-done/workflows/ai-integration-phase.md end-to-end.
 Preserve all workflow gates.
 </process>
