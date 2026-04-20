@@ -8,6 +8,16 @@ AIDX is an AI-powered developer experience product. This project refactors the c
 
 A polished, fast, fully-static Next.js site with an animated terminal hero on the homepage and MDX-driven documentation — mirroring the Ghostty website architecture exactly.
 
+## Current Milestone: v1.4 Animation Performance Optimization
+
+**Goal:** Eliminate React reconciliation overhead on each frame update so the homepage terminal animation runs as smoothly as Ghostty's.
+
+**Target features:**
+- Direct DOM patching in AnimatedTerminal — bypass React state/re-render for frame updates
+- Stable line keys in Terminal — use index-only key so React reuses DOM nodes
+- CSS GPU acceleration — promote terminal container to its own compositor layer
+- Visibility API pause — fix tab-switch pause (currently only checked on mount)
+
 ## Requirements
 
 ### Validated
@@ -102,4 +112,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-19 after v1.3 milestone*
+*Last updated: 2026-04-20 after v1.4 milestone start*

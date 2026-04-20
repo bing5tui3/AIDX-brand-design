@@ -1,35 +1,35 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.3
-milestone_name: Eye Animation Enhancement
-status: shipped
-last_updated: "2026-04-19T00:00:00Z"
-last_activity: 2026-04-19
+milestone: v1.4
+milestone_name: Animation Performance Optimization
+status: in_progress
+last_updated: "2026-04-20T00:00:00Z"
+last_activity: 2026-04-20
 progress:
-  total_phases: 1
-  completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-19)
+See: .planning/PROJECT.md (updated 2026-04-20)
 
 **Core value:** A polished, fast, fully-static Next.js site with animated terminal hero and MDX docs — mirroring Ghostty website architecture exactly.
-**Current focus:** Planning next milestone
+**Current focus:** v1.4 Animation Performance Optimization
 
 ## Current Position
 
-Phase: 6 — Eye Animation Enhancement
-Plan: 02 complete
-Status: Shipped — v1.3 milestone archived 2026-04-19
-Last activity: 2026-04-19 — v1.3 milestone closed
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-20 — Milestone v1.4 started
 
-Progress: [██████████] 100%
+Progress: [░░░░░░░░░░] 0%
 
 ## Accumulated Context
 
@@ -43,6 +43,8 @@ Progress: [██████████] 100%
 - Eye rows legitimately contain class="o" and class="h" spans alongside class="e" spans
 - ghostty/ subtree must be excluded from tsconfig.json to prevent TS errors from blocking build
 - npm 11 Invalid Version bug with sharp 0.34.x: use --no-package-lock --cache /tmp/npm-cache-$$ as workaround
+- AnimatedTerminal/Terminal code is identical to Ghostty — choppiness is due to frame content complexity (AIDX frames have many <span> elements for eye animation, ~11KB/frame)
+- key={i + line} in Terminal causes DOM node recreation for changed lines — fix to key={i}
 
 ### Pending Todos
 
