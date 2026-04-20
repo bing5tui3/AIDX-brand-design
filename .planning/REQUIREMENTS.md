@@ -42,7 +42,7 @@ Eliminate React reconciliation overhead on each frame update so the homepage ter
 
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
-| RENDER-01 | — | Pending |
+| RENDER-01 | Phase 7 | Pending |
 | RENDER-02 | — | Pending |
 | RENDER-03 | — | Pending |
 | LIFE-01 | — | Pending |

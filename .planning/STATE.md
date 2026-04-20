@@ -6,7 +6,7 @@ status: in_progress
 last_updated: "2026-04-20T00:00:00Z"
 last_activity: 2026-04-20
 progress:
-  total_phases: 0
+  total_phases: 2
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
