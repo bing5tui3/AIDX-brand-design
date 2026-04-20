@@ -2,9 +2,9 @@
 gsd_state_version: 1.0
 milestone: v1.4
 milestone_name: Animation Performance Optimization
-status: in_progress
-last_updated: "2026-04-20T00:00:00Z"
-last_activity: 2026-04-20
+status: Defining requirements
+last_updated: "2026-04-20T08:50:19.968Z"
+last_activity: 2026-04-20 — Milestone v1.4 started
 progress:
   total_phases: 2
   completed_phases: 0
