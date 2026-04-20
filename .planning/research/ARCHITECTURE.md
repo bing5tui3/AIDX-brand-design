@@ -1,133 +1,257 @@
-# Architecture: Eye Animation Integration
+# Architecture: Direct DOM Patching for AnimatedTerminal
 
-**Domain:** ASCII art terminal animation — eye shape evolution in pre-generated HTML frames
-**Researched:** 2026-04-18
-**Confidence:** HIGH — based on direct inspection of all relevant source files
-
----
-
-## Current System Facts
-
-The animation pipeline is:
-
-1. `terminals/home/animation_frames/frame_NNN.txt` — 235 plain-text files, each 47 lines, containing pre-rendered HTML with `<span class="X">` color classes (`b`, `e`, `g`, `h`, `o`)
-2. `src/app/terminal-data.tsx` — `loadAllTerminalFiles()` reads all `.txt` files at build time, returns a `TerminalsMap` (slug → string[])
-3. `src/app/HomeContent.tsx` — filters `terminalData` for `home/animation_frames` keys, passes the array of `string[]` as `frames` to `AnimatedTerminal`
-4. `src/components/animated-terminal/index.tsx` — `AnimationManager` drives `requestAnimationFrame` at 31ms/frame, advances `currentFrame` index, passes `frames[currentFrame]` as `lines` to `Terminal`
-5. `src/components/terminal/index.tsx` — renders each line via `dangerouslySetInnerHTML`
-
-The eye region uses `class="e"` spans. In frame_001, the left eye is `>>>>>` through `>>>` (squinting, lines 25–34) and the right eye is `---` through `-----------------` (lines 28–34). Inspection of frames 50, 200, and 235 confirms the eye spans are **identical across all 235 frames** — no evolution exists yet.
+**Domain:** React animation performance — bypassing reconciliation for high-frequency frame updates
+**Researched:** 2026-04-20
+**Milestone:** v1.4 Animation Performance Optimization
 
 ---
 
-## Integration Options
+## Current Architecture
 
-### Option A — Regenerate all 235 frames with eye evolution baked in
+```
+AnimatedTerminal (client component)
+  state: currentFrame (int, 0-234)
+  class: AnimationManager (rAF loop, calls setCurrentFrame on tick)
+  |
+  v  [React re-render on every frame tick]
+Terminal (client component)
+  props: lines = frames[currentFrame]  <- full array swap each frame
+  renders: lines.map((line, i) => <div key={i+line} dangerouslySetInnerHTML />)
+                                              ^
+                                              composite key forces DOM node replacement
+                                              even when only a few lines changed
+```
 
-Modify the upstream frame-generation script (or write a new one) to produce frames where the eye characters transition from squinting (`>`, `-`) to round circles (`O`, `o`, `0`) across a defined frame range. The resulting `.txt` files replace the current ones verbatim.
+### What happens on each frame tick (current)
 
-**Pros:**
-- Zero changes to any React component, CSS, or build pipeline
-- The animation system already handles everything — it just plays frames
-- Eye evolution is perfectly frame-accurate and deterministic
-- No runtime overhead, no DOM complexity
-- Consistent with how Ghostty handles its own animation evolution
+1. `AnimationManager.callback()` fires
+2. `setCurrentFrame(n+1)` triggers React state update
+3. React schedules re-render of `AnimatedTerminal`
+4. `Terminal` re-renders — all 41 `<div>` nodes diffed
+5. `key={i+line}` means any changed line gets a new DOM node (unmount + remount)
+6. Browser paints
 
-**Cons:**
-- Requires a frame-generation script (Python or Node) to be written or modified
-- The 235 `.txt` files must be regenerated and committed (~235 file changes)
-- If the character art changes later, frames must be regenerated again
-
-### Option B — Overlay a separate CSS/SVG eye animation on top of the terminal
-
-Add a positioned `<div>` or `<svg>` element as a sibling/child of `AnimatedTerminal`, absolutely positioned to sit over the eye region of the character. Animate it with CSS keyframes or a JS animation library independently of the frame loop.
-
-**Pros:**
-- No frame regeneration needed
-- Eye animation can be tweaked in CSS without touching frame files
-
-**Cons:**
-- The terminal renders at variable font sizes (`xtiny`, `tiny`, `small`) and variable `whitespacePadding` (0, 10, or 20 columns depending on viewport). The eye position in pixels shifts with every breakpoint — precise overlay alignment is extremely fragile.
-- The character art itself is ASCII, so the eye region has no fixed pixel anchor. Any overlay would need to be recalibrated for every font size and padding combination.
-- The existing `>` and `-` eye characters would still be visible underneath unless the overlay fully occludes them, requiring careful z-index and background color matching.
-- Adds runtime DOM complexity and a second animation loop running independently of the frame loop — they can drift.
-- Breaks the "terminal renders its own content" contract of the architecture.
-
-### Option C — Modify specific frame ranges to add eye shapes
-
-Write a targeted script that reads the existing `.txt` files, identifies the eye-region lines by pattern matching on `class="e"` spans, and rewrites only those lines across a subset of frames (e.g., frames 150–235) to show the eye opening. Other lines in each frame are left untouched.
-
-**Pros:**
-- Surgical — only the eye lines change, the rest of each frame is preserved exactly
-- Smaller diff than full regeneration if the body art is complex to reproduce
-- Same zero-component-change benefit as Option A
-
-**Cons:**
-- Requires careful line-number targeting (the eye region spans lines 25–36 in the current frames, but this could shift if the character's vertical position changes across frames)
-- Pattern matching on the existing HTML span structure is brittle if span boundaries change
-- Effectively the same work as Option A if the eye region needs to be redrawn from scratch anyway (which it does — the transition from `>` to `O` is a shape change, not a color change)
+Cost per frame: full React reconciliation + up to 41 DOM node replacements.
 
 ---
 
-## Recommended Approach
+## Proposed Architecture
 
-**Option A — regenerate all 235 frames with eye evolution baked in.**
+```
+AnimatedTerminal (client component)
+  ref: contentRef -> points to Terminal's <Code> element
+  class: AnimationManager (rAF loop, calls patchFrame directly)
+  state: currentFrame (int) - ONLY for initial render, never updated after mount
+  |
+  v  [initial React render only]
+Terminal (client component, forwardRef)
+  props: contentRef forwarded to <Code ref={contentRef}>
+  renders: lines.map((line, i) => <div key={i} dangerouslySetInnerHTML />)
+                                              ^
+                                              index-only key - React reuses DOM nodes
+  |
+  v  [after mount: direct DOM writes, zero React involvement]
+AnimationManager.callback()
+  -> reads frames[frameIndex] array
+  -> iterates contentRef.current.children
+  -> sets child.innerHTML = padding + line + padding  per changed line
+```
 
-The evidence is decisive:
+### What happens on each frame tick (proposed)
 
-1. The current frames already have a consistent eye region (lines 25–36, `class="e"` spans). The eye shape is static across all 235 frames. The work is to make it dynamic.
-2. The frame pipeline is the only place where content is authored. The React components are pure renderers — they have no knowledge of what the frames contain. Keeping it that way is correct.
-3. Option B's overlay approach fails on the variable font size + padding system. `HomeContent.tsx` computes three font sizes and three padding values at runtime based on viewport. There is no stable pixel coordinate for the eye region.
-4. Option C is Option A with extra steps — if you're writing a script to modify eye lines, you're writing a frame generator. Do it cleanly.
+1. `AnimationManager.callback()` fires
+2. `patchFrame(nextFrameIndex)` called directly — no setState
+3. Loop over 41 children of `contentRef.current`, set `.innerHTML` only where line differs
+4. Browser paints
 
-The implementation is a Node.js or Python script that:
-- Reads each of the 235 `.txt` files
-- For frames in the "squinting" phase (e.g., 1–150): keeps eyes as `>` / `-`
-- For frames in the "opening" phase (e.g., 151–200): progressively widens the eye opening (fewer `>` characters, then a gap, then a partial circle)
-- For frames in the "open" phase (e.g., 201–235): replaces eye spans with round circle characters (`O`, `o`, `(o)`, etc.) using the same `class="e"` span wrapper
-
-The script outputs new `.txt` files to `terminals/home/animation_frames/`, which are committed. The website build picks them up automatically via `loadAllTerminalFiles()`.
+Cost per frame: 41 string comparisons + N innerHTML assignments (N = changed lines, typically 5-15 out of 41).
 
 ---
 
-## New Components Needed
+## Component Changes
 
-None. The existing pipeline handles everything.
+### Terminal — modified
 
-The only new artifact is a **frame generation/mutation script**, which lives outside the Next.js app (e.g., `scripts/generate-eye-frames.js` or `.py`). It is a build-time tool, not a runtime component.
+| Change | Detail |
+|--------|--------|
+| Add `forwardRef` | Wrap with `React.forwardRef`, forward ref to the `<Code>` element |
+| Change `key` | `key={i}` instead of `key={i+line}` — stable keys let React reuse DOM nodes |
+| No other changes | `lines` prop still used for initial render; `dangerouslySetInnerHTML` stays |
+
+```tsx
+// Before
+export default function Terminal({ lines, ... }: TerminalProps) {
+  const codeRef = useRef<HTMLElement>(null);
+  ...
+  <Code ref={codeRef} ...>
+    {lines?.map((line, i) => (
+      <div key={i + line} dangerouslySetInnerHTML={{ __html: `${padding}${line}${padding}` }} />
+    ))}
+  </Code>
+}
+
+// After
+const Terminal = React.forwardRef<HTMLElement, TerminalProps>(
+  function Terminal({ lines, ... }, ref) {
+    // merge forwarded ref with internal scroll ref — same element serves both purposes
+    const codeRef = useRef<HTMLElement>(null);
+    const resolvedRef = (ref as React.RefObject<HTMLElement | null>) ?? codeRef;
+    ...
+    <Code ref={resolvedRef} ...>
+      {lines?.map((line, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: fixed-length frame list, index is stable
+        <div key={i} dangerouslySetInnerHTML={{ __html: `${padding}${line}${padding}` }} />
+      ))}
+    </Code>
+  }
+);
+export default Terminal;
+```
+
+Note: Terminal's internal `codeRef` is used for auto-scroll (`scrollTo` in a `useEffect`). With `forwardRef`, the forwarded ref and the scroll ref point to the same `<Code>` element — unify them. Since `disableScrolling={true}` is set by AnimatedTerminal, the auto-scroll effect is a no-op in that context anyway.
+
+### AnimatedTerminal — modified
+
+| Change | Detail |
+|--------|--------|
+| Add `contentRef` | `useRef<HTMLElement>(null)` passed to Terminal as forwarded ref |
+| Replace `setCurrentFrame` in callback | Call `patchFrame()` instead |
+| Keep `useState(16)` | Used only for initial render — never updated after mount |
+| Demote frame tracking to `useRef` | `frameIndex.current` replaces `currentFrame` state for the rAF loop |
+| Add `patchFrame()` | Imperative function that writes directly to DOM children |
+| Keep all visibility/focus/Konami logic | No changes needed |
+
+```tsx
+const contentRef = useRef<HTMLElement>(null);
+const frameIndex = useRef(16); // mutable cursor, not state
+const padding = " ".repeat(whitespacePadding ?? 0);
+
+function patchFrame(nextIndex: number) {
+  const el = contentRef.current;
+  if (!el) return;
+  const frame = frames[nextIndex];
+  const children = el.children;
+  for (let i = 0; i < frame.length; i++) {
+    const line = `${padding}${frame[i]}${padding}`;
+    if ((children[i] as HTMLElement).innerHTML !== line) {
+      (children[i] as HTMLElement).innerHTML = line;
+    }
+  }
+  frameIndex.current = nextIndex;
+}
+
+// AnimationManager callback:
+new AnimationManager(() => {
+  patchFrame((frameIndex.current + 1) % frames.length);
+}, baseFps)
+
+// Terminal receives ref:
+<Terminal
+  ref={contentRef}
+  lines={frames[16]}   // initial frame only, never changes
+  disableScrolling={true}
+  ...
+/>
+```
 
 ---
 
-## Modified Files
+## Data Flow
 
-| File | Change |
-|------|--------|
-| `terminals/home/animation_frames/frame_NNN.txt` (all 235) | Eye region lines rewritten to show evolution |
-| `scripts/generate-eye-frames.js` (new) | Script that produces the evolved frames |
+```
+Initial render path (React, runs once at mount):
+  AnimatedTerminal
+    -> frames[16] passed as lines prop
+    -> Terminal renders 41 <div key={i}> nodes with dangerouslySetInnerHTML
+    -> contentRef attached to <Code> element
+    -> DOM is stable after hydration
 
-No changes to:
-- `src/components/animated-terminal/index.tsx`
-- `src/components/terminal/index.tsx`
-- `src/app/terminal-data.tsx`
-- `src/app/HomeContent.tsx`
-- Any CSS module
+Animation path (imperative, runs 30x/sec after mount):
+  rAF tick
+    -> AnimationManager.update()
+    -> patchFrame(nextIndex)
+    -> contentRef.current.children[i].innerHTML = newLine  (only changed lines)
+    -> browser paint
+    (React never involved)
+
+Pause/resume path (unchanged):
+  window focus/blur -> animationManager.start() / .pause()
+  Konami code -> animationManager.updateFPS(240)
+  Both still work — they only affect AnimationManager timing, not the callback
+```
+
+---
+
+## Integration Points
+
+### 1. Terminal `forwardRef` wrapping
+
+- File: `src/components/terminal/index.tsx`
+- Change type: modification
+- Risk: LOW — `forwardRef` is a transparent wrapper; all existing callers that don't pass a ref are unaffected
+- The internal `codeRef` used for auto-scroll must be unified with the forwarded ref. Use the forwarded ref directly as the scroll target — it is the same element.
+
+### 2. AnimatedTerminal `patchFrame` + `contentRef`
+
+- File: `src/components/animated-terminal/index.tsx`
+- Change type: modification
+- Risk: LOW — AnimationManager class is unchanged; only the callback body changes
+- `useState(currentFrame)` is demoted to initial-render-only; frame tracking moves to `useRef`
+- `padding` value must be accessible inside `patchFrame` — it is derived from `whitespacePadding` prop, so capture it in the closure
+
+### 3. Key stability in Terminal line map
+
+- File: `src/components/terminal/index.tsx`
+- Change type: modification (remove `+ line` from key)
+- Risk: LOW — stable keys are strictly better for fixed-length lists; no semantic change for non-animated usage
+- Biome lint rule `noArrayIndexKey` will flag `key={i}` — add a biome-ignore comment with rationale
 
 ---
 
 ## Build Order
 
-1. Identify the exact eye region: lines 25–36 in the current frames, left eye uses `>` characters (class `e`), right eye uses `-` characters (class `e`). Confirm the column positions are stable across all 235 frames before writing the script.
-2. Design the eye evolution sequence — decide frame ranges for squint / opening / open phases and what ASCII shapes represent each stage.
-3. Write `scripts/generate-eye-frames.js`: reads existing frames, rewrites eye lines for the target frame range, writes output files.
-4. Run the script, visually inspect a sample of output frames (frame 150, 175, 200, 235) to verify the transition looks correct.
-5. Commit the 235 updated `.txt` files.
-6. Run `next build` — no code changes needed, the new frames are picked up automatically.
+Dependencies flow in one direction: Terminal must be modified before AnimatedTerminal can use the forwarded ref.
+
+1. **Terminal** — add `forwardRef`, unify `codeRef` with forwarded ref, change key to `key={i}`
+2. **AnimatedTerminal** — add `contentRef`, replace `setCurrentFrame` callback with `patchFrame`, demote frame cursor to `useRef`
+3. Smoke test: homepage animation runs, no React warnings, no console errors
+4. (Optional, same milestone) CSS `will-change: transform` on terminal container for GPU layer promotion
 
 ---
 
-## Key Constraints to Respect
+## Constraints and Gotchas
 
-- Each frame file must remain exactly 47 lines (the terminal is configured for `rows={41}` plus header/padding). Do not add or remove lines.
-- Each line must fit within 100 columns (`columns={100}` in `HomeContent.tsx`). The eye region currently sits around columns 9–45 (left eye) and 55–80 (right eye) — verify exact positions before scripting.
-- The `class="e"` span is the eye color class. Use it for all eye characters in the evolved frames to maintain consistent coloring.
-- The script must be idempotent — running it twice should produce the same output.
+### React ownership of innerHTML
+
+After initial render, React "owns" the DOM nodes it created. Writing `.innerHTML` directly bypasses React's virtual DOM. This is safe here because:
+- React never re-renders Terminal after mount (no state changes in AnimatedTerminal after the initial frame — `setCurrentFrame` is removed from the rAF callback)
+- The `lines` prop passed to Terminal never changes after mount
+- If React ever does re-render Terminal (e.g., `platformStyle` state change on mount), it will overwrite the direct DOM writes — but that is correct behavior (React's render is the source of truth for structure; direct writes are ephemeral frame content). The `platformStyle` effect runs once on mount before the animation starts, so there is no race.
+
+### Auto-scroll conflict
+
+Terminal's `useEffect` scrolls `codeRef.current` when `lines?.length` changes. Since `lines` never changes after mount in the animated context, this effect never fires again — no conflict.
+
+### SSR / hydration
+
+Terminal is `"use client"`. The forwarded ref is only populated after hydration. `patchFrame` guards with `if (!el) return` so pre-hydration ticks are safe no-ops. The initial frame (16) is rendered by React on first paint, so there is no blank-frame flash.
+
+### Konami code / FPS change
+
+`animationManager.updateFPS(240)` still works — it only changes `frameTime`, not the callback. `patchFrame` handles any frame rate transparently.
+
+### `padding` closure capture
+
+`whitespacePadding` is a prop. In the current code, `padding` is computed as `" ".repeat(whitespacePadding)` inside the render function. After the refactor, `patchFrame` is defined inside the component function body, so it closes over `padding` naturally — no special handling needed.
+
+---
+
+## Confidence Assessment
+
+| Area | Confidence | Notes |
+|------|------------|-------|
+| forwardRef pattern | HIGH | Standard React API, stable since React 16.3 |
+| Direct innerHTML writes | HIGH | Established escape hatch, used in many animation libs |
+| Key stability change | HIGH | Index-only key is correct for fixed-length lists |
+| No React re-render after mount | HIGH | Verified: no state in AnimatedTerminal changes after initial render once patchFrame replaces setCurrentFrame |
+| Performance gain | MEDIUM | Eliminates reconciliation overhead; actual gain depends on browser/device |

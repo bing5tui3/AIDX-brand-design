@@ -1,37 +1,48 @@
-# Feature Landscape: Eye Opening Animation
+# Feature Landscape: Smooth 30fps Terminal Animation
 
-**Domain:** ASCII art character animation — eye-opening effect
-**Researched:** 2026-04-18
-**Milestone:** v1.3 Eye Animation Enhancement
+**Domain:** Web animation performance — ASCII art terminal hero in Next.js/React 19
+**Researched:** 2026-04-20
+**Milestone:** v1.4 Animation Performance Optimization
+
+---
+
+## Existing Code Context
+
+The animation pipeline already exists:
+- `AnimatedTerminal` — `requestAnimationFrame` loop via `AnimationManager` class, advances `currentFrame` via `useState`, passes `frames[currentFrame]` to `Terminal`
+- `Terminal` — renders `lines[]` as `<div dangerouslySetInnerHTML>` per line, keyed by `i + line`
+- 235 pre-generated HTML frames, each an array of strings with colored `<span>` tags
+- `prefers-reduced-motion` checked once on mount (not reactive)
+- `window focus/blur` used for pause/resume — misses tab-switch without focus change
+
+Every frame update triggers: `setState` → React reconcile → vdom diff 235 `<div>` nodes → DOM patch. At 30fps that is 30 reconcile cycles per second on the main thread.
 
 ---
 
 ## Table Stakes
 
-Features users expect. Missing = animation feels broken or incomplete.
+Features users expect. Missing = animation feels broken or inaccessible.
 
-| Feature | Why Expected | Complexity | Notes |
-|---------|--------------|------------|-------|
-| Eyes change shape across frames | The whole point of the milestone — static eyes are the current bug | High | Currently 80 `>` and 45 `-` chars in every single frame, never changing |
-| Symmetric progression | Both eyes should open at the same rate; asymmetry reads as a glitch | Medium | Left eye (`>`) and right eye (`-`) must be redesigned together |
-| Smooth interpolation | Abrupt jumps between eye shapes break the illusion of life | High | Ghostty uses ~20-30 frames per transition stage; AIDX has 235 frames to work with |
-| Eye region stays in the same position | The eye bounding box must not drift as shape changes | Medium | Ghostty eyes are anchored within the ghost body; AIDX eyes must stay within the face region |
-| Final state is clearly "open/round" | The payoff must be legible — viewer must read it as open eyes | Medium | Ghostty ends with two large hollow circles; AIDX needs an equivalent round-eye ASCII shape |
-| Color class `e` preserved on eye spans | The renderer already styles `class="e"` spans; eye chars must keep this class | Low | Confirmed in existing frames — all eye chars use `<span class="e">` |
+| Feature | Why Expected | Complexity | Depends On |
+|---------|--------------|------------|------------|
+| Direct DOM patching — bypass React state for frame updates | `setState` at 30fps forces React reconciliation on every frame; direct `innerHTML` write to a `useRef` container eliminates vdom overhead entirely. This is the root cause of jank. | Medium | `AnimatedTerminal` — forward a ref to the inner `<code>` element; `AnimationManager.callback` writes the joined HTML string directly |
+| Stable line keys in Terminal | Current key `i + line` causes React to destroy/recreate DOM nodes when line content changes; `key={i}` (index-only) lets React reuse nodes and only patch `innerHTML` per line | Low | `Terminal` component `lines.map` — one-character change |
+| `visibilitychange` event listener for tab-switch pause | Current code only checks `document.visibilityState` on mount and uses `window focus/blur`; switching tabs without losing focus (e.g. cmd+tab on macOS) never fires blur, so animation runs in background burning CPU | Low | `AnimatedTerminal` `useEffect` — add `document.addEventListener('visibilitychange', ...)` with cleanup |
+| `prefers-reduced-motion` reactive listener | Currently a one-time check on mount; if user enables reduced-motion after page load the animation keeps running. WCAG 2.1 SC 2.3.3 requires respecting this preference. | Low | `AnimatedTerminal` `useEffect` — add `matchMedia.addEventListener('change', handler)` |
+| CSS GPU layer promotion for terminal container | Without `will-change: transform` on the terminal content wrapper, every `innerHTML` repaint can trigger a full-page composite; promoting to its own compositor layer isolates repaints to the terminal region | Low | `Terminal.module.css` — add `will-change: transform` to `.content` |
 
 ---
 
 ## Differentiators
 
-Features that elevate the effect beyond the minimum.
+Features that improve quality beyond baseline. Not expected, but valued.
 
-| Feature | Value Proposition | Complexity | Notes |
-|---------|-------------------|------------|-------|
-| Easing curve on the opening | Slow start, fast middle, slow end (ease-in-out) feels organic vs linear | Medium | Ghostty achieves this by spending more frames on early/late stages |
-| Pupil or iris detail at full-open state | A small filled center inside the round eye adds depth and character | Medium | Ghostty uses a small filled dot inside the hollow circle at peak open |
-| Brief "blink" or squint before opening | A momentary extra-squint before opening creates anticipation | Low | Optional — adds personality without much frame cost |
-| Eye shape matches character personality | 颜小慧 is a developer assistant — slightly wide, alert eyes suit the character | Low | Design decision, not a technical constraint |
-| Transition tied to animation phase | Eyes open during the "active" phase of the animation loop, not randomly | Medium | Ghostty eyes grow during the ghost's descent/appearance phase |
+| Feature | Value Proposition | Complexity | Depends On |
+|---------|-------------------|------------|------------|
+| Frame-skip on catch-up | `AnimationManager` already accumulates delta and calls `callback()` multiple times per rAF tick when behind; with direct DOM patching, skip intermediate frames and write only the latest — avoids wasted paints when the browser is under load | Low | Direct DOM patching already in place; change callback to track latest frame index, write once per rAF |
+| IntersectionObserver pause when scrolled off-screen | Terminal hero is above the fold but on mobile or long pages the user may scroll past it; IO pause stops rAF when `intersectionRatio === 0`, saving CPU when animation is invisible | Medium | `AnimatedTerminal` — add `useRef` on wrapper div, observe in `useEffect`, call `animationManager.pause/start` |
+| `aria-label` + `aria-live="off"` on terminal content | Screen readers will try to announce every `innerHTML` change at 30fps without this; `aria-live="off"` suppresses live-region announcements, `aria-label="Terminal animation"` gives context | Low | `Terminal` component — add attrs to `<code>` element |
+| `content-visibility: auto` on terminal wrapper | Browser skips layout/paint for off-screen content automatically; pairs with IntersectionObserver for belt-and-suspenders off-screen savings | Low | `Terminal.module.css` — test carefully, can cause layout shift if terminal height is not fixed |
 
 ---
 
@@ -41,123 +52,71 @@ Features to explicitly NOT build.
 
 | Anti-Feature | Why Avoid | What to Do Instead |
 |--------------|-----------|-------------------|
-| Blinking during the open state | Breaks the "waking up" narrative; viewer expects eyes to stay open once open | Hold the open state for the remainder of the loop |
-| Different open/close speeds per eye | Reads as a bug, not a feature | Keep both eyes synchronized |
-| Using new color classes not in Terminal.module.css | Will render as unstyled text | Only use existing classes: `e`, `g`, `h`, `o`, `b` |
-| Replacing the entire character body to accommodate eyes | Scope creep — only the eye region needs to change | Surgically modify only the rows containing eye characters |
-| Pixel-perfect circle in ASCII | Monospace grids can't make true circles; chasing perfection wastes frames | Use the best available ASCII approximation (see Eye Shape Progression below) |
-
----
-
-## Eye Shape Progression
-
-### How Ghostty Does It (HIGH confidence — directly observed in frames)
-
-The Ghostty ghost has no explicit eye characters. Its eyes are **hollow regions** — empty whitespace carved out of the ghost body's `$` and `@` fill characters. The eye effect is achieved by:
-
-1. **Frame 001 (closed/small):** The eye holes are narrow horizontal slits — just 2-3 rows of whitespace, each only ~5-8 chars wide. The surrounding body fill (`$`, `@`) crowds in from all sides.
-2. **Frame 100 (mid-open):** The eye holes are taller and wider — ~5 rows, ~12 chars wide. The body fill has retreated, leaving a larger void.
-3. **Frame 200 (near-full):** The eye holes are large ovals — ~7 rows, ~18 chars wide. The surrounding body fill forms a clear circular border.
-
-The key insight: **Ghostty grows the empty space, not a drawn shape.** The "eye" is the absence of fill characters, bordered by the body fill acting as the eye socket.
-
-### AIDX Current State (HIGH confidence — verified by frame diff)
-
-- Left eye: `>` characters, 80 total, arranged in a triangular wedge pointing right (squinting)
-- Right eye: `-` characters, 45 total, arranged in a horizontal dash cluster (squinting)
-- Both are **identical in every frame** — zero animation
-
-### Recommended Transition Stages for AIDX
-
-The 235 frames should be divided into phases. Suggested allocation:
-
-| Phase | Frames | Eye State | Description |
-|-------|--------|-----------|-------------|
-| Hold closed | 1–40 | `>` / `-` squint (current) | Character is "asleep" or focused |
-| Cracking open | 41–80 | Narrow slit: `_` / `‐` or thin arc | Eyelid lifts slightly, a thin gap appears |
-| Half open | 81–130 | Medium arc: `(` `)` style curves | Iris starts to show, eye is half-height |
-| Opening | 131–180 | Taller arc: `(o)` / `(O)` | Eye clearly open, round shape emerging |
-| Full open | 181–235 | Full circle: `( O )` or hollow oval | Eyes fully round, hold for rest of loop |
-
-### ASCII Shape Vocabulary for Round Eyes
-
-These are the buildable shapes in monospace ASCII, ordered from squint to round:
-
-```
-Stage 0 (squint):
-  Left:  > > > > >
-  Right: - - - - -
-
-Stage 1 (slit):
-  Left:  _ _ _ _ _
-  Right: _ _ _ _ _
-
-Stage 2 (half-open):
-  Left:  ( _ _ )
-  Right: ( _ _ )
-
-Stage 3 (three-quarter):
-  Left:  ( o )
-  Right: ( o )
-
-Stage 4 (full open, small):
-  Left:  (  o  )
-  Right: (  o  )
-
-Stage 5 (full open, large — Ghostty-equivalent):
-  Left:   /‾‾‾\
-         | ( ) |
-          \___/
-  Right: same
-```
-
-For AIDX's monospace grid, the most legible full-open eye uses a 3-row structure:
-```
-  row N-1:  . ( . . . ) .
-  row N:    ( . . O . . )
-  row N+1:  . ( . . . ) .
-```
-Where `.` is background fill and `O` is the pupil (still using `class="e"`).
-
-### What Makes Ghostty's Effect Compelling
-
-1. **Scale contrast:** The eyes go from tiny slits to large circles — the size delta is dramatic, making the "opening" unmistakable.
-2. **Negative space:** The eye is defined by what's NOT there (empty space inside the body fill), which is more readable than drawn characters.
-3. **Gradual border formation:** As the eye grows, the surrounding body fill naturally forms a curved border — the eye socket emerges organically.
-4. **Consistent character density:** The body fill characters (`$`, `@`) maintain consistent density around the eye, so the eye region reads as a clean hole rather than a degraded area.
-
-For AIDX, the equivalent approach is: **replace the `>` and `-` eye characters with progressively rounder ASCII shapes**, while keeping the surrounding face fill (`$`, `@`, `h`-class chars) stable. The eye characters themselves carry the shape — unlike Ghostty's negative-space approach, AIDX needs to draw the eye explicitly because the character has a face, not a ghost body.
+| CSS-only animation (keyframes) | Frames are pre-generated HTML strings with colored spans — not CSS-animatable; converting 235 frames to CSS keyframes would bloat the stylesheet by hundreds of KB | Keep JS-driven rAF loop, optimize the DOM write path |
+| Web Animations API (`element.animate()`) | WAAPI is for CSS property interpolation, not innerHTML swapping; wrong tool for this content type | N/A |
+| Canvas rendering | Would require re-implementing the entire colored-span rendering pipeline as canvas draw calls; massive scope increase for marginal gain on text content at 30fps | Direct DOM patching is sufficient |
+| React `useTransition` / `startTransition` for frame updates | `startTransition` marks updates as non-urgent and can defer them — the opposite of what animation needs; frame updates must be synchronous with the rAF callback | Direct DOM ref writes, no React state involvement |
+| `requestIdleCallback` for frame scheduling | rIC fires during idle time, not at display refresh boundaries; produces irregular frame timing and visible jank | Keep rAF-based `AnimationManager` |
+| `will-change: transform` on every line `<div>` | Promoting 235 individual divs to GPU layers causes layer explosion — each layer consumes GPU texture memory; on mobile this can crash the tab | Apply `will-change` only to the single `.content` container |
+| Double-buffering / off-screen DOM | Unnecessary complexity for HTML string swaps; the browser already batches paints within a single rAF callback | Single `innerHTML` write per frame |
 
 ---
 
 ## Feature Dependencies
 
 ```
-Eye shape progression → Frame regeneration (all 235 frames must be rewritten)
-Frame regeneration → Eye region coordinate mapping (must know exact row/col of eye chars)
-Eye region coordinate mapping → Existing frame analysis (done — rows 25-37 in AIDX frames)
-Round eye ASCII shapes → Color class `e` compatibility (existing class, no CSS changes needed)
+Direct DOM patching
+  → requires: useRef forwarded to Terminal <code> element (or bypass Terminal entirely)
+  → enables: frame-skip for free (track latest frame index, write once per rAF)
+  → enables: aria-live="off" (no React re-render to fight)
+  → makes: stable line keys irrelevant (React no longer owns the DOM nodes)
+
+Stable line keys (index-only)
+  → requires: Terminal component key change (i + line → i)
+  → only needed if React state path is kept as fallback or for non-animated Terminal usage
+
+visibilitychange listener
+  → requires: AnimatedTerminal useEffect — document.addEventListener('visibilitychange', handler)
+  → pairs with: existing window focus/blur handlers (keep both)
+
+prefers-reduced-motion reactive
+  → requires: AnimatedTerminal useEffect — matchMedia.addEventListener('change', handler)
+  → replaces: one-time .matches check on mount (keep initial check, add listener)
+
+GPU layer promotion
+  → requires: Terminal.module.css — will-change: transform on .content only
+  → warning: do NOT apply to individual line divs — layer explosion risk
+
+IntersectionObserver pause
+  → requires: wrapper ref in AnimatedTerminal, IO in useEffect
+  → pairs with: visibilitychange (both call animationManager.pause/start)
+  → order: IO fires before visibilitychange in scroll scenarios
 ```
 
 ---
 
 ## MVP Recommendation
 
-Prioritize:
-1. Map exact eye region coordinates in the existing frames (rows 25–37, confirmed)
-2. Design 5 eye shape stages (squint → slit → half → three-quarter → round)
-3. Regenerate all 235 frames with the eye region replaced per the stage schedule above
-4. Verify `class="e"` is applied to all eye characters in regenerated frames
+Prioritize in this order — each is a self-contained change with no cross-dependencies:
+
+1. Direct DOM patching in `AnimatedTerminal` — eliminates the root cause (React reconciliation at 30fps). Single `useRef` + `innerHTML` write in `AnimationManager.callback`. Biggest impact, medium effort.
+2. `visibilitychange` listener — one `addEventListener` call, fixes the tab-switch CPU drain bug listed in PROJECT.md as a known issue.
+3. GPU layer promotion — one CSS rule on `.content` in `Terminal.module.css`. Zero JS changes.
+4. `prefers-reduced-motion` reactive listener — three lines of JS, correct accessibility behavior.
+5. `aria-live="off"` on terminal content — one attribute, prevents screen reader spam at 30fps.
 
 Defer:
-- Pupil detail (inner `O` character) — add only if the round shape reads as flat without it
-- Blink effect — not needed for MVP, adds frame complexity
+- IntersectionObserver pause — terminal is above the fold; low real-world impact until page grows longer
+- `content-visibility: auto` — test carefully; can cause layout shift on first paint if terminal height is not fixed
+- Stable line keys — only matters if React state path is kept; direct DOM patching makes it moot
 
 ---
 
 ## Sources
 
-- Direct frame analysis: `/Users/ruidemacbookair/Development/AIDX-brand-design/terminals/home/animation_frames/frame_001.txt`, `frame_100.txt`, `frame_200.txt`
-- Direct frame analysis: `/Users/ruidemacbookair/Development/AIDX-brand-design/ghostty/terminals/home/animation_frames/frame_001.txt`, `frame_100.txt`, `frame_200.txt`
-- Eye character count verification: grep across all 235 AIDX frames — confirmed static (80 `>`, 45 `-` in every frame)
-- Ghostty eye mechanism: confirmed as negative-space hollow regions, no `class="e"` spans used
+- MDN Page Visibility API: https://developer.mozilla.org/en/DOM/Using_the_Page_Visibility_API
+- Motion.dev — when browsers throttle rAF: https://motion.dev/magazine/when-browsers-throttle-requestanimationframe
+- Motion.dev — web animation performance tier list: https://motion.dev/magazine/web-animation-performance-tier-list
+- GPU layer explosion warning: https://loke.dev/blog/the-layer-explosion-gpu-memory
+- Composited animations explainer: https://adame.io/technique/avoid-non-composited-animations/
+- Addyosmani rAF frame-rate limiting gist: https://gist.github.com/addyosmani/5434533

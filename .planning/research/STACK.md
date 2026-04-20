@@ -1,115 +1,227 @@
-# Technology Stack: Eye Animation Frame Regeneration
+# Technology Stack: Animation Performance Optimization
 
-**Project:** AIDX v1.3 Eye Animation Enhancement
-**Researched:** 2026-04-18
-**Scope:** Tools and approach for modifying `scripts/generate-frames.js` to add eye-becoming-round effect
-
----
-
-## Recommended Approach
-
-**Modify `scripts/generate-frames.js` directly using Node.js + the existing `canvas` npm package.**
-
-No new tools or libraries are needed. The existing script already uses `node-canvas` (`createCanvas`, `getImageData`) to rasterize SVG paths into pixel grids, then maps pixel brightness to ASCII characters. The eye-becoming-round effect is a pure extension of this existing pipeline:
-
-1. Add a new eye shape type — a rendered ellipse/circle — alongside the existing `renderEyeGT()` (the `>` shape) and `renderEyeDash()` (the `-` shape).
-2. Add a new `eyeState` range (e.g. `eyeState > 0.7` → round) in `getEyeChars()`, or better: render the round eye as a canvas ellipse and composite it into the frame at the correct `eyeState` threshold.
-3. Add new keyframes that drive `eyeState` to the "round" range at the desired animation moments.
-
-The key insight: the current `eyeState` parameter already drives a 3-state transition (`> -` → `· ·` → `_ _`). Adding a 4th state (round circle) is a direct extension — render a small circle outline using `ctx.arc()` or `ctx.ellipse()` on a canvas layer, rasterize it to a pixel grid the same way `renderEyeGT()` does, and composite it when `eyeState` enters the new range.
-
-**Confidence: HIGH** — based on direct reading of the existing script.
+**Project:** AIDX Website — v1.4 Animation Performance Optimization
+**Researched:** 2026-04-20
+**Scope:** Bypassing React reconciliation for 30fps terminal frame animation
 
 ---
 
-## Libraries/Tools
+## The Core Problem
 
-### Already in use — no additions needed
+The current `AnimatedTerminal` calls `setCurrentFrame(...)` on every rAF tick, which triggers a full React re-render of the `Terminal` component. `Terminal` then re-renders all 41 `<div>` rows, each with `dangerouslySetInnerHTML`. React 19 has a known regression (issue #31660) where `dangerouslySetInnerHTML` causes extra repaints. At 30fps that's 30 reconciliation cycles/second touching ~41 DOM nodes each — entirely avoidable.
 
-| Tool | Version | Role | Notes |
-|------|---------|------|-------|
-| `canvas` (node-canvas) | already installed | Rasterize shapes to pixel grids | Used for all existing eye/hair/face layers |
-| Node.js `fs` | built-in | Write frame files | Already used |
-| Node.js `path` | built-in | Output path resolution | Already used |
-
-### What node-canvas provides that matters here
-
-- `ctx.arc(cx, cy, r, 0, Math.PI * 2)` — draws a filled or stroked circle
-- `ctx.ellipse(cx, cy, rx, ry, rotation, startAngle, endAngle)` — draws an ellipse (already used for `renderEllipse()`)
-- `ctx.getImageData()` — returns pixel RGBA array for ASCII mapping (already used for all layers)
-- `ctx.lineWidth`, `ctx.strokeStyle`, `ctx.lineCap` — already used for eye stroke rendering
-
-The round eye can be rendered as a stroked circle (outline only, like the `>` eye) using `ctx.arc()` + `ctx.stroke()`, producing a hollow circle that maps to ASCII characters via the existing brightness pipeline.
-
-### No new npm packages needed
-
-The `canvas` package already handles everything. Adding `jimp`, `sharp`, `ascii-art`, or any other image/ASCII library would be redundant and add unnecessary complexity.
+The fix is to hold a `useRef` to the content container and write `innerHTML` directly in the rAF callback, bypassing React entirely for frame updates.
 
 ---
 
-## Integration Points
+## Technique 1: Direct DOM Patching via `useRef` + `innerHTML`
 
-### 1. New render function in generate-frames.js
+**Confidence:** HIGH (React official docs + well-established pattern)
 
-Add alongside `renderEyeGT()` and `renderEyeDash()`:
+### Why it helps
 
-```js
-function renderEyeCircle(cx, cy, r) {
-  const ctx = makeCtx();
-  ctx.strokeStyle = '#fff';
-  ctx.lineWidth = 2.0;
-  ctx.beginPath();
-  ctx.arc(cx, cy, r, 0, Math.PI * 2);
-  ctx.stroke();
-  return ctx.getImageData(0, 0, svgSize, svgSize);
+`useRef` returns a stable object whose `.current` property is a live reference to the DOM node. Writing to `node.innerHTML` is a single synchronous DOM mutation — no virtual DOM diff, no fiber reconciliation, no component re-render. For content that changes every frame and is already pre-rendered HTML strings, this is the correct tool.
+
+React's own docs explicitly endorse this pattern for "escape hatch" imperative DOM work. For animation frames, stepping outside React is exactly right.
+
+### Integration with existing code
+
+`Terminal` already has `const codeRef = useRef<HTMLElement>(null)` attached to the `<Code>` element (the scrollable content container). The change is:
+
+1. Expose `codeRef` via a callback ref prop from `Terminal` (e.g. `contentRef?: React.RefObject<HTMLElement>`)
+2. In `AnimatedTerminal`, hold a ref to the content node
+3. Replace `setCurrentFrame(...)` with a direct write:
+
+```tsx
+// AnimatedTerminal — replace useState frame tracking
+const contentRef = useRef<HTMLElement>(null);
+const frameIndexRef = useRef(16); // mutable, no re-render
+
+// In AnimationManager callback (no setState):
+const nextIndex = (frameIndexRef.current + 1) % frames.length;
+frameIndexRef.current = nextIndex;
+if (contentRef.current) {
+  contentRef.current.innerHTML = frames[nextIndex]
+    .map((line) => `<div>${line}</div>`)
+    .join("");
 }
 ```
 
-The `cx`, `cy`, `r` values should be tuned to match the face coordinate space (SVG units 0–48, scaled by `scale=4` to 192px canvas). The existing `>` eye is centered around `(16–21, 25–32)` and the `-` eye around `(29–35, 28.5)` in SVG units.
+`frameIndexRef` is a plain mutable ref — changing it never triggers a render. The DOM update is direct.
 
-### 2. Extended eyeState range
+### What NOT to do
 
-Current `getEyeChars()` uses 3 bands: `< 0.3`, `0.3–0.7`, `>= 0.7`. Extend to 4:
+Do not use `dangerouslySetInnerHTML` on individual `<div>` rows inside a React render cycle for animation. Each frame update causes React to diff 41 elements. The React 19 regression (issue #31660) makes this worse — `dangerouslySetInnerHTML` triggers extra repaints in React 19 even when the content hasn't changed.
 
-```js
-// eyeState: 0 = squint (> -), 0.3 = half (· ·), 0.7 = closed (_), 1.0 = round (○)
-// OR restructure: 0 = squint, 0.5 = closed, 1.0 = round
+---
+
+## Technique 2: `useRef` for Animation State (not `useState`)
+
+**Confidence:** HIGH (React official docs)
+
+### Why it helps
+
+`useState` is for values that, when changed, should cause a re-render. Animation frame index is not that — the DOM update happens imperatively. Using `useState` for frame index means every tick schedules a React render, which batches in React 19 but still runs the reconciler.
+
+`useRef` stores mutable values that survive re-renders without causing them. React's own conceptual implementation shows `useRef` is just a `useState` whose setter is never called — mutations are free.
+
+### Rule of thumb for this codebase
+
+| Value | Hook | Reason |
+|-------|------|--------|
+| Current frame index | `useRef` | Changes every 33ms, never needs to trigger render |
+| DOM content node | `useRef` | Stable reference, imperative writes |
+| `AnimationManager` instance | `useState(() => new ...)` | Already correct — stable init, never re-created |
+| Platform style (macos/adwaita) | `useState` | Correct — triggers one render on mount |
+| Auto-scroll state | `useState` | Correct — triggers render to update scroll behavior |
+
+---
+
+## Technique 3: `requestAnimationFrame` Best Practices in React 19
+
+**Confidence:** HIGH (React docs + browser spec)
+
+### Current implementation is mostly correct
+
+The existing `AnimationManager` class is well-structured:
+- Uses a class to avoid closure stale-ref issues
+- Tracks `lastFrame` for delta-based frame stepping
+- Handles the "catch-up" loop for missed frames
+- Cancels via `cancelAnimationFrame` on cleanup
+
+### Gap 1: Visibility API is checked only on mount
+
+The current `useEffect` checks `document.visibilityState === "visible"` once at mount time, then relies on `window focus/blur` events. Tab switching fires `visibilitychange`, not `blur`. A user switching tabs without losing window focus (clicking another tab in the same browser window) will not pause the animation.
+
+Fix: add a `visibilitychange` listener in the same `useEffect`:
+
+```tsx
+const handleVisibility = () => {
+  if (document.visibilityState === "visible") {
+    animationManager.start();
+  } else {
+    animationManager.pause();
+  }
+};
+document.addEventListener("visibilitychange", handleVisibility);
+// in cleanup:
+document.removeEventListener("visibilitychange", handleVisibility);
 ```
 
-The cleanest approach: keep `eyeState` as a 0–1 range but redefine the semantics so the animation arc goes `squint → closed → round` rather than `squint → half → closed`. This matches the "eye opening" narrative.
+### Gap 2: rAF loop not cancelled on unmount
 
-### 3. Composite logic in generateFrame()
+The current cleanup removes event listeners but does NOT call `animationManager.pause()`. If the component unmounts while animating (navigating away), the rAF loop continues until GC. Add `animationManager.pause()` to the cleanup return.
 
-In the per-cell loop, add a new shape type (e.g. `t === 7` for round eye) alongside the existing `t === 4` (GT eye) and `t === 5` (dash eye). The composite priority order already handles this — just add the new layer check before the face/hair checks.
+### Do not use `useLayoutEffect` for rAF scheduling
 
-### 4. Keyframe additions
+`useLayoutEffect` runs synchronously after DOM mutations, before paint. Starting a rAF loop there is unnecessary and causes SSR hydration warnings in Next.js. `useEffect` is correct here.
 
-Add keyframes that push `eyeState` to 1.0 (round) at the desired frames. The existing blink keyframes (frames 88–100 and 188–200) currently go to `eyeState: 1` which maps to `_`. Redefine `eyeState: 1` to mean "round" and add intermediate keyframes for the transition.
+---
 
-### 5. Re-run the script
+## Technique 4: CSS GPU Acceleration
 
-```bash
-node scripts/generate-frames.js
+**Confidence:** HIGH (MDN + browser rendering model)
+
+### `will-change: contents` on the terminal content area
+
+Tells the browser the element's contents will change frequently. The browser can promote it to its own compositor layer, avoiding full-page repaints on each frame update.
+
+```css
+/* Terminal.module.css — add to .content */
+.content {
+  will-change: contents;
+}
 ```
 
-This regenerates all 235 `.txt` files in `terminals/home/animation_frames/` and the merged `frames.json`. The Next.js site reads these files statically — no site code changes needed if the HTML span structure is preserved.
+Apply only to the scrollable `<code>` content element, not the outer `.terminal` wrapper. `will-change` consumes GPU memory — scope it tightly.
+
+### `contain: strict` on the terminal wrapper
+
+CSS `contain` tells the browser this element's layout, paint, and size are independent from the rest of the page. A frame update inside `.content` cannot trigger layout recalculation outside the terminal box.
+
+```css
+/* Terminal.module.css — add to .terminal */
+.terminal {
+  contain: strict;
+}
+```
+
+`contain: strict` = `contain: size layout paint style`. Safe here because the terminal already has explicit `width` and `height` from CSS custom properties (`--columns`, `--rows`).
+
+### `transform: translateZ(0)` — use only if needed
+
+The classic GPU promotion hack. Creates a new stacking context and compositor layer. Only add if profiling shows the layer isn't being promoted by `will-change` alone.
+
+```css
+.content {
+  transform: translateZ(0); /* force compositor layer if will-change isn't enough */
+}
+```
+
+### What NOT to add
+
+- Do not add `will-change` to every element — it pre-allocates GPU memory and degrades performance when overused.
+- Do not use `opacity: 0.999` as a GPU hack — `will-change` replaces this cleanly.
+- Do not animate `width`, `height`, `top`, `left`, `margin`, or `padding` — these trigger layout. The terminal is static-sized so this isn't a concern, but avoid introducing any such animations.
+
+---
+
+## Technique 5: Stable Line Keys in Terminal
+
+**Confidence:** HIGH (React reconciliation docs)
+
+### Current key is wrong for animation
+
+```tsx
+// Current — key changes every frame even if line content is identical
+key={i + line}
+```
+
+When `line` content changes (every frame), the key changes, React unmounts the old `<div>` and mounts a new one. For 41 lines × 30fps = 1,230 DOM node replacements per second.
+
+### Fix: index-only key
+
+```tsx
+key={i}
+```
+
+With `key={i}`, React reuses the same DOM node and only updates its `innerHTML`. Combined with direct DOM patching (Technique 1), React never touches these nodes during animation at all — but if React does render (e.g., on mount), stable keys mean it reuses nodes instead of replacing them.
+
+This is safe because the lines array is always exactly `rows` (41) elements long and order is positional, not identity-based.
+
+---
+
+## Integration Summary
+
+| Change | File | What it does |
+|--------|------|--------------|
+| Replace `setCurrentFrame` with `contentRef.current.innerHTML = ...` | `animated-terminal/index.tsx` | Eliminates 30 React renders/sec |
+| Store frame index in `useRef` not `useState` | `animated-terminal/index.tsx` | No state updates in rAF loop |
+| Add `visibilitychange` listener | `animated-terminal/index.tsx` | Fixes tab-switch pause bug |
+| Add `animationManager.pause()` to cleanup | `animated-terminal/index.tsx` | Prevents rAF leak on unmount |
+| Change `key={i + line}` to `key={i}` | `terminal/index.tsx` | Stable DOM nodes on React renders |
+| Add `will-change: contents` to `.content` | `Terminal.module.css` | GPU layer for content area |
+| Add `contain: strict` to `.terminal` | `Terminal.module.css` | Isolates layout/paint to terminal box |
+| Expose content ref from `Terminal` | `terminal/index.tsx` | Allows `AnimatedTerminal` to write directly |
 
 ---
 
 ## What NOT to Add
 
-| Approach | Why to avoid |
-|----------|-------------|
-| `jimp` / `sharp` for image processing | Redundant — `node-canvas` already does pixel-level rasterization |
-| `figlet` / `ascii-art` npm packages | These generate ASCII from text/images using fixed character maps; the existing custom brightness-ramp approach is more precise and already working |
-| Python + PIL/Pillow | Introduces a second runtime; Node.js is already the tool for this script |
-| Canvas-to-browser rendering (HTML Canvas) | Frame generation is a build-time Node.js script, not a browser task |
-| Rewriting frames with string manipulation | The existing canvas-rasterize-then-map pipeline is the right abstraction; string-patching pre-generated frames would be fragile and hard to tune |
-| Separate "eye overlay" post-processing step | Unnecessary complexity — the round eye layer fits naturally into the existing per-frame canvas compositing pipeline |
-| Increasing frame count beyond 235 | The AnimatedTerminal component and frames.json are sized for 235 frames; changing this requires site code changes |
+- **No animation library** (Framer Motion, GSAP, etc.) — the animation is pre-rendered HTML frames, not CSS/JS property interpolation. These libraries solve a different problem.
+- **No Web Workers** — the bottleneck is DOM writes, not computation. Workers can't touch the DOM.
+- **No canvas rendering** — the frames are HTML with `<span>` color classes. Rewriting to canvas would require a full frame pipeline rewrite.
+- **No `useTransition` or `startTransition`** — these defer non-urgent React state updates. The goal here is to eliminate React state updates entirely for frame changes.
+- **No `React.memo` on Terminal** — with direct DOM patching, Terminal won't re-render during animation at all. Memo adds overhead for no benefit.
 
 ---
 
-## Summary
+## Sources
 
-The entire implementation lives in `scripts/generate-frames.js`. Add one new `renderEyeCircle()` function, extend the `eyeState` branching logic, add the new canvas layer to the per-cell compositor, tune the keyframes, and re-run. The `canvas` package already installed handles all rendering. No new dependencies, no new files, no site code changes required.
+- React docs — Manipulating the DOM with Refs: https://react.dev/learn/manipulating-the-dom-with-refs
+- React docs — Referencing Values with Refs: https://react.dev/learn/referencing-values-with-refs
+- React 19 issue #31660 — dangerouslySetInnerHTML causes repaint: https://github.com/facebook/react/issues/31660
+- MDN — CSS contain: https://developer.mozilla.org/en-US/docs/Web/CSS/contain
+- MDN — CSS will-change: https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+- MDN — Page Visibility API: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+- Web Animation Performance Tier List (motion.dev): https://motion.dev/magazine/web-animation-performance-tier-list
