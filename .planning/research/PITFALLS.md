@@ -1,141 +1,235 @@
-# Domain Pitfalls: Eye Animation in Pre-Generated ASCII Frames
+# Domain Pitfalls: Direct DOM Patching in React Animation
 
-**Domain:** Modifying pre-generated ASCII art animation frames with HTML span markup
-**Researched:** 2026-04-18
-**Milestone:** v1.3 Eye Animation Enhancement
+**Domain:** React/Next.js animation component with direct DOM manipulation
+**Researched:** 2026-04-20
+**Milestone:** v1.4 Animation Performance Optimization
+**Context:** Adding direct DOM patching to `AnimatedTerminal` / `Terminal` in a Next.js 16 / React 19 App Router project
 
 ---
 
 ## Critical Pitfalls
 
-### Pitfall 1: HTML Entity Corruption in Eye Characters
+### Pitfall 1: React Overwriting Direct DOM Patches on Re-Render
 
-**What goes wrong:** The existing frames already use `&gt;` (HTML entity) for the `>` eye characters — visible in frame_001.txt lines 25-34. If a frame generation script outputs raw `>` characters instead of `&gt;`, the Terminal component's `dangerouslySetInnerHTML` will render them correctly visually, but any downstream HTML serialization (static export, SSR hydration) may double-escape or misparse them. Conversely, if a script reads existing frames and re-emits them, it may decode `&gt;` to `>` and then fail to re-encode, breaking the span structure.
+**Risk:** CRITICAL
 
-**Why it happens:** The frames are raw HTML fragments, not plain text. Any tool that treats them as text (Python `str.replace`, sed, awk) will operate on the literal bytes `&gt;` and may corrupt the entity or the surrounding span tags.
+**What goes wrong:** React's reconciler diffs a virtual DOM snapshot against what it *thinks* the real DOM looks like. If you directly mutate DOM nodes that React rendered (e.g., patching `innerHTML` of the row `<div>`s inside `Terminal`), React's next render will overwrite your changes — or produce corrupted output where its expected structure no longer matches reality.
 
-**Consequences:** Broken span tags cause the entire line's color classes to fail silently — the eye region renders as unstyled text or disappears entirely. The animation continues but the eye effect is invisible.
+**Why it happens:** React caches the last rendered vDOM tree. When it reconciles on the next state change (even an unrelated one), it compares against that cache, not the live DOM. Your direct patches are invisible to it.
 
-**Prevention:**
-- Parse frames as HTML (use an HTML parser, not string replace) when modifying span content
-- If writing a Python generator, always emit `&gt;` not `>` for the `>` character inside span tags
-- After regeneration, diff a sample frame against the original to verify entity encoding is intact
-
-**Detection:** Open a modified frame in a browser directly. If `>` appears as literal `&gt;` on screen, the entity was double-escaped. If the eye region has no color, the span was broken.
-
----
-
-### Pitfall 2: Column Width Drift Breaking the Fixed-Width Grid
-
-**What goes wrong:** The terminal is sized by `--columns: 100` and each frame line must be exactly 90 visible characters wide (the frame files show 90-char content + trailing spaces to pad to the column width). Eye shapes drawn with multi-character sequences like `( o )` or `O` occupy different column counts than the original `>>>>>` or `-----` sequences. A single character difference per line causes the entire frame to shift right or left relative to adjacent frames, producing a horizontal jitter visible at 31ms/frame.
-
-**Why it happens:** ASCII art alignment is purely positional — every character is one monospace cell. Replacing 5 `>` chars with `( o )` (also 5 chars) is safe. Replacing with `(o)` (3 chars) leaves 2 trailing spaces that must be explicitly added, or the body outline shifts inward.
-
-**Consequences:** Visible horizontal jitter during the eye-open transition. At 31ms/frame this is very noticeable. The terminal box itself won't resize (it's CSS-fixed) but the art inside will appear to wobble.
+**Consequences:** Flickering on the frame after any React re-render; corrupted HTML content; React warnings about unexpected DOM structure; in React 19 with concurrent features, partial renders can interleave with your patches mid-frame.
 
 **Prevention:**
-- Count characters in the eye region before and after modification — the replacement must be byte-for-byte the same length as the original
-- Use a fixed-width eye shape that matches the original `>` count per row (rows 25-34 in frame_001 show 5, 8, 9, 10, 9, 9, 10, 9 `>` chars respectively — the left eye varies per row)
-- Write a validation script that asserts every line in every modified frame has the same visible character count as the corresponding line in frame_001
+- Own the DOM nodes exclusively. Use `useRef` to get a container ref, render an *empty* container from React, and do all content writes imperatively. React never touches children it didn't create.
+- The correct split: React owns the outer `<Terminal>` shell (header, scroll container, CSS classes). A `useRef` on the `<Code>` element hands off the inner content area to the imperative loop. React renders `null` or an empty fragment as children when in direct-patch mode.
+- Never mix: don't let React render `lines.map(...)` children *and* also patch those same nodes imperatively.
 
-**Detection:** Render two adjacent frames side-by-side in a static HTML file. Any horizontal shift in the body outline is a column count mismatch.
+**Detection:** React DevTools "highlight updates" flashing on every rAF tick means React is still re-rendering. If you see it after the refactor, the state/vDOM boundary is wrong.
+
+**Phase:** v1.4 — this is the core architectural decision for the direct-DOM-patching work.
 
 ---
 
-### Pitfall 3: Frame Sort Order Mismatch
+### Pitfall 2: StrictMode Double-Invoke Corrupting DOM Pre-Allocation
 
-**What goes wrong:** `loadAllTerminalFiles` in `terminal-data.tsx` uses `fs.readdir` which returns files in filesystem order (typically inode order on macOS, not lexicographic). The `HomeContent.tsx` then does `Object.keys(terminalData).filter(...).map(...)` — `Object.keys` on a plain object preserves insertion order in V8, which is the readdir order. If regenerated frames are written in a different order (e.g., frame_100 before frame_099 due to parallel writes), the animation sequence will be scrambled.
+**Risk:** CRITICAL (development only, but masks real bugs)
 
-**Why it happens:** The pipeline relies on implicit filesystem ordering rather than explicit sort. This works for the original 235 frames because they were written sequentially. Regeneration scripts that write frames in parallel or use glob patterns without explicit sort break this assumption.
+**What goes wrong:** React 18+ StrictMode double-invokes effects (`useEffect` setup + teardown + setup again) in development. `AnimationManager` is instantiated in `useState(() => new AnimationManager(...))` — that initializer runs once. But the `useEffect` that calls `animationManager.start()` runs twice. If you add direct DOM setup in `useEffect` (e.g., pre-allocating row `<div>` nodes), that setup runs twice, potentially doubling DOM nodes.
 
-**Consequences:** The animation plays frames out of sequence — the eye-open transition appears at random points in the loop instead of at the intended moment.
+**Why it happens:** StrictMode intentionally stresses effects to surface non-idempotent setup. The current `AnimationManager.start()` is idempotent (guards with `if (this._animation != null) return`), but any new DOM pre-allocation must also be idempotent.
+
+**Consequences:** In dev, doubled DOM rows, doubled event listeners, or doubled `will-change` promotions. These disappear in production builds, making them hard to catch.
 
 **Prevention:**
-- After regeneration, sort frames explicitly: `Object.keys(terminalData).filter(...).sort().map(...)`
-- Or ensure the generation script writes frames in strict lexicographic order (frame_001 before frame_002, etc.)
-- The sort fix in `HomeContent.tsx` is the safer long-term solution regardless
+- Make all `useEffect` DOM setup idempotent: check if nodes already exist before creating them (e.g., `containerRef.current.children.length === 0` guard).
+- Always pair every DOM mutation in setup with a full teardown in the cleanup function (`return () => { containerRef.current.innerHTML = '' }`).
+- Test in dev mode (StrictMode active) before assuming correctness.
 
-**Detection:** Add a `console.log` of the first 5 frame keys during development. If they are not `home/animation_frames/frame_001`, `frame_002`, etc. in order, the sort is broken.
+**Detection:** In dev, inspect the DOM after mount — if you see double the expected row count, StrictMode is exposing a non-idempotent setup.
+
+**Phase:** v1.4 — must be verified during the direct-DOM-patching implementation.
 
 ---
 
-### Pitfall 4: Span Tag Fragmentation Causing Misaligned Eye Pixels
+### Pitfall 3: Hydration Mismatch from Client DOM Patches Before Hydration Completes
 
-**What goes wrong:** The existing frames wrap each individual `>` and `-` character in its own `<span class="e">` tag (visible in frame_001.txt lines 25-34: `<span class="e">&gt;</span><span class="e">&gt;</span>...`). This is intentional — it allows per-character color control. If a new eye shape uses multi-character spans like `<span class="e">( o )</span>`, the rendering is visually identical but the DOM structure differs. The problem arises if the eye transition mixes both styles across frames: some frames with per-char spans, others with multi-char spans. The `dangerouslySetInnerHTML` key is `i + line` — if the line string changes length due to span structure differences, React will always re-render that div, which is fine, but inconsistent span structure makes it harder to debug alignment issues.
+**Risk:** HIGH
 
-**Why it happens:** Frame generation scripts may use different span-wrapping strategies for the new eye shapes vs. the original body shapes.
+**What goes wrong:** Next.js App Router prerenders components to static HTML. `AnimatedTerminal` is `"use client"` and uses `useState(16)` as the initial frame — so the server renders frame 16. The client hydrates, React expects the DOM to match frame 16, then the animation loop immediately starts patching. If the patch happens before React finishes hydration, React throws a hydration mismatch error and bails out to client-only rendering.
+
+**Why it happens:** `requestAnimationFrame` can fire before React's hydration pass completes on slow devices or when the JS bundle is large. Direct DOM writes during that window corrupt the hydration checkpoint.
+
+**Consequences:** React falls back to full client render (discards server HTML), console error, potential flash of unstyled/empty terminal.
 
 **Prevention:**
-- Standardize on per-character spans for the eye region to match the existing convention
-- This also makes column counting unambiguous (one span = one visible character)
+- Gate `animationManager.start()` behind a `useEffect` — which already runs post-hydration. This is already correct in the current code.
+- For direct DOM patching: only begin writing to DOM nodes inside `useEffect`, never in render or in a `useLayoutEffect` that fires before hydration completes.
+- If pre-allocating row nodes, do it in `useEffect`, not during render.
+- The `useState(16)` initial frame is fine — it gives React a stable server/client match for the initial render. Don't change it to `useState(0)` without also updating the server render.
+
+**Detection:** Next.js will log `Error: Hydration failed because the server rendered HTML didn't match the client.` Check browser console after first load with `next build && next start`.
+
+**Phase:** v1.4 — verify no hydration errors after patching refactor.
 
 ---
 
-## Integration Pitfalls
+## Moderate Pitfalls
 
-### Pitfall 5: Build-Time Frame Loading Performance
+### Pitfall 4: Memory Leak — rAF Loop Not Cancelled on Unmount
 
-**What goes wrong:** `loadAllTerminalFiles` is called at build time (it's an async server function used in the page's `generateStaticParams` or page component). With 235 frames × ~50 lines each, this is ~11,750 `fs.readFile` calls in a sequential loop. Adding more frames (e.g., extending to 300 for a smoother eye transition) increases build time linearly. The current implementation reads files one at a time in a `for` loop — not parallelized.
+**Risk:** HIGH
 
-**Why it happens:** The loop in `collectAllFilesRecursively` + the sequential `for (const path of allPaths)` read loop in `loadAllTerminalFiles` does not use `Promise.all`.
+**What goes wrong:** `AnimationManager` holds a `requestAnimationFrame` handle in `this._animation`. The current `useEffect` cleanup removes event listeners but does NOT call `animationManager.pause()`. If the component unmounts (e.g., navigating away from the homepage), the rAF loop keeps running, and with direct DOM patching it will write to a detached DOM node indefinitely.
 
-**Consequences:** Build time increases proportionally with frame count. At 235 frames this is acceptable; at 500+ it becomes noticeable on CI.
+**Why it happens:** The cleanup function in `useEffect` only removes `focus`/`blur`/`keyup` listeners. The `animationManager` itself is never stopped on unmount.
+
+**Consequences:** CPU usage continues after navigation. With direct DOM patching, writes to detached nodes accumulate. With `will-change` on the container, the compositor layer is never released.
+
+**Prevention:** Add `animationManager.pause()` to the useEffect cleanup:
+```tsx
+return () => {
+  window.removeEventListener("focus", handleFocus);
+  window.removeEventListener("blur", handleBlur);
+  window.removeEventListener("keyup", handleKeyUp);
+  animationManager.pause(); // ADD THIS — currently missing
+};
+```
+This is a bug in the current code that v1.4 must fix regardless of the DOM patching work.
+
+**Detection:** Navigate to `/docs` and back. Open Chrome DevTools Performance tab — if rAF callbacks still appear after navigation, the loop leaked.
+
+**Phase:** v1.4 — fix as part of the animation refactor. Low effort, high impact.
+
+---
+
+### Pitfall 5: visibilitychange Not Wired — Tab-Switch Does Not Pause Animation
+
+**Risk:** MEDIUM
+
+**What goes wrong:** The current code starts the animation only if `document.visibilityState === 'visible'` at mount time, but uses `window focus`/`blur` events to pause/resume. These are different signals:
+
+- `window blur` fires when the browser window loses focus (user switches to another app) but the tab is still visible.
+- `document.visibilityState` changes when the tab is hidden (user switches tabs) — this does NOT fire `window blur`.
+
+So switching tabs does not pause the animation. The `visibilityState` check only runs once at mount.
+
+**Why it happens:** `focus`/`blur` and `visibilitychange` are orthogonal browser events. The current AIDX port only uses one.
+
+**Consequences:** Animation runs while the tab is hidden, burning CPU/battery. On mobile, this can trigger thermal throttling.
 
 **Prevention:**
-- If frame count stays at 235, no action needed
-- If extending frame count, parallelize reads: `await Promise.all(allPaths.map(path => fs.readFile(path, 'utf8')))`
-- Do not add frames beyond what the eye transition requires
+```tsx
+const handleVisibilityChange = () => {
+  if (document.visibilityState === 'visible') {
+    animationManager.start();
+  } else {
+    animationManager.pause();
+  }
+};
+document.addEventListener('visibilitychange', handleVisibilityChange);
+// in cleanup: document.removeEventListener('visibilitychange', handleVisibilityChange);
+```
+Keep both `focus`/`blur` (window-level) and `visibilitychange` (tab-level). PROJECT.md already flags this as a known issue to fix in v1.4.
+
+**Detection:** Open DevTools Performance tab, switch to another browser tab, switch back. If rAF callbacks appear during the hidden period, the fix is missing.
+
+**Phase:** v1.4 — explicitly listed as a target feature ("fix tab-switch pause").
 
 ---
 
-### Pitfall 6: AnimationManager Frame Index Desync After Frame Count Change
+### Pitfall 6: will-change Overuse Causing GPU Memory Pressure
 
-**What goes wrong:** `AnimatedTerminal` initializes `currentFrame` at `16` (hardcoded). If the total frame count changes (e.g., from 235 to a different number), frame 16 may land in a visually awkward position — mid-transition rather than a stable "resting" state. More critically, the modulo `(currentFrame + 1) % frames.length` is correct, but if `frames` is passed as a new array reference on every render (due to the `.filter().map()` in `HomeContent`), React will re-render `AnimatedTerminal` and the `frames.length` in the closure may briefly be stale.
+**Risk:** MEDIUM
 
-**Why it happens:** The `frames` array is reconstructed on every `HomeContent` render. The `animationManager` callback closes over `frames.length` indirectly via the `% frames.length` in `setCurrentFrame` — but since it uses the functional updater form `setCurrentFrame(f => (f + 1) % frames.length)`, `frames.length` is captured from the outer scope at the time the effect runs, not at callback time.
+**What goes wrong:** `will-change: transform` tells the browser to promote an element to its own compositor layer. Applied to the terminal container, this is correct and beneficial. Applied to each individual row `<div>` (235 rows), it creates 235 compositor layers, each backed by GPU texture memory.
+
+**Why it happens:** Developers apply `will-change` broadly ("make it fast") without understanding that each promoted element consumes GPU VRAM proportional to its painted area.
+
+**Consequences:** On integrated graphics (most laptops), promoting too many layers causes the browser to fall back to software compositing, which is slower than no `will-change` at all. On mobile, it can cause the tab to be killed by the OS memory manager.
 
 **Prevention:**
-- Memoize `animationFrames` in `HomeContent` with `useMemo` keyed on `terminalData`
-- Keep frame count at 235 or update the hardcoded `useState(16)` initial frame to a value that makes visual sense for the new sequence
+- Apply `will-change: transform` to exactly one element: the outermost terminal container (`s.terminal` or its wrapper). Not to rows, not to the content area.
+- Use `transform: translateZ(0)` as the promotion trigger if you need finer control — it promotes only when the transform is active.
+- Remove `will-change` after the animation completes if the terminal ever enters a static state.
+- Audit with Chrome DevTools Layers panel: the terminal should appear as exactly 1-2 layers, not hundreds.
+
+**Detection:** Chrome DevTools → Layers panel → count compositor layers. More than 3 for the terminal area is a red flag.
+
+**Phase:** v1.4 — apply when adding CSS GPU acceleration to the terminal container.
 
 ---
 
-### Pitfall 7: Eye Region Row Identification Across All 235 Frames
+### Pitfall 7: IntersectionObserver vs visibilitychange — Wrong Tool for Pause Logic
 
-**What goes wrong:** The eye characters (`>` left eye, `-` right eye) appear on rows 25-34 of the frame (0-indexed from the top of the art). But the frame files include 2 blank lines at the top and the art itself shifts vertically across the animation cycle (the character "breathes" up and down). If the eye row is hardcoded as "rows 25-34", it will be wrong for frames where the art has shifted up or down by 1-2 rows.
+**Risk:** MEDIUM
 
-**Why it happens:** The animation was generated with vertical movement. The eye position is not at a fixed row number — it tracks with the body outline.
+**What goes wrong:** `IntersectionObserver` detects whether an element is in the viewport. `visibilitychange` detects whether the tab/document is visible. They are not interchangeable:
 
-**Consequences:** Eye modification script targets the wrong rows in some frames, leaving the original `>` characters unchanged in those frames and producing a flickering effect during the transition.
+- `IntersectionObserver` fires when the terminal scrolls out of view — useful for pausing when the user scrolls past the hero.
+- `visibilitychange` fires when the tab is hidden — useful for pausing when the user switches tabs.
 
-**Prevention:**
-- Detect the eye row dynamically by searching for the `class="e"` span pattern within each frame, not by hardcoded row index
-- Alternatively, search for the `&gt;` entity within `<span class="e">` tags to locate the left eye, and `-` within `<span class="e">` for the right eye
+Using only `visibilitychange` means the animation runs while the terminal is scrolled off-screen. Using only `IntersectionObserver` means the animation runs in a hidden tab.
 
----
+**Why it happens:** Developers pick one and assume it covers both cases.
 
-## Prevention Strategies
+**Consequences:** Wasted CPU when terminal is off-screen (common on mobile where the hero is above the fold and users scroll down).
 
-1. Write a frame validation script before and after modification that checks: (a) line count per frame is identical, (b) visible character count per line is identical, (c) all `<span>` tags are properly closed, (d) no raw `>` or `<` outside of tag syntax.
+**Prevention:** Use both:
+- `IntersectionObserver` on the terminal container ref → pause when `intersectionRatio === 0`, resume when `> 0`.
+- `visibilitychange` on `document` → pause when hidden, resume when visible.
+- The final pause/resume decision is AND: run only when both visible AND intersecting.
 
-2. Test the transition on a subset of frames first (e.g., frames 100-150) before regenerating all 235.
+**Detection:** Scroll the terminal off-screen. Open DevTools Performance — if rAF callbacks continue, `IntersectionObserver` is missing.
 
-3. Keep the original frames in a backup directory (`terminals/home/animation_frames_original/`) before any modification. The git history is a fallback but a local copy is faster to diff.
-
-4. Render a static HTML test page that shows 10 consecutive frames side-by-side to visually verify alignment before running the full build.
-
-5. Add an explicit `.sort()` to the `animationFrames` array construction in `HomeContent.tsx` as a defensive measure regardless of generation order.
+**Phase:** v1.4 — add `IntersectionObserver` as an enhancement alongside the `visibilitychange` fix.
 
 ---
 
-## Phase Recommendations
+## Minor Pitfalls
+
+### Pitfall 8: dangerouslySetInnerHTML + Direct DOM Patch Double-Write Race
+
+**Risk:** MEDIUM
+
+**What goes wrong:** `Terminal` currently uses `dangerouslySetInnerHTML` to inject HTML strings into row `<div>`s. If you also directly patch those same nodes' `innerHTML` imperatively, you have two writers. React's `dangerouslySetInnerHTML` will overwrite your patch on the next render; your patch will overwrite React's render on the next frame. The result is a race condition producing flickering or stale content.
+
+**Prevention:** Pick one writer per node. For the animation path: remove `dangerouslySetInnerHTML` from the row divs and write `innerHTML` imperatively only. For static/non-animated use of `Terminal`, `dangerouslySetInnerHTML` is fine — the two modes should be separate code paths (`AnimatedTerminal` uses a ref-based imperative renderer; `Terminal` used standalone keeps `dangerouslySetInnerHTML`).
+
+**Phase:** v1.4 — the refactor must cleanly separate the animated and static rendering paths.
+
+---
+
+### Pitfall 9: Key Strategy Regression During DOM Patching Refactor
+
+**Risk:** LOW
+
+**What goes wrong:** The current `Terminal` uses `key={i + line}` (index + content). If the direct-DOM-patching approach is partial and React still renders some children, using `key={i + line}` will cause React to unmount/remount rows on every frame (because the key changes with content), defeating the purpose.
+
+**Prevention:** If React still renders any children in the patched version, use `key={i}` (index only). If React renders no children (full imperative mode), remove the `lines.map` entirely.
+
+**Phase:** v1.4 — decide the key strategy as part of the DOM boundary design.
+
+---
+
+## Phase-Specific Warnings
 
 | Phase Topic | Likely Pitfall | Mitigation |
-|---|---|---|
-| Frame generation script | HTML entity corruption (#1), column drift (#2) | Parse as HTML; validate character counts |
-| Eye shape design | Column width drift (#2), span fragmentation (#4) | Match original char count per row; use per-char spans |
-| Frame ordering | Sort order mismatch (#3) | Add `.sort()` in HomeContent; validate key order |
-| Build integration | Load performance (#5), frame index desync (#6) | Keep frame count at 235; memoize frames array |
-| Eye row targeting | Vertical shift across frames (#7) | Detect eye rows dynamically via span class search |
+|-------------|---------------|------------|
+| Direct DOM patching in AnimatedTerminal | React overwriting patches on re-render (#1) | Own DOM nodes exclusively via ref; render empty container from React |
+| StrictMode compatibility | Double-invoke corrupting pre-allocated rows (#2) | Idempotent setup + full teardown in useEffect cleanup |
+| CSS GPU acceleration | will-change on too many elements (#6) | One `will-change: transform` on the outermost container only |
+| Tab-switch pause fix | visibilitychange not wired up (#5) | Add `document.addEventListener('visibilitychange', ...)` with cleanup |
+| Scroll-out-of-view pause | IntersectionObserver missing (#7) | Add IO on terminal container ref alongside visibilitychange |
+| Unmount cleanup | rAF loop leaking after navigation (#4) | Call `animationManager.pause()` in useEffect cleanup return |
+| Hydration | Direct DOM writes before hydration completes (#3) | All DOM writes inside useEffect only, never during render |
+| dangerouslySetInnerHTML coexistence | Double-write race condition (#8) | Separate animated and static rendering paths |
 
-**Highest risk:** Pitfall #2 (column drift) and Pitfall #7 (eye row identification) — both are silent failures that only appear visually and are easy to miss in a text diff.
+## Sources
+
+- Codebase analysis: `src/components/animated-terminal/index.tsx`, `src/components/terminal/index.tsx` (HIGH confidence — direct code inspection)
+- React 19 reconciliation and useRef: https://react.dev/reference/react/useRef (HIGH confidence)
+- React hydration errors: https://react.dev/errors/418 (HIGH confidence)
+- MDN `visibilitychange` event: https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event (HIGH confidence)
+- MDN `IntersectionObserver`: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API (HIGH confidence)
+- MDN `will-change`: https://developer.mozilla.org/en-US/docs/Web/CSS/will-change (MEDIUM confidence — browser behavior varies)
+- React StrictMode double-invoke: https://react.dev/reference/react/StrictMode (HIGH confidence)
