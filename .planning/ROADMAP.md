@@ -55,7 +55,10 @@
   1. AnimatedTerminal can obtain a direct ref to the Terminal's inner content element without prop drilling
   2. Switching animation frames does not cause React to unmount and remount line divs that haven't changed
   3. Static build passes with no TypeScript or Biome errors after the changes
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 07-01-PLAN.md — Apply forwardRef wrapper and stable key={i} to Terminal component
 
 ### Phase 8: AnimatedTerminal DOM Patching & Lifecycle
 **Goal**: Animation frame updates bypass React reconciliation entirely, the animation pauses correctly on tab switch and reduced-motion preference, and the terminal is GPU-composited with no screen reader noise
@@ -67,7 +70,10 @@
   3. With `prefers-reduced-motion: reduce` set, the animation stays paused even if the media query changes after initial mount
   4. Unmounting the component (e.g. navigating away) cancels the rAF loop with no console errors
   5. Screen readers do not announce frame content changes as the animation runs
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 07-01-PLAN.md — Apply forwardRef wrapper and stable key={i} to Terminal component
 **UI hint**: yes
 
 ## Progress
