@@ -25,15 +25,9 @@ A polished, fast, fully-static Next.js site with an animated terminal hero on th
 - ✓ `docs/nav.json`, `docs/index.mdx`, `docs/quick-start.mdx` — v1.0
 - ✓ 404 page — v1.0
 - ✓ Favicon SVG and AIDX logo in `public/` — v1.0
-
-## Current Milestone: v1.3 Eye Animation Enhancement
-
-**Goal:** Port the Ghostty "eye becoming round" animation effect to the AIDX homepage character (颜小慧), making her squinting eyes evolve into round circles during the animation loop.
-
-**Target features:**
-- Regenerate animation frames so eyes transition from squinting (`>` / `-`) to round circles
-- Match Ghostty's eye-opening visual quality and timing
-- Keep animation smooth at 31ms/frame, 235 frames
+- ✓ Eye animation: 235 frames with 5-stage squint→slit→half-open→three-quarter→full-round progression — v1.3
+- ✓ `generate-eye-frames.js` post-processor with built-in line-length validator — v1.3
+- ✓ Deterministic frame ordering via `.sort()` in HomeContent.tsx — v1.3
 
 ### Active
 
@@ -57,15 +51,17 @@ A polished, fast, fully-static Next.js site with an animated terminal hero on th
 ## Context
 
 **Shipped v1.0 (2026-04-17):** 3 phases, 9 plans, 129 files changed, ~4,100 LOC TypeScript/CSS.
+**Shipped v1.3 (2026-04-19):** 1 phase, 2 plans, 215 files changed (+4,398/-2,002 lines).
 
 Tech stack: Next.js 16, React 19, TypeScript, Biome 2, CSS Modules, MDX (`@next/mdx`, gray-matter, remark-gfm, rehype-highlight), zustand, lucide-react, slugify.
 
-235 animation frames in `terminals/home/animation_frames/` power the homepage hero. Brand SVG assets in repo root are used for navbar wordmark, favicon, and logo.
+235 animation frames in `terminals/home/animation_frames/` power the homepage hero — now with 5-stage eye-opening progression. Brand SVG assets in repo root are used for navbar wordmark, favicon, and logo.
 
 Known technical debt:
 - `GITHUB_REPO_URL` in `src/lib/docs/config.ts` is a placeholder (`https://github.com/your-org/aidx`)
 - PNG favicon variants (favicon.ico, -16, -32, -128, -256) were deferred — SVG-only for v1
 - No real docs content yet beyond scaffold pages
+- npm 11 Invalid Version bug with sharp 0.34.x requires `--no-package-lock --cache /tmp/npm-cache-$$` workaround
 
 ## Constraints
 
@@ -84,6 +80,9 @@ Known technical debt:
 | Use AIDX brand color #3A5ECF | From existing landing page, consistent with brand assets | ✓ Good — consistent |
 | SVG-only favicon for v1 | PNG variants are extra work; SVG is sufficient for modern browsers | ✓ Good — deferred PNG work to v2 |
 | Verbatim Ghostty component copy + AIDX brand swap | Fastest path to working site; no rewrite needed | ✓ Good — 2-day build |
+| Node.js post-processor for eye frames (not CSS/SVG overlay) | No stable pixel anchor for overlay; frame pipeline is the only content layer | ✓ Good — clean, idempotent, rerunnable |
+| Exclude ghostty/ from tsconfig.json | Subtree references AIDX-missing components; reference-only, not compiled | ✓ Good — unblocks build without removing subtree |
+| npm --no-package-lock workaround for sharp 0.34.x | npm 11 Invalid Version bug with @img/sharp-libvips-* tarballs | ✓ Good — documented in STATE.md for future runs |
 
 ## Evolution
 
@@ -103,4 +102,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-17 after v1.0 milestone*
+*Last updated: 2026-04-19 after v1.3 milestone*

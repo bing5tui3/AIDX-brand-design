@@ -31,6 +31,7 @@ function useWindowSize() {
 export default function HomeContent({ terminalData }: HomeClientProps) {
   const animationFrames = Object.keys(terminalData)
     .filter((k) => k.startsWith("home/animation_frames"))
+    .sort()
     .map((k) => terminalData[k]);
 
   const [windowWidth, windowHeight] = useWindowSize();

@@ -5,6 +5,7 @@
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-04-17)
 - ✅ **v1.1 Animation Fix** — Phase 4 (shipped 2026-04-17)
 - ✅ **v1.2 Brand Asset Organization** — Phase 5 (shipped 2026-04-17)
+- ✅ **v1.3 Eye Animation Enhancement** — Phase 6 (shipped 2026-04-19)
 
 ## Phases
 
@@ -17,22 +18,26 @@
 
 </details>
 
-### ✅ Phase 4: Animation Color & Smoothness Fix — SHIPPED 2026-04-17
+<details>
+<summary>✅ v1.1 Animation Fix (Phase 4) — SHIPPED 2026-04-17</summary>
 
-**Milestone:** v1.1  
-**Goal:** Fix homepage animated terminal to match `aidx-landing.html` — correct colors for frame classes `e`/`g`/`h`/`o`.
+- [x] Phase 4: Animation Color & Smoothness Fix (2/2 plans) — completed 2026-04-17
 
-**Plans:**
-- [x] 04-01-PLAN.md — Add missing color classes to Terminal.module.css
-- [x] 04-02-PLAN.md — Investigate smoothness; pinned `next@16.1.6` to fix HMR reload loop
+</details>
 
-### Phase 5: Brand Asset Organization — v1.2
+<details>
+<summary>✅ v1.2 Brand Asset Organization (Phase 5) — SHIPPED 2026-04-17</summary>
 
-**Milestone:** v1.2  
-**Goal:** Consolidate all scattered brand design assets (SVGs, photos, scripts) into proper project directories, and serve brand-report.html as a static web page via `public/`.
+- [x] Phase 5: Brand Asset Organization (1/1 plans) — completed 2026-04-17
 
-**Plans:**
-- [ ] 05-01-PLAN.md — Move SVGs to `src/assets/brand/`, update navbar import, move scripts/photos/cleanup ✅
+</details>
+
+<details>
+<summary>✅ v1.3 Eye Animation Enhancement (Phase 6) — SHIPPED 2026-04-19</summary>
+
+- [x] Phase 6: Eye Animation Enhancement (2/2 plans) — completed 2026-04-19
+
+</details>
 
 ## Progress
 
@@ -42,4 +47,5 @@
 | 2. Component Library | v1.0 | 3/3 | Complete | 2026-04-17 |
 | 3. Pages, Docs & Build | v1.0 | 4/4 | Complete | 2026-04-17 |
 | 4. Animation Color & Smoothness Fix | v1.1 | 2/2 | Complete | 2026-04-17 |
-| 5. Brand Asset Organization | v1.2 | 0/1 | Planned | — |
+| 5. Brand Asset Organization | v1.2 | 1/1 | Complete | 2026-04-17 |
+| 6. Eye Animation Enhancement | v1.3 | 2/2 | Complete | 2026-04-19 |
