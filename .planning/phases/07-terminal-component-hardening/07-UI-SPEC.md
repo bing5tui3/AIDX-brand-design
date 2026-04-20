@@ -1,7 +1,8 @@
 ---
 phase: 7
 slug: terminal-component-hardening
-status: draft
+status: approved
+reviewed_at: 2026-04-20T00:00:00Z
 shadcn_initialized: false
 preset: none
 created: 2026-04-20
@@ -41,15 +42,17 @@ Declared values (must be multiples of 4):
 |-------|-------|-------|
 | xs | 4px | Icon gaps, inline padding |
 | sm | 8px | Window control gaps (macOS: 8px) |
-| md | 12px | Terminal internal padding (`--padding: 7px` + `--code-margin-top: 12px`) |
+| md | 12px | Terminal internal padding, `--code-margin-top` |
 | lg | 16px | Default element spacing |
 | xl | 24px | Section padding |
 | 2xl | 48px | Major section breaks |
 | 3xl | 64px | Page-level spacing |
 
-Exceptions:
-- Terminal `--padding` is 7px (non-standard, inherited from Ghostty — do not change)
-- Terminal `--code-margin-top` is 12px (non-standard, inherited from Ghostty — do not change)
+## Spacing Exceptions
+
+The following values fall outside the 4-point scale. They are inherited from the Ghostty reference implementation and must not be changed.
+
+- `--padding: 7px` — terminal inner padding; inherited from Ghostty CSS verbatim. Changing this value would alter the visual output, violating the preservation rule for this phase.
 - macOS window controls gap: 8px; Adwaita window controls gap: 12px
 - macOS control size: 12px; Adwaita control size: 18px
 
@@ -64,10 +67,12 @@ Source: `src/components/terminal/Terminal.module.css`
 | Terminal content (xtiny) | 6px | 400 | natural (monospace) |
 | Terminal content (tiny) | 10px | 400 | natural (monospace) |
 | Terminal content (small) | 12px | 400 | natural (monospace) |
-| Terminal content (medium) | 14px | 400 | natural (monospace) |
-| Terminal content (large) | 16px | 400 | natural (monospace) |
-| Terminal title (tiny/small) | 14px | 400 / 800 (Adwaita) | natural |
-| Terminal title (medium/large) | 16px | 400 / 800 (Adwaita) | natural |
+| Terminal content (medium/large) | 14px – 16px | 400 | natural (monospace) |
+| Terminal title | 14px – 16px | 400 / 800 (Adwaita) | natural |
+
+Notes:
+- "Terminal content (medium/large)" covers the `--content-font-size` values for the `medium` (14px) and `large` (16px) size variants — they share the same weight and line-height contract and are grouped as a single size entry.
+- "Terminal title" covers `--title-font-size` for all size variants (14px for tiny/small, 16px for medium/large) — grouped as a single entry because the only variable is the pixel value, not the weight or line-height contract.
 
 Font family: JetBrains Mono for all terminal content (monospace, fixed-width character grid).
 
