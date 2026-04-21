@@ -69,6 +69,11 @@ function easeInOut(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
 function lerp(a, b, t) { return a + (b - a) * t; }
 
 function getParamsAtFrame(fi) {
+  const first = keyframes[0];
+  const last = keyframes[keyframes.length - 1];
+  const linearT = Math.max(0, Math.min(1, (fi - first.frame) / (last.frame - first.frame)));
+  const linearLightAngle = lerp(first.lightAngle, last.lightAngle, linearT);
+
   for (let i = 0; i < keyframes.length - 1; i++) {
     const kf1 = keyframes[i], kf2 = keyframes[i + 1];
     if (fi >= kf1.frame && fi <= kf2.frame) {
@@ -77,12 +82,12 @@ function getParamsAtFrame(fi) {
       return {
         floatOffset: lerp(kf1.floatOffset, kf2.floatOffset, t),
         eyeState:    lerp(kf1.eyeState,    kf2.eyeState,    t),
-        lightAngle:  lerp(kf1.lightAngle,  kf2.lightAngle,  t),
+        lightAngle:  linearLightAngle,
       };
     }
   }
-  const last = keyframes[keyframes.length - 1];
-  return { floatOffset: last.floatOffset, eyeState: last.eyeState, lightAngle: last.lightAngle };
+
+  return { floatOffset: last.floatOffset, eyeState: last.eyeState, lightAngle: linearLightAngle };
 }
 
 // ─── Canvas 渲染工具 ─────────────────────────────────────────────────────────

@@ -24,7 +24,7 @@
     <span class="w">....$$$$$$$$$$$                                                     @@@@@@@@@@@$$$$</span>   
     <span class="w">....$$$$$$$$$$$                                                     @@@@@@@@@@@$$$$</span>   
     <span class="w">....$$$$$$$$$$$</span>         <span class="e">&gt;&gt;&gt;&gt;&gt;</span>                                       <span class="w">@@@@@@@@@@@$$$$</span>   
-    <span class="w">++++$$$$$$$$$$$</span>         <span class="e">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>                                    <span class="w">@@@@@@@@@@@@@@@</span>   
+    <span class="w">++++$$$$$$$$$$$</span>         <span class="e">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>                                    <span class="w">@@@@@@@@@@@@@$$</span>   
     <span class="w">++++$$$$$$$$$$$</span>          <span class="e">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>                                  <span class="w">@@@@@@@@@@@@@@@</span>   
      <span class="w">+++$$$$$$$$$$$$</span>           <span class="e">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;             -------------</span>    <span class="w">@@@@@@@@@@@@@@@</span>    
      <span class="w">+++$$$$$$$$$$$$</span>              <span class="e">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;         -----------------</span>  <span class="w">@@@@@@@@@@@@@@@</span>    
@@ -41,7 +41,7 @@
          <span class="w">====@@@@@@@@@@@@***** ********%%%%%%%%%%%%%$$$$$$$$$$$$$$@@@@@@@@@@@@@@@@</span>        
           <span class="w">====@@@@@@@@@******       ***%%%%%%%%%%%%%$$$       $$$$$$@@@@@@@@@@@@@</span>         
            <span class="w">==========******                                     $$$$$$@@@@@@@@@@</span>          
-             <span class="w">=======****                                           $$$$@@@@@@@</span>            
+             <span class="w">======*****                                           $$$$@@@@@@@</span>            
                                                                                           
                                                                                           
                                                                                           
