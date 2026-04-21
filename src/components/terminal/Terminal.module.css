@@ -121,13 +121,7 @@
       & :global(.e) {
         color: #7ec8f0;
       }
-      & :global(.h) {
-        color: #3A5ECF;
-      }
-      & :global(.g) {
-        color: #5577dd;
-      }
-      & :global(.o) {
+      & :global(.w) {
         color: #6699ff;
       }
     }

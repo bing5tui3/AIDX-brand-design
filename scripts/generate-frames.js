@@ -219,15 +219,23 @@ function generateFrame(params) {
     let spanCls = '', spanBuf = '', html = '';
     const flush = () => {
       if (!spanBuf) return;
-      html += spanCls ? `<span class="${spanCls}">${spanBuf}</span>` : spanBuf;
+      if (spanCls) {
+        // move trailing spaces outside the span
+        const trimmed = spanBuf.trimEnd();
+        const tail = spanBuf.slice(trimmed.length);
+        html += `<span class="${spanCls}">${trimmed}</span>${tail}`;
+      } else {
+        html += spanBuf;
+      }
       spanBuf = '';
+      spanCls = '';
     };
 
     for (let c = 0; c < COLS; c++) {
       const t = baseShape[r][c];
-      if (t === 4) { flush(); spanCls = ''; html += `<span class="e">${eyeChars.gt}</span>`; continue; }
-      if (t === 5) { flush(); spanCls = ''; html += `<span class="e">${eyeChars.dash}</span>`; continue; }
-      if (t === 2 || t === 0) { if (spanCls !== '') { flush(); spanCls = ''; } spanBuf += ' '; continue; }
+      if (t === 4) { if (spanCls !== 'e') { flush(); spanCls = 'e'; } spanBuf += eyeChars.gt; continue; }
+      if (t === 5) { if (spanCls !== 'e') { flush(); spanCls = 'e'; } spanBuf += eyeChars.dash; continue; }
+      if (t === 2 || t === 0) { if (spanCls !== '') { spanBuf += ' '; } else { html += ' '; } continue; }
 
       let lit;
       if (t === 6) {
@@ -249,8 +257,7 @@ function generateFrame(params) {
 
       const ramp = (t === 3 || t === 1) ? hairRamp : glowRamp;
       const ch = ramp[Math.floor(lit * (ramp.length - 1))];
-      const nc = t === 3 ? 'g' : t === 1 ? 'h' : 'o';
-      if (spanCls !== nc) { flush(); spanCls = nc; }
+      if (spanCls !== 'w') { flush(); spanCls = 'w'; }
       spanBuf += ch;
     }
     flush();
