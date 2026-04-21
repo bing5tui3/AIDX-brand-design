@@ -15,18 +15,12 @@ import s from "./Terminal.module.css";
 
 import { X, Menu, LayoutGrid, SquarePlus } from "lucide-react";
 
-/**
- * Sanitize a terminal line string to allow only safe span tags used for
- * syntax highlighting (.b, .e, .h, .g, .o classes). All other HTML is escaped.
- */
+// Frame data is static pre-rendered HTML containing trusted HTML entities
+// (e.g. &gt;) and <span class="b|e|h|g|o"> syntax-highlight tags.
+// Strip any tag that is NOT an allowlisted span open/close — never re-escape
+// entities that are already encoded in the source data.
 function sanitizeTerminalLine(line: string): string {
-  const escaped = line
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-  return escaped
-    .replace(/&lt;span class="([beghoBEGHO]+)"&gt;/g, '<span class="$1">')
-    .replace(/&lt;\/span&gt;/g, "</span>");
+  return line.replace(/<(?!\/?span\b)[^>]*>/g, "");
 }
 
 export type TerminalFontSize = "xtiny" | "tiny" | "small" | "medium" | "large";

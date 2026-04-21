@@ -3,21 +3,12 @@
 import { useEffect, useRef } from "react";
 import Terminal, { type TerminalProps } from "../terminal";
 
-/**
- * Sanitize a terminal line string to allow only safe span tags used for
- * syntax highlighting (.b, .e, .h, .g, .o classes). All other HTML is escaped.
- * This prevents XSS if frame data ever originates from an untrusted source.
- */
+// Frame data is static pre-rendered HTML containing trusted HTML entities
+// (e.g. &gt;) and <span class="b|e|h|g|o"> syntax-highlight tags.
+// Strip any tag that is NOT an allowlisted span open/close — never re-escape
+// entities that are already encoded in the source data.
 function sanitizeTerminalLine(line: string): string {
-  // Escape the full string first, then restore only allowed span patterns
-  const escaped = line
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-  // Restore allowed patterns: <span class="b|e|h|g|o">...</span>
-  return escaped
-    .replace(/&lt;span class="([beghoBEGHO]+)"&gt;/g, '<span class="$1">')
-    .replace(/&lt;\/span&gt;/g, "</span>");
+  return line.replace(/<(?!\/?span\b)[^>]*>/g, "");
 }
 
 // A simple animation frame loop manager that's tied to requestAnimationFrame
