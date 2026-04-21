@@ -64,9 +64,9 @@ export default forwardRef<HTMLElement, TerminalProps>(function Terminal(
   const [autoScroll, setAutoScroll] = useState(true);
   const handleScroll = (e: UIEvent<HTMLElement>) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target as HTMLElement;
-    const position = Math.ceil(
-      (scrollTop / (scrollHeight - clientHeight)) * 100,
-    );
+    const scrollable = scrollHeight - clientHeight;
+    if (scrollable === 0) return; // nothing to scroll — avoid division by zero
+    const position = Math.ceil((scrollTop / scrollable) * 100);
     if (position < 100) {
       setAutoScroll(false);
     }
