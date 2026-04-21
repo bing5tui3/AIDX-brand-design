@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Terminal, { type TerminalProps } from "../terminal";
 
 // A simple animation frame loop manager that's tied to requestAnimationFrame
@@ -79,23 +79,44 @@ export default function AnimatedTerminal({
   frameLengthMs,
 }: AnimatedTerminalProps) {
   const baseFps = 1000 / frameLengthMs;
-  const [currentFrame, setCurrentFrame] = useState(16);
-  const [animationManager] = useState(
-    () =>
-      new AnimationManager(() => {
-        setCurrentFrame((currentFrame) => (currentFrame + 1) % frames.length);
-      }, baseFps),
-  );
+
+  const contentRef = useRef<HTMLElement>(null);
+  const frameIndexRef = useRef(16);
+  const padding = " ".repeat(whitespacePadding ?? 0);
+
+  const managerRef = useRef<AnimationManager | null>(null);
+  if (managerRef.current === null) {
+    managerRef.current = new AnimationManager(() => {
+      frameIndexRef.current = (frameIndexRef.current + 1) % frames.length;
+      if (contentRef.current) {
+        contentRef.current.innerHTML = frames[frameIndexRef.current]
+          .map((line) => `<div>${padding}${line}${padding}</div>`)
+          .join(""); // no newlines — must match React's dangerouslySetInnerHTML output
+      }
+    }, baseFps);
+  }
+  const animationManager = managerRef.current;
 
   useEffect(() => {
-    const reducedMotion =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches === true;
-    if (reducedMotion) {
-      return;
-    }
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mql.matches) return; // LIFE-03: reduced motion at mount — don't start
 
-    const handleFocus = () => animationManager.start();
-    const handleBlur = () => animationManager.pause();
+    const handleVisibilityChange = () => {
+      // LIFE-02: correct API for tab visibility
+      if (document.visibilityState === "hidden") {
+        animationManager.pause();
+      } else {
+        animationManager.start();
+      }
+    };
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      // LIFE-03: reactive — fires when OS preference changes after mount
+      if (e.matches) {
+        animationManager.pause();
+      } else if (document.visibilityState === "visible") {
+        animationManager.start();
+      }
+    };
     const codeInProgress: string[] = [];
     const handleKeyUp = (event: KeyboardEvent) => {
       const key = event.key.toLowerCase();
@@ -114,29 +135,33 @@ export default function AnimatedTerminal({
       }
       codeInProgress.length = 0;
     };
-    window.addEventListener("focus", handleFocus);
-    window.addEventListener("blur", handleBlur);
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    mql.addEventListener("change", handleMotionChange);
     window.addEventListener("keyup", handleKeyUp);
 
     if (document.visibilityState === "visible") {
       animationManager.start();
     }
+
     return () => {
-      window.removeEventListener("focus", handleFocus);
-      window.removeEventListener("blur", handleBlur);
+      animationManager.pause(); // LIFE-01: cancel rAF on unmount — prevents leak
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      mql.removeEventListener("change", handleMotionChange);
       window.removeEventListener("keyup", handleKeyUp);
     };
   }, [animationManager, frames.length, baseFps]);
 
   return (
     <Terminal
+      ref={contentRef}
       className={className}
       columns={columns}
       whitespacePadding={whitespacePadding}
       rows={rows}
       title={title}
       fontSize={fontSize}
-      lines={frames[currentFrame]}
+      lines={frames[frameIndexRef.current]}
       disableScrolling={true}
     />
   );
