@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.4
 milestone_name: Animation Performance Optimization
 status: Defining requirements
-last_updated: "2026-04-20T08:50:19.968Z"
+last_updated: "2026-04-21T07:01:05.888Z"
 last_activity: 2026-04-20 — Milestone v1.4 started
 progress:
-  total_phases: 2
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_phases: 3
+  completed_phases: 2
+  total_plans: 2
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
@@ -29,7 +29,7 @@ Plan: —
 Status: Defining requirements
 Last activity: 2026-04-20 — Milestone v1.4 started
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██████████] 100%
 
 ## Accumulated Context
 
@@ -45,6 +45,8 @@ Progress: [░░░░░░░░░░] 0%
 - npm 11 Invalid Version bug with sharp 0.34.x: use --no-package-lock --cache /tmp/npm-cache-$$ as workaround
 - AnimatedTerminal/Terminal code is identical to Ghostty — choppiness is due to frame content complexity (AIDX frames have many <span> elements for eye animation, ~11KB/frame)
 - key={i + line} in Terminal causes DOM node recreation for changed lines — fix to key={i}
+- Direct innerHTML write in AnimationManager callback eliminates ~30 React re-renders/sec for ~11KB frame content
+- contain: strict safe on .terminal because explicit width/height set via --columns/--rows CSS vars
 
 ### Pending Todos
 

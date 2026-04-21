@@ -10,22 +10,29 @@ Eliminate React reconciliation overhead on each frame update so the homepage ter
 
 - [ ] **RENDER-01**: Terminal component exposes content element ref via `React.forwardRef`
 - [ ] **RENDER-02**: Terminal uses stable `key={i}` for line divs (not `key={i + line}`)
-- [ ] **RENDER-03**: AnimatedTerminal uses direct `innerHTML` patching via `contentRef` instead of `setCurrentFrame` for frame updates after initial render
+- [x] **RENDER-03
+**: AnimatedTerminal uses direct `innerHTML` patching via `contentRef` instead of `setCurrentFrame` for frame updates after initial render
 
 ### Lifecycle & Correctness
 
-- [ ] **LIFE-01**: AnimatedTerminal `useEffect` cleanup calls `animationManager.pause()` to cancel rAF loop on unmount
-- [ ] **LIFE-02**: AnimatedTerminal listens to `document.visibilitychange` to pause/resume on tab switch
-- [ ] **LIFE-03**: `prefers-reduced-motion` check uses a reactive `matchMedia` listener (not one-time mount check)
+- [x] **LIFE-01
+**: AnimatedTerminal `useEffect` cleanup calls `animationManager.pause()` to cancel rAF loop on unmount
+- [x] **LIFE-02
+**: AnimatedTerminal listens to `document.visibilitychange` to pause/resume on tab switch
+- [x] **LIFE-03
+**: `prefers-reduced-motion` check uses a reactive `matchMedia` listener (not one-time mount check)
 
 ### CSS Performance
 
-- [ ] **CSS-01**: `.terminal` has `contain: strict` to isolate layout/paint from page
-- [ ] **CSS-02**: `.content` has `will-change: contents` for GPU compositor layer (not applied to individual row divs)
+- [x] **CSS-01
+**: `.terminal` has `contain: strict` to isolate layout/paint from page
+- [x] **CSS-02
+**: `.content` has `will-change: contents` for GPU compositor layer (not applied to individual row divs)
 
 ### Accessibility
 
-- [ ] **A11Y-01**: `<Code>` element has `aria-live="off"` to prevent screen reader announcements on innerHTML updates
+- [x] **A11Y-01
+**: `<Code>` element has `aria-live="off"` to prevent screen reader announcements on innerHTML updates
 
 ## Future Requirements
 
