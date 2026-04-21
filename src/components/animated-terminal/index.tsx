@@ -3,6 +3,23 @@
 import { useEffect, useRef } from "react";
 import Terminal, { type TerminalProps } from "../terminal";
 
+/**
+ * Sanitize a terminal line string to allow only safe span tags used for
+ * syntax highlighting (.b, .e, .h, .g, .o classes). All other HTML is escaped.
+ * This prevents XSS if frame data ever originates from an untrusted source.
+ */
+function sanitizeTerminalLine(line: string): string {
+  // Escape the full string first, then restore only allowed span patterns
+  const escaped = line
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  // Restore allowed patterns: <span class="b|e|h|g|o">...</span>
+  return escaped
+    .replace(/&lt;span class="([beghoBEGHO]+)"&gt;/g, '<span class="$1">')
+    .replace(/&lt;\/span&gt;/g, "</span>");
+}
+
 // A simple animation frame loop manager that's tied to requestAnimationFrame
 // and should always keep frames in lock step with timing updates
 class AnimationManager {
@@ -81,16 +98,18 @@ export default function AnimatedTerminal({
   const baseFps = 1000 / frameLengthMs;
 
   const contentRef = useRef<HTMLElement>(null);
-  const frameIndexRef = useRef(16);
+  const frameIndexRef = useRef(0);
+  const framesRef = useRef(frames);
+  useEffect(() => { framesRef.current = frames; }, [frames]);
   const padding = " ".repeat(whitespacePadding ?? 0);
 
   const managerRef = useRef<AnimationManager | null>(null);
   if (managerRef.current === null) {
     managerRef.current = new AnimationManager(() => {
-      frameIndexRef.current = (frameIndexRef.current + 1) % frames.length;
+      frameIndexRef.current = (frameIndexRef.current + 1) % framesRef.current.length;
       if (contentRef.current) {
-        contentRef.current.innerHTML = frames[frameIndexRef.current]
-          .map((line) => `<div>${padding}${line}${padding}</div>`)
+        contentRef.current.innerHTML = framesRef.current[frameIndexRef.current]
+          .map((line) => `<div>${padding}${sanitizeTerminalLine(line)}${padding}</div>`)
           .join(""); // no newlines — must match React's dangerouslySetInnerHTML output
       }
     }, baseFps);
