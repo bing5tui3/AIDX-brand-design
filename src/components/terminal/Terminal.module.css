@@ -1,4 +1,5 @@
 .terminal {
+  contain: strict; /* CSS-01: isolate layout/paint from page; safe — explicit width/height set via --columns/--rows */
   --code-margin-top: 12px;
   --padding: 7px;
 
@@ -100,6 +101,7 @@
   }
 
   & .content {
+    will-change: contents; /* CSS-02: GPU compositor layer hint for innerHTML-mutated element */
     font-size: var(--content-font-size);
     padding-top: var(--code-margin-top);
     color: var(--gray-6);

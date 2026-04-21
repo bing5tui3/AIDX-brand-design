@@ -1,8 +1,15 @@
 "use client";
 
 import classNames from "classnames";
+import {
+  forwardRef,
+  useImperativeHandle,
+  type UIEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import type React from "react";
-import { type UIEvent, useEffect, useRef, useState } from "react";
 import { Code, P } from "../text";
 import s from "./Terminal.module.css";
 
@@ -20,16 +27,19 @@ export interface TerminalProps {
   disableScrolling?: boolean;
 }
 
-export default function Terminal({
-  columns,
-  rows,
-  fontSize = "medium",
-  className,
-  title,
-  lines,
-  whitespacePadding = 0,
-  disableScrolling = false,
-}: TerminalProps) {
+export default forwardRef<HTMLElement, TerminalProps>(function Terminal(
+  {
+    columns,
+    rows,
+    fontSize = "medium",
+    className,
+    title,
+    lines,
+    whitespacePadding = 0,
+    disableScrolling = false,
+  }: TerminalProps,
+  ref: React.Ref<HTMLElement>,
+) {
   const [platformStyle, setPlatformStyle] = useState("macos");
   useEffect(() => {
     const userAgent = window?.navigator.userAgent;
@@ -52,6 +62,8 @@ export default function Terminal({
   };
 
   const codeRef = useRef<HTMLElement>(null);
+  // biome-ignore lint/style/noNonNullAssertion: codeRef is always mounted before this ref is consumed
+  useImperativeHandle(ref, () => codeRef.current!, []);
   useEffect(() => {
     if (autoScroll) {
       codeRef.current?.scrollTo({
@@ -93,6 +105,7 @@ export default function Terminal({
       </div>
       <Code
         ref={codeRef}
+        aria-live="off"
         className={classNames(s.content, {
           [s.disableScrolling]: disableScrolling,
         })}
@@ -101,8 +114,8 @@ export default function Terminal({
         {lines?.map((line, i) => {
           return (
             <div
-              // biome-ignore lint/suspicious/noArrayIndexKey: composite key includes line content
-              key={i + line}
+              // biome-ignore lint/suspicious/noArrayIndexKey: stable key intentional — lines update via direct DOM patching
+              key={i}
               dangerouslySetInnerHTML={{
                 __html: `${padding}${line}${padding}`,
               }}
@@ -112,7 +125,7 @@ export default function Terminal({
       </Code>
     </div>
   );
-}
+}); // closes forwardRef(function Terminal(...) { ... })
 
 function AdwaitaButtons() {
   // NOTE:
