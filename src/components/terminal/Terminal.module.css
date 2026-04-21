@@ -138,7 +138,7 @@
 
     & .header {
       background: var(--adw-headerbar-color);
-      border-bottom: 2px var(--adw-headerbar-shade-color);
+      border-bottom: 2px solid var(--adw-headerbar-shade-color);
 
       & .windowControls {
         gap: 12px;
