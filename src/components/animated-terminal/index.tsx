@@ -41,16 +41,11 @@ class AnimationManager {
   }
 
   update = (time: number) => {
-    const { lastFrame } = this;
-    let delta = time - lastFrame;
     if (this.lastFrame === -1) {
       this.lastFrame = time;
-    } else {
-      while (delta >= this.frameTime) {
-        this.callback();
-        delta -= this.frameTime;
-        this.lastFrame += this.frameTime;
-      }
+    } else if (time - this.lastFrame >= this.frameTime) {
+      this.callback();
+      this.lastFrame = time;
     }
     this._animation = requestAnimationFrame(this.update);
   };
