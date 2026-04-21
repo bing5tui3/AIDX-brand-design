@@ -103,12 +103,11 @@
   & .content {
     will-change: contents; /* CSS-02: GPU compositor layer hint for innerHTML-mutated element */
     font-size: var(--content-font-size);
-    padding-top: var(--code-margin-top);
     color: var(--gray-6);
     word-wrap: break-word;
     scroll-behavior: smooth;
     overflow-y: scroll;
-    padding: var(--padding);
+    padding: var(--code-margin-top) var(--padding) var(--padding);
 
     &.disableScrolling {
       overflow-y: hidden;
