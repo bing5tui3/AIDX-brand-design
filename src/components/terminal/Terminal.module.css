@@ -1,5 +1,6 @@
 .terminal {
   contain: strict; /* CSS-01: isolate layout/paint from page; safe — explicit width/height set via --columns/--rows */
+  --control-size: 12px; /* fallback; overridden by .macos (12px) and .adwaita (18px) */
   --code-margin-top: 12px;
   --padding: 7px;
 
