@@ -73,8 +73,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 07-01-PLAN.md — Apply forwardRef wrapper and stable key={i} to Terminal component
-**UI hint**: yes
+- [ ] 08-01-PLAN.md — Refactor AnimatedTerminal to direct innerHTML, fix lifecycle bugs, add CSS hints and aria-live
 
 ## Progress
 
