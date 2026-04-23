@@ -32,3 +32,22 @@
 **Known gaps at close:** 12 EYE requirements show Pending in REQUIREMENTS.md traceability table — all verified complete per 06-VERIFICATION.md (20/20 checks passed).
 
 ---
+
+## v1.4 Animation Performance Optimization (Shipped: 2026-04-23)
+
+**Phases completed:** 2 phases (7–8), 2 plans
+**Files modified:** 254 | **Lines:** +12,157 / -9,720
+**Timeline:** 2026-04-20 → 2026-04-21 (2 days)
+
+**Key accomplishments:**
+
+- Terminal `forwardRef` + `useImperativeHandle` bridge exposes inner `<code>` element; stable `key={i}` eliminates per-frame DOM churn
+- AnimatedTerminal direct `innerHTML` writes bypass ~30 React re-renders/sec for 11KB/frame content
+- Three lifecycle bug fixes: rAF cleanup on unmount, `visibilitychange` for tab pause, reactive `matchMedia` for reduced-motion
+- CSS containment (`contain: strict`) and GPU compositor hints (`will-change: contents`) on Terminal
+- `aria-live="off"` on Terminal Code element — screen readers silent during animation
+- Span reduction 289→61 per frame (~79%), frame HTML 11.9KB→6.8KB — matching Ghostty baseline
+
+**Known deferred items at close:** 3 (see STATE.md Deferred Items)
+
+---

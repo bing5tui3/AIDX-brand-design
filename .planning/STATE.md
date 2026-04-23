@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v1.4
 milestone_name: Animation Performance Optimization
-status: Defining requirements
-last_updated: "2026-04-21T07:01:05.888Z"
-last_activity: 2026-04-20 — Milestone v1.4 started
+status: complete
+last_updated: "2026-04-23T00:00:00.000Z"
+last_activity: 2026-04-23 — Milestone v1.4 archived
 progress:
-  total_phases: 3
+  total_phases: 2
   completed_phases: 2
   total_plans: 2
   completed_plans: 2
@@ -17,10 +17,10 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-20)
+See: .planning/PROJECT.md (updated 2026-04-23)
 
 **Core value:** A polished, fast, fully-static Next.js site with animated terminal hero and MDX docs — mirroring Ghostty website architecture exactly.
-**Current focus:** v1.4 Animation Performance Optimization
+**Current focus:** Planning next milestone
 
 ## Current Position
 
@@ -58,6 +58,10 @@ None.
 
 ## Deferred Items
 
+Items acknowledged and deferred at milestone close on 2026-04-23:
+
 | Category | Item | Status | Deferred At |
 |----------|------|--------|-------------|
-| *(none)* | | | |
+| uat_gap | Phase 08: 08-HUMAN-UAT.md — 2 pending scenarios (tab visibility, reduced-motion) | partial | 2026-04-23 |
+| verification_gap | Phase 08: 08-01-VERIFICATION.md | human_needed | 2026-04-23 |
+| quick_task | 260421-nya-reduce-terminal-spans (shipped in dd8cb33, status stale) | missing | 2026-04-23 |

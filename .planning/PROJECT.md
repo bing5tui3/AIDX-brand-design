@@ -8,15 +8,7 @@ AIDX is an AI-powered developer experience product. This project refactors the c
 
 A polished, fast, fully-static Next.js site with an animated terminal hero on the homepage and MDX-driven documentation — mirroring the Ghostty website architecture exactly.
 
-## Current Milestone: v1.4 Animation Performance Optimization
-
-**Goal:** Eliminate React reconciliation overhead on each frame update so the homepage terminal animation runs as smoothly as Ghostty's.
-
-**Target features:**
-- Direct DOM patching in AnimatedTerminal — bypass React state/re-render for frame updates
-- Stable line keys in Terminal — use index-only key so React reuses DOM nodes
-- CSS GPU acceleration — promote terminal container to its own compositor layer
-- Visibility API pause — fix tab-switch pause (currently only checked on mount)
+## Current Milestone: v1.4 Animation Performance Optimization — ✅ SHIPPED 2026-04-23
 
 ## Requirements
 
@@ -38,11 +30,15 @@ A polished, fast, fully-static Next.js site with an animated terminal hero on th
 - ✓ Eye animation: 235 frames with 5-stage squint→slit→half-open→three-quarter→full-round progression — v1.3
 - ✓ `generate-eye-frames.js` post-processor with built-in line-length validator — v1.3
 - ✓ Deterministic frame ordering via `.sort()` in HomeContent.tsx — v1.3
+- ✓ Terminal `forwardRef` + stable `key={i}` — eliminates per-frame DOM churn — v1.4
+- ✓ AnimatedTerminal direct `innerHTML` writes — bypasses React reconciliation for 30fps animation — v1.4
+- ✓ Animation lifecycle correctness: rAF cleanup, `visibilitychange` tab pause, reactive `matchMedia` — v1.4
+- ✓ CSS containment (`contain: strict`) + GPU compositor hints (`will-change: contents`) on Terminal — v1.4
+- ✓ `aria-live="off"` on Terminal Code element — v1.4
+- ✓ Span reduction 289→61/frame (~79%), frame HTML 11.9KB→6.8KB — v1.4
 
 ### Active
 
-- [ ] Animation frame color classes `e`/`g`/`h`/`o` styled in Terminal.module.css (v1.1)
-- [ ] AnimatedTerminal ref-based direct DOM patching for smooth rendering (v1.1)
 - [ ] Mermaid diagram rendering in MDX (v2)
 - [ ] GitHub issue link processor `GH-123 → link` (v2)
 - [ ] Search functionality (v2)
@@ -62,16 +58,18 @@ A polished, fast, fully-static Next.js site with an animated terminal hero on th
 
 **Shipped v1.0 (2026-04-17):** 3 phases, 9 plans, 129 files changed, ~4,100 LOC TypeScript/CSS.
 **Shipped v1.3 (2026-04-19):** 1 phase, 2 plans, 215 files changed (+4,398/-2,002 lines).
+**Shipped v1.4 (2026-04-23):** 2 phases, 2 plans, 254 files changed (+12,157/-9,720 lines).
 
 Tech stack: Next.js 16, React 19, TypeScript, Biome 2, CSS Modules, MDX (`@next/mdx`, gray-matter, remark-gfm, rehype-highlight), zustand, lucide-react, slugify.
 
-235 animation frames in `terminals/home/animation_frames/` power the homepage hero — now with 5-stage eye-opening progression. Brand SVG assets in repo root are used for navbar wordmark, favicon, and logo.
+235 animation frames in `terminals/home/animation_frames/` power the homepage hero — 5-stage eye-opening progression, direct innerHTML rendering at 30fps with no React re-renders per frame. `generate-eye-frames.js` must be re-run after any `generate-frames.js` regeneration to restore `@ @` eye shapes.
 
 Known technical debt:
 - `GITHUB_REPO_URL` in `src/lib/docs/config.ts` is a placeholder (`https://github.com/your-org/aidx`)
 - PNG favicon variants (favicon.ico, -16, -32, -128, -256) were deferred — SVG-only for v1
 - No real docs content yet beyond scaffold pages
 - npm 11 Invalid Version bug with sharp 0.34.x requires `--no-package-lock --cache /tmp/npm-cache-$$` workaround
+- `frames.json` rebuild not integrated into package.json scripts — must run manually after frame regeneration
 
 ## Constraints
 
@@ -112,4 +110,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-20 after v1.4 milestone start*
+*Last updated: 2026-04-23 after v1.4 milestone*
