@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-23)
 Phase: Not started (defining requirements)
 Plan: —
 Status: Defining requirements
-Last activity: 2026-04-20 — Milestone v1.4 started
+Last activity: 2026-06-11 - Completed quick task 260611-fk8: 替换首页 Get Started 按钮为 Brand Design，指向 /brand-report.html
 
 Progress: [██████████] 100%
 
@@ -55,6 +55,12 @@ None.
 ### Blockers/Concerns
 
 None.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260611-fk8 | 替换首页 Get Started 按钮为 Brand Design，指向 /brand-report.html | 2026-06-11 | 9d3ccca | [260611-fk8-get-started-brand-design-brand-report-ht](./quick/260611-fk8-get-started-brand-design-brand-report-ht/) |
 
 ## Deferred Items
 
