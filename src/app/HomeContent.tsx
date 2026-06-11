@@ -73,7 +73,11 @@ export default function HomeContent({ terminalData }: HomeClientProps) {
             </P>
           </GridContainer>
           <GridContainer className={s.buttonsList}>
-            <ButtonLink href="#" text="Get Started" size="large" />
+            <ButtonLink
+              href="/brand-report.html"
+              text="Brand Design"
+              size="large"
+            />
             <ButtonLink
               href="/docs"
               text="Documentation"
