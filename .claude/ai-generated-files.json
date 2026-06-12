@@ -2,2277 +2,1522 @@
   "files": {
     "--format": {
       "hash": "6d02f8609e1be268a73381c5c961d74a242d2a9a885ff9439b2d1dfdcf536305",
-      "session_id": "8ead78d0",
+      "session_id": "a03820f7",
       "tool": "Bash"
     },
     "--full-page": {
       "hash": "e190437772fdcc744b5857d409366944b947516bc3d4695c95201911749df5ca",
-      "session_id": "8ead78d0",
+      "session_id": "a03820f7",
       "tool": "Bash"
     },
-    ".claude/ai-generated-files.json": {
-      "hash": "c6f1729cef0332e75f56a623613e1a2d7555958ca352b48094b58dd431920fb5",
-      "session_id": "923fbddd",
+    ".planning/config.json": {
+      "hash": "476b35b09e17ee91e32c7d22ff2241e70a0f47ef9bf3973e9f3b2fe84d36f195",
+      "session_id": "a03820f7",
       "tool": "Bash"
     },
-    ".planning/phases/07-terminal-component-hardening/07-01-SUMMARY.md": {
-      "hash": "9af10b0af66e739e3f79af7a59bfc9e4da16bbb1c84c513c64b01f47e34d5c81",
-      "session_id": "8ead78d0",
+    ".serena/.gitignore": {
+      "hash": "21d5dcb497df8b257d94919bdadcfe75b75d085d0f7b77ac2d8a813a9ca6e758",
+      "session_id": "a03820f7",
       "tool": "Bash"
     },
-    ".planning/phases/08-animated-terminal-dom-patching-lifecycle/08-PATTERNS.md": {
-      "hash": "623a1086a57df6bfdbf264ebb946fc26f74785c82e35c1191e5a4f1c389cf210",
-      "session_id": "8ead78d0",
+    ".serena/project.yml": {
+      "hash": "fa11baaa238d348426a419c150218e1c2f7a1eaf9e7114e4f4cc6764c328d922",
+      "session_id": "a03820f7",
       "tool": "Bash"
     },
-    ".planning/phases/08-animated-terminal-dom-patching-lifecycle/08-UI-SPEC.md": {
-      "hash": "e2c8e0496efa45728d5c2b5fcc3f0d8242ca8f8e9e3ca3481ecaac10423e2513",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    ".planning/quick/260421-nya-reduce-terminal-spans/260421-nya-PLAN.md": {
-      "hash": "1c84ce6bb81cae10787f1e557accf0adb6af635a713bca026bee43ccad661796",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    ".vscode/settings.json": {
-      "hash": "048f53e6ca01ac583b48784cd2f6f7d248e0534849955b144e75f017f73188a3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "next-env.d.ts": {
-      "hash": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "package-lock.json": {
-      "hash": "1873590653031e31ede32fd14cd5d1f8fe4ddc44f736e6cd204f7c334162ed96",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "package.json": {
-      "hash": "0ed7aa0dd3a1b9999a64aca1d71b104f1e4a9044dd14475f20e994cc53d63a6c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_001.txt": {
-      "hash": "58b003bf4d6672f6bfe2d4c7a0ddd913aac98da5c5a5947e72458bde4a6f931c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_002.txt": {
-      "hash": "b6f8f0be0197ccd63e650d0a1d9a43983a672f9ea9efe587596dfa927325d295",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_003.txt": {
-      "hash": "64dddfccfcf1615124c1d5228da091963d2f3971018ce1e23c9ab1fbd8a4de96",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_004.txt": {
-      "hash": "3f742c436fa2f9239653535e7745d863778d6136829ff96558ca1e4f79ffc3e0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_005.txt": {
-      "hash": "47aef7e17e79dcf5133faba47ccc7edde0a3dd0199260755bdd6cfdcc3f95271",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_006.txt": {
-      "hash": "755b84323d952ccf5e63fda405ef22e98b6d8fe55d512a5eed3a8bb18156b6ff",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_007.txt": {
-      "hash": "9dab32d67268486cb86e41349c069b1584f5e149ebc9733108ae9b336fc2739d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_008.txt": {
-      "hash": "bc98710d4f35876fa5f48f800673b1edc5b00878b320bb967aeb7b4668763310",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_009.txt": {
-      "hash": "c5076daab898d44595b40e31f68ff45bbcd679032eec43558393000713ebdcc6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_010.txt": {
-      "hash": "460ad8443ad80470fb42844c36bfa2d95e2baf50da21df05a55fc552370d272d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_011.txt": {
-      "hash": "1f0597668da023c26f3c2f061a5e4b6efaddee2473f1f36c7d9344546f64a362",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_012.txt": {
-      "hash": "efab709cd29d7998ad88a16ff8abb7fac5febc6bb42c4a1f2bcc37d72e936d3d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_013.txt": {
-      "hash": "22b28fa728dcbc24445aaba3026418b5e25e98d19bd6af333a2fba8124934f30",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_014.txt": {
-      "hash": "2d253302b9993b9a66c8d1743d49d4e811eeeb5c4477cf5995433bd62065b7b2",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_015.txt": {
-      "hash": "73d79cb7fd54d2d40e5167de429af004f501a380235c4a4cbc58bd1110476ba9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_016.txt": {
-      "hash": "60c2dd0e98de31bade7249e3073af13bfd4e743ae55695f7c04584c741dbf7aa",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_017.txt": {
-      "hash": "1d377386534c767fe5a84bc1b41e11a4b6069159a8112795a6a46e5e9577c514",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_018.txt": {
-      "hash": "2fbed317c82607c4549a7064a90c3ca653732355f939916db52cfa914645cac4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_019.txt": {
-      "hash": "dada68694b0c8e9d9c3519cd62d27967118d9cc1727cb58d616ea84e3bee78a4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_020.txt": {
-      "hash": "10165bee90fdd632837cc9ea6a849942cc4c54e8c8982a3b3db6d7f8314340ca",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_021.txt": {
-      "hash": "28067c31596c4d081329e07d1f4055e8051db9c16449e0a56f51b1f8eca74671",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_022.txt": {
-      "hash": "4842799a36ed68e26d2f2d1cbcadac3e45736897f393672db02d64a0963d1fcf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_023.txt": {
-      "hash": "94caeb877e29452079bc5f0605594d2831ff915a543032bd058e92d3585fc748",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_024.txt": {
-      "hash": "771b00cd9c7fd3e32a870897e5bc6bbbcd469588c767ef5a78c30d2450c66e2f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_025.txt": {
-      "hash": "3d0f29d0afa1f89312edb25a06ae657580f4c11cda47df544a22bcd5c189ba16",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_026.txt": {
-      "hash": "e263f5e9ead1f6d5e0d50b82d4e273f55ae7f7b32632d28bba97654b2aab1e35",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_027.txt": {
-      "hash": "dcd15ed999dcc046d896e8ff894613f801764d97feb490f4aa8668d2ae45ac72",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_028.txt": {
-      "hash": "418d3c94c5186626621474dc10074877fcf0f7e0d04f61e7fb9d2ea135ed7386",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_029.txt": {
-      "hash": "2ccfad62ea30b47b3b8ec94c6445006748d86f30ba6205de61f122b6a530b734",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_030.txt": {
-      "hash": "d6d71e20940fa0eab689e99abe7b10913ee41f9773b9a45850d7304a51abf8a0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_031.txt": {
-      "hash": "1ce2ff3a495f7d32ebecaac91442b513763589c0bef59f609924e7e93bebdebc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_032.txt": {
-      "hash": "7dafb41baa52d012847dea20256b185f0ae7572584f92c608a6f4c938935fb2d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_033.txt": {
-      "hash": "26787592b9ca9a5cd94fa9d732e3ba7b2103a9d4f3ee2f0567eb789cb901f3ff",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_034.txt": {
-      "hash": "5aef4b3240943daeab9eea63944bec4be87328c06cda467389a175b25b50afaf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_035.txt": {
-      "hash": "a876e70097ee50cd47f1b50c87a1c3cf01951855b9887f2a0e002b1a9691f688",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_036.txt": {
-      "hash": "ccbb4035cdb88cfbf91e4910583005f2e1224070727092533da6c4c5660e9716",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_037.txt": {
-      "hash": "a021a9266be08e7bde6f410529a5e5ab7c4429cedaae8ba173309b394a7c18de",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_038.txt": {
-      "hash": "34b6220f6adaa0d03b49bb13616aef05cc3e6c2a1140824ecbb9641d53cf607b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_039.txt": {
-      "hash": "f23a045bcb643e134126b6ef7c775821a131402447666f31d972b62a51f4b4d0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_040.txt": {
-      "hash": "97fe0c74e2145e3c601371cb0ba013ca740d792cbdf4da4a48f0180a73f47b9f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_041.txt": {
-      "hash": "d94ab76eb5678dc63e6a0d1c2f399767a84fc77279800ac5c6fafeb671c03e53",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_042.txt": {
-      "hash": "18f2337bd045db14f844d5f260c1a2822af36ccebc012d42e91dc526fef8cd03",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_043.txt": {
-      "hash": "1e59a67c32b8ed251fe260c99ef8e531a9fe819372ac540a8a92f32d96340847",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_044.txt": {
-      "hash": "7d7a925fd16a5feaa2259b4300145e1a821bb9c47fe138dc00328bb84b34ac39",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_045.txt": {
-      "hash": "a6334f62347929fbaddec92f151062b5fb778070c58e28a8acd2018245deec1b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_046.txt": {
-      "hash": "7edef8793663e5b1232b68c8d5d769ec10b8ec090cabff793459fe3239d38edc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_047.txt": {
-      "hash": "ac78fb1e8a9f876e56423d026bc6fef9a06a152a572c7b58564ff28185c7c8f5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_048.txt": {
-      "hash": "65939c2443447d3a31c5650b9cfac347ff4587dd79160218c6c7bee5f86cfef5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_049.txt": {
-      "hash": "a08b96b4f69d11be282b5959d172cf8a815b70d135fce712b673a2f99c605386",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_050.txt": {
-      "hash": "25f3744baab66c3f06e9b402025622990bdda18a6de2bd43364d7c22279c6bad",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_051.txt": {
-      "hash": "18469faf89acc48a31a7918e4f9db673af8aac157793101ab093f1dbe4cac7b1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_052.txt": {
-      "hash": "bb94ab07de4ea1ab811ea2109644acec12936db29370375fccd0381d6ee92b67",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_053.txt": {
-      "hash": "a70c6687be75d44e3987f1e7ca68e8b07e4966b0c1d328e17ffb8574fdbbac48",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_054.txt": {
-      "hash": "0de373f5fca47f3a0718ee687f2ca8fa00494efb2b7bf4c2c112981bb7342544",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_055.txt": {
-      "hash": "1adcc45e68a5871bc62decd13074295d6adc6312e9970643f12b3180be59e935",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_056.txt": {
-      "hash": "e3d856fdff04ae4817b48e786fcff22132f7dccc68edf1d8f56afaa6b06b98f9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_057.txt": {
-      "hash": "eec678135a490e63cd72f631e56a0ecd0c2a7d9146433b96f4bec09bc9714c9e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_058.txt": {
-      "hash": "bfef7b3cd8d3e26ad846c6c69ecf2d6492f950af838d0ba94798cdc918ef98da",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_059.txt": {
-      "hash": "fef41181aef35c18f7b0edda881f5228671681578fd9d6704858599ede2f2657",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_060.txt": {
-      "hash": "ee60e62da86bb0a41c7e0a8f3423960e6eef45a534c03fc7a5b958486e6ce207",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_061.txt": {
-      "hash": "0b16a8ee148a2c9119eeecff68160aa4510bdd4239c883db7a41e572f4f625a6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_062.txt": {
-      "hash": "dd5c182f25bae721834c5fba076520914d5fa04e4b2b738848b76190955e0df7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_063.txt": {
-      "hash": "af8d2d70b6dde48435485a164fdf7d93ae31d2f8d95d3b69b216694de69e03c1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_064.txt": {
-      "hash": "551b367d62911631ca032af45cc07ec0a175d25ebda3950af40256484fe904a3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_065.txt": {
-      "hash": "94aceaaf4fd749af3524f565e1be93eed07423bd1c843c2ee851aef18e0f9259",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_066.txt": {
-      "hash": "1e36d9d51fc0d7c118a18ad77286cfc98a71dca427c149341dc0e3eeb6c74fb0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_067.txt": {
-      "hash": "0c3ec6a62e703244ffe31fbf864d2eb34a19f24b40f6b1dadc41145e52a91c3a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_068.txt": {
-      "hash": "372d5f6f6ea14cfaab47ef72ce9113514847c6fb0f5599178f2b495c981c3a47",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_069.txt": {
-      "hash": "dc56342c27407c5b580337b120a207f80bf6553f9c616c8ea661739eb46aa95c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_070.txt": {
-      "hash": "f47e9e7cd13008ba5346a191b6e09dd93a6fc9ded213de211e101e2d8d8d23b6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_071.txt": {
-      "hash": "25f8430329181b126bdedbf546990cee198df0db13b3b0c60c75f0eef2be3890",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_072.txt": {
-      "hash": "5d4ae71967b34579948061b8445bf1ea67ea6ddf84604936e7b6b088262f55d1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_073.txt": {
-      "hash": "4a160c21fab8b2a668047823134918adbaf1c7fbe67a05386b0840e433011cf6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_074.txt": {
-      "hash": "ba7eb294d60d63e49621158a190e6832667bca9d4cb5054e7921daa194ccd58d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_075.txt": {
-      "hash": "17e81e2be66bcd1197b22010116be9c80021e460bcf2c9a8a8ec37640ed24787",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_076.txt": {
-      "hash": "737b1d105edcdb3adb00d6902265a7946c965c366443c90c2bbcbfcd27222987",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_077.txt": {
-      "hash": "b1f0d9158405dd09511576fa64083e2a50f0ec679c36037a1d9741299616d276",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_078.txt": {
-      "hash": "5394b170e3f367db8b97855324b6bd989b6264efb94dec6900e49a579d8f814e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_079.txt": {
-      "hash": "4df111aa7bfc9ee2fbe0f10cd38530d309624f7e1beddc4012760f2bfc5340ae",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_080.txt": {
-      "hash": "579e325808a84f3a9c435b088a4bca571591548698763fb56460a9effe95f344",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_081.txt": {
-      "hash": "f26c8fb54c313714650c16417d1743c338b937c5e65f3cee78a2069a054526fc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_082.txt": {
-      "hash": "4a5541ceff35cd487632cfce89e6a904fa975fe93ca3fe4ace26dcb58a296c1a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_083.txt": {
-      "hash": "3608c38e6153502c0fef884f277cdbdea2414b6684a62febbeb42056d8e6317b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_084.txt": {
-      "hash": "490e56489795c84e66eb3f78419825c74a2d3b1788e995b59d564deec592f699",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_085.txt": {
-      "hash": "61fab70327e469d78c946857bc376b919c1999662bae4be09b4d4a35e2d82830",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_086.txt": {
-      "hash": "1fdd9712e81fa0c1251cc0b418edddf2a5ea9d559e23ff63dea25e7bd37a2534",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_087.txt": {
-      "hash": "f64b989bbc4a858812f904bb945d0750e2131637f51ec4a06c44fe1ed4b4d7a9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_088.txt": {
-      "hash": "b247300a0b07e700987174d7d96d5bf6cbd3d26ba4192f143e86d872b276f6d3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_089.txt": {
-      "hash": "abcf7cc921770c12c1f86d02c2c5d0eb03eceff50ee8d79b74f6f431f7881358",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_090.txt": {
-      "hash": "64a0509e4ceff1ad4e227b54b19b751195d7d12c6c53f99c17ac040067c3d4fc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_091.txt": {
-      "hash": "d599b967bfc06b9fdaca6e9574a909e1d6cbcec4329e04750ef417a14dc43bf9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_092.txt": {
-      "hash": "5a3a29663df081416015057acde4888e57aa19a74094be7d938b132c898f1334",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_093.txt": {
-      "hash": "1ce79aba3f992ffd872fa40e37b277d8e9d7d35067492a9ac4224f3ac3e7959b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_094.txt": {
-      "hash": "4857c1f09d066847ca60839e8b863485c7049afc4c25f9bb90c1cc2440af769b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_095.txt": {
-      "hash": "98f722b43fa229b5fee8abc415a705a9618d34dc5f78f39da75ad02fdbf85318",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_096.txt": {
-      "hash": "c2d87dcf6d6a1e0f93c3d563c21155f12bef7779941a51bf59b94f95f6b5600a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_097.txt": {
-      "hash": "af6fd8cbbc4d46f0a83619768739dfe6f243ca79b18abca06abb1f79391eabd1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_098.txt": {
-      "hash": "95bc67ac8da394de29a2d223ce57812d3943af52d877962ffec71405eb14c982",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_099.txt": {
-      "hash": "6e2a097c5493f08ed319aeff590cbcde213f2056965fca7fbfdd60279f397dd4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_100.txt": {
-      "hash": "eee3b37d4cdcdf0dfa756eeaea8a4280d8011d68e667570cb4019dfa86320ea6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_101.txt": {
-      "hash": "11454b8a26cc2f95b8c1f9bf83d41538a9ac672f0742eaa1953d2c8c7a240004",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_102.txt": {
-      "hash": "13de659c1cdc4c169a746b5ef964d9a62f2c3bd9fd8a1143248c3f999dd02af7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_103.txt": {
-      "hash": "9fc6c2f31f6e4f6859b0df6c8b2ebd3ef047dd6ec4e33db21c10027654ac3694",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_104.txt": {
-      "hash": "7a20649a6bda1ea6f515eb9e85be81f79c1217d132d85c169ddb4a78afa84bc8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_105.txt": {
-      "hash": "631f5292c600f92bb6f4e3f471cb9b73dbde67f734e7506834a495c96301408e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_106.txt": {
-      "hash": "53835c67c4358183a4ce316c9d9a6a7999b5e3058446faff72f119daf7b8f825",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_107.txt": {
-      "hash": "9fabe4fbd42067dddffddc281f24fcbe5c1b6e2873c986937307546d1f8748c9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_108.txt": {
-      "hash": "397fad3c35bdedf5ce63b830067ddd5e4a1290dce3029c4c2dae8b6bdaf83fc7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_109.txt": {
-      "hash": "a555c928d095a22c2b4406b351bc915aca18ac188a791600bffbea95b3a1f2d3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_110.txt": {
-      "hash": "1916b9d0554c6ef7dca6b438c80cbe5cde3bafd8bdb4d74a737511f8b2504c1e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_111.txt": {
-      "hash": "f3eb1079e4e6993abf55a5b9fb84dc948d6ce9e1c4ed7383932aa200f412630c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_112.txt": {
-      "hash": "ae14f3866112e46b5e1f3a11d8efb23ba1ef365df415c8668dae057d6d592587",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_113.txt": {
-      "hash": "9ebf25156b6568fdd24d2dd09a6815aed5861f4cd2f266fd885090b00bf8b1cc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_114.txt": {
-      "hash": "2212ea5af7498e5b03b65ddcfa279758c2c843fb79236c5aaecf79d0dc2c23f4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_115.txt": {
-      "hash": "7860bcdd9eedb3adcd6c8e67c15848ca423473585255afde0f0947bfa5247d5c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_116.txt": {
-      "hash": "f660d0b06328b4ac7bf8da53816d332541e8dc17a8f9ceedbbff8ad28c46fb5f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_117.txt": {
-      "hash": "2dfd6519d28ad0e5463ba952f399eb9e8567fa873327ae037a1970fe5a44ef5d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_118.txt": {
-      "hash": "8390d19e9451fed235ef4a983ae1a9edf3dc561bad1daae2580dac8b78cd94c7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_119.txt": {
-      "hash": "23d77a56874ab7059f12cd9aa2d6def51c43c903f23accba727fb10594f8655f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_120.txt": {
-      "hash": "1c957e709a5dec316868ad2c4ddf71dcf39b066aa793f7a2fcac7b4796d0aabe",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_121.txt": {
-      "hash": "817f4fa2cc267a92fd39ce136a487c4c8f85e39769d21e272d8f79815565fc84",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_122.txt": {
-      "hash": "417f2077858dc41b45d4c9df82346700d3fcaa8b17e0fbdaa100c8d1c86888c7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_123.txt": {
-      "hash": "e10ba3504e31ae6f86673498fc3f8845c236237a92a1c0f5025c56cfc8a09b98",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_124.txt": {
-      "hash": "f860199ae949261d1ff3ea8ef8f7244c374da8f4622d1324f1bb496b8ea0f8f7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_125.txt": {
-      "hash": "3dc35fd2e731eb21218d18c1934098b6460464184baabcf06ffb524011af837c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_126.txt": {
-      "hash": "036442f5e971a35a1d47fbf4cdd01c3c4dbcec09e94c6a7f8b2fbf8969207bc9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_127.txt": {
-      "hash": "9e04bf2c3b55fe8ff4bfb2956a230e707365c871f3a4a735310f40fd89a482ed",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_128.txt": {
-      "hash": "7fbfe126f880918271eb3c6fdc00968a51785c90e605a923d9b7d9f6a73522c9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_129.txt": {
-      "hash": "5a13c50e9d96b90da1ac2b13d0376c1509384089e18d6469816fffa0dc341abb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_130.txt": {
-      "hash": "5235f63d8eb2a67f7bd28e091cccb46d8585ac67aa068d5b010cc16dfae3bee1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_131.txt": {
-      "hash": "0d48b7d34c8cacb63c1308694afb28ea40831f191ff35a7cada2db0a6f97760a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_132.txt": {
-      "hash": "2bcea0dc310a0423476dbe171b1a1ae3c00877696b40c85755b7b2e0600dca4c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_133.txt": {
-      "hash": "45f89231e7a9f55816562f6f427b4c42d701c8dbf9d63c37476aeb4906142c27",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_134.txt": {
-      "hash": "f6abd0a44e8e69e8542ed23b38e61ee23ed18397c801c951e915d733915e53e5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_135.txt": {
-      "hash": "1892728a5d2591cdfe5e33900527a75261decd63b9177c664df3735a43a336a7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_136.txt": {
-      "hash": "069ada20392144399984062daf49e0cfe641870d3922abf4c3c2cf3bbee86689",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_137.txt": {
-      "hash": "4da1b8e840568c3690972512882145a9bb78766d4f08a7913b8757431787eeb6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_138.txt": {
-      "hash": "c4c2214cc0ca813a7b5a327fb312aee87d000b9ed5631878ef5206ec67825145",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_139.txt": {
-      "hash": "57f2ed1b39f84b67d624423713bf4389b7330bbdd0d0e06ad83d15f331e744eb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_140.txt": {
-      "hash": "998449d1f930f78b2ed554734e390982a617bd23bb222543e27e6ddf2a15e838",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_141.txt": {
-      "hash": "78b1043bfff25420311bdd89b828536beb2bc0ac0a2904af41e716bb739ce423",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_142.txt": {
-      "hash": "dd2e698d75e59ee43ee549ba394e76f56728911ebeaa5bfd041cf2cee10adb52",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_143.txt": {
-      "hash": "0dbe922ef4215c561a23cb1d78599f341317c16c8aa6e6cde61f131ebcef2c8d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_144.txt": {
-      "hash": "7e3c5d5e7f2340569c1bfdf8b73c1df9c53a9b5e844b78e53cdda63b9270cecf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_145.txt": {
-      "hash": "a887f2dbfcaafeb984997b1a14cd62ce2d6f39c7c4345710fe8e100efcca636a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_146.txt": {
-      "hash": "6acd6766f5cd874cd69b19e0181279300c80ea731fb8528abedc23fa4c19fd44",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_147.txt": {
-      "hash": "08f27940edc7e319748fec35644a926ca96276bc09f0b6876c0c155daeefec92",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_148.txt": {
-      "hash": "da3360914c3754d07391bde09c5c3d30e9b17f3c20d1f9563d3e7e3dca5c6a76",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_149.txt": {
-      "hash": "bd85ace1882ea6ffbfcf963913129883577390696f3d2e137536692d37d2db07",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_150.txt": {
-      "hash": "347dcd0768b1be1fe63a50f922b7e11e67ad178904fbfceeb4e8e987508579e1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_151.txt": {
-      "hash": "e2db56b0a7ae6620458036ed6a71358ba220c5c09a8a692fc238d81cd8a2ba65",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_152.txt": {
-      "hash": "ec0eb3f43825df6a6d6f9dbe181c9ab94cc4d3cac94b0f1e073e8bc1a3fe41db",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_153.txt": {
-      "hash": "5dd98bca1a8c9b4329d99b3b9b71d18fa53c9388a8e270a78671bddc87de5687",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_154.txt": {
-      "hash": "43ff3e888fc0f803e82c5d88938167a0cfe47f5188c60384c2bcd375e69b0aa0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_155.txt": {
-      "hash": "ac43c58846cd6501a4eebba39222bca6739838261a8f2328a658ce28e98abb20",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_156.txt": {
-      "hash": "09267bf63322756280c4116ce9b301f4fcc074a7489c551bb3a9459aed667ffb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_157.txt": {
-      "hash": "0054a8c2ef0d0cf8c015780dda70dcfd5a5f92eeabed6c2b0d2afbb142b2b108",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_158.txt": {
-      "hash": "aa540e23b31fa237edad7df495bb5ca217a46cb4cbbf545967406274dfc98f8f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_159.txt": {
-      "hash": "896bf329adaa2def0e337b0abb7ab5a2a87769799465b5d3df862a334a4c9782",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_160.txt": {
-      "hash": "89f62eb0884d74dd4ee93e77233641f22f244274e7109a973c28dc7c65338a69",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_161.txt": {
-      "hash": "c4d84339014beb8037347ce87e204b623be1346e9517b910cb7b34952fa42f72",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_162.txt": {
-      "hash": "1f985964f6e01683471106808fc3775a018277764fd7f633552e5913f09e90b4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_163.txt": {
-      "hash": "2c062b56e607c1af35871172d88beac22580bc6018bd320eac33b07666be480a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_164.txt": {
-      "hash": "e1019754121a12bb2ddeb7a83f6056e98a4b49ccfb846047668ce98ec1396c15",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_165.txt": {
-      "hash": "d63017141082d0902a00cd99e3ae109cccfd188a2a247bf5f83b622716101241",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_166.txt": {
-      "hash": "45ada5ff939e1e87795b59e5047a16a97ed0362e5de211a292a684c4b2195597",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_167.txt": {
-      "hash": "a786518cf1345b0660e5eac718097241abfebbda3f39d7e991306af457d13937",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_168.txt": {
-      "hash": "6484e336a8f0b78dc190f6078566194b7b807fc46acb2f6d32908c7985cf6be8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_169.txt": {
-      "hash": "f367541a47581118dbaefe2097ad5689f79968f8fadb7aa5f554655ff65c5c47",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_170.txt": {
-      "hash": "fc6bf8de72f042f74ca7a8c77dda09af490b588de1f1f9157a24e7eaab3a11d6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_171.txt": {
-      "hash": "5df76b2e902a32fb89f1af555692c28d0f1979497b987166cd34af0f6f69f10c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_172.txt": {
-      "hash": "ad5688a04994e2deb6121f6ff6939e70ff83226d64ecf2b059092c1e10ee45f3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_173.txt": {
-      "hash": "c5fe01e173a326aa5657702b17dd4eb848d0f7e2517dcfa203a12da523b4d864",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_174.txt": {
-      "hash": "e1d8063e9f866df07ac6bae10230dd86857185a9b8083d61c236829b49f8a2bf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_175.txt": {
-      "hash": "190cf5f563bac151436984b22332177e17c1951bb217167df5a83dd89f28e641",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_176.txt": {
-      "hash": "8bac002a42106872b88d15b468c6227c18a048b3fe3fbf4feeb5760c4e440354",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_177.txt": {
-      "hash": "3c3093377460a87439d5f32e76e5db5a820bef061ad0f3d467616412c107da1e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_178.txt": {
-      "hash": "9b112b008dcaf6ac3b53976d168f0fdd2ac4e474b75c580d5d77a3852e9928e6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_179.txt": {
-      "hash": "533918149facd36d01386578f7538eab44ae42f3f777384124870e8f7294c571",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_180.txt": {
-      "hash": "5187764f5830706cba5d331ce9127d85a7e31baf0ba8b314a8b4957477994501",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_181.txt": {
-      "hash": "9e2ef720f943e810f9e20686a9dd4cdb99c1d6d548d7910d728b0cb5d72abbbc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_182.txt": {
-      "hash": "ad05daddf87af24584c14bb82e579d3fdb926ac655183ee16ee6948844cd70c4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_183.txt": {
-      "hash": "df56091971840f19db6359bcc08c129d85db54d9f01f46f8e1435d70a8eb33a8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_184.txt": {
-      "hash": "0ce99df3f1f91cde710e6139d8c12084824ab8b5620ccaf4313473792fc56438",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_185.txt": {
-      "hash": "c32d4907a764deec8ea8752249e31f130433393ebaea1181a9e10be27bc69f2d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_186.txt": {
-      "hash": "ae99c47e3d1839be060f7c919b284ddc20c3f166ab787f79a8afce473fb37897",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_187.txt": {
-      "hash": "0290502c5fd83d60615194c93bb3433dc5a4a7c1b4cb24a82c5a7687eb4a7dc9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_188.txt": {
-      "hash": "7aaf08f60aa8f1efb7000178a60f6e0012a0effd4b2ef7141c62605fd9dcb6cb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_189.txt": {
-      "hash": "78dd3e9398d279678dd91dbb85aa9c73490ea74805eccd7c1aaea75f5c1d1980",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_190.txt": {
-      "hash": "8ceadb0f2e2c51adb443b0c6fd7f8d8af6cf8d218125721592796fbc33012e63",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_191.txt": {
-      "hash": "b1ca33a5f73454a10b6fde933a46be5198ea54be8ed4b4e3fe3d3aa70a0b1796",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_192.txt": {
-      "hash": "12afc7df8119c702aa194270004db939f9848140c55c6eb835463a362ec12abe",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_193.txt": {
-      "hash": "a3419a0dc5281b56c9dbbc28aae4afcf67c467829a1b19ad9256c2160d385f15",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_194.txt": {
-      "hash": "d29b6174fca6f7cb7209086f6d9b3c507eaab4b40ea6d34b31890e18b58e4974",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_195.txt": {
-      "hash": "6aecf74f1a11875468a529d08185799fe7325a4242db8f18c6dd32c7b05bd56e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_196.txt": {
-      "hash": "dab8121baac924cf18bde6fbf9e7c0f596dae1645c4481c5f7e7326ad34cfb6e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_197.txt": {
-      "hash": "f7e8c220c4eebdbeb4e39e0b7344beb0a0dad4a194435a0e03d3af250b26a6be",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_198.txt": {
-      "hash": "c32c8f398ba1547a4dbad082912d25de72476e54d747d07ad2f5bfb5f9cbc0f9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_199.txt": {
-      "hash": "ca570f43b84f953aa5318a03cfdb16b449443ccd528d74234dd1cacab78f5d67",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_200.txt": {
-      "hash": "2fe4de6b8064a892a364ef022aa119d734c0eb249c8e2e85733b21820b40958b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_201.txt": {
-      "hash": "fe9d27c88599679fa6be81af11249cd86b701de123b7b6bed1725f36407eb050",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_202.txt": {
-      "hash": "b0b8a0de284da79c68717be28c8f1fa53f9206716cdbf8e2d01bb6a850ff34fc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_203.txt": {
-      "hash": "5ccfca1ca7385fd9ab6461ec8f17da7fb79e466d78498d4ac7e2aabcf6af3811",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_204.txt": {
-      "hash": "8d1ce17d5c42c82c11c3607c6c366d65edf1b8665ffb5edbaa0510b9170029cb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_205.txt": {
-      "hash": "6d34ec58d4b06a673d26f37e672cfff078e18d55426428224e7b7bf60249d156",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_206.txt": {
-      "hash": "4457227a14618d699bad10b9d0d885cd188763294c1399db098e4eca5f3d032a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_207.txt": {
-      "hash": "49a46d497ab1209ab7d5f4881b05f8df317dd5b54008480d88a71c3c0ca94960",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_208.txt": {
-      "hash": "84cdbd1f5730d9a314069bcfac8371fdd36ab32505a150bed81f3ae330cf154b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_209.txt": {
-      "hash": "ee4fe949eef2fc14f68b5cf5db1eaca1f8b4aa38ea85b78d95fd51f775ecf6af",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_210.txt": {
-      "hash": "8bf5ee634a6673b8674361042de7f5ec5fe2841d528f252faa46a96de5b7d899",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_211.txt": {
-      "hash": "0bae0a99929e68da1994c7f12d525462449764a94f804e64bd5cd4e84aef3019",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_212.txt": {
-      "hash": "350d91e94713f8fb53d39bca47aec977dad6729329b7caad44d3797d802c8c67",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_213.txt": {
-      "hash": "5110f6598560c4764b7b9269c04565e69f0bf418e1b551a0b66370fadbaf9e96",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_214.txt": {
-      "hash": "c1fa1b7d8849ef8678b7739ae6f20a6bc6b999d19f0722933d03340b51ddc8d4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_215.txt": {
-      "hash": "357c4be2eaccfa06eef58e5607b56610bdf7455a51e5ab8724c0a47bd15956c2",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_216.txt": {
-      "hash": "6d7a43c6abc5eeaeef1466399d6aba5583582417051026fc4f0bca6ade32ec3c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_217.txt": {
-      "hash": "a169616a01b26aff03f75d2475314479e75d99722bf8ce98c87043d41024aa49",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_218.txt": {
-      "hash": "f5cdf77cf32c7cc070bcf12e93f82cebf2131a54d56ff451d8cb41956b735c34",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_219.txt": {
-      "hash": "4cd54043fba40c04a391315ddefbcc22eabf995f0bbac4d51cc21244e13cae20",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_220.txt": {
-      "hash": "cda52a9fbeabf33bc48541da589c206dfc1bb87630df324b3c4ea3feb45202a9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_221.txt": {
-      "hash": "130ac30919e791a4a086d3d1b8d5ac647abcdf87174029bb847511f4aee6cbae",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_222.txt": {
-      "hash": "45ed83197a5e9b75b891eca0870878629c29455ce1ae785770c4c4b35e696c6c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_223.txt": {
-      "hash": "7f1c4f801104858aa876656ae374c3aa0d5d939d1b414ab5438a342b7fe7fd85",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_224.txt": {
-      "hash": "e96cb97653b90f576334c3c292a0a559c3180f638b0fa255d4776be0d0827e7d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_225.txt": {
-      "hash": "c4edf1d08be2ace1d92c2581d67340fcb44a9684c44beb8d9b89cb753382f03b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_226.txt": {
-      "hash": "06deb2d3a9c9afe64a245484c3c781f0b8c1c43a2a6b5904582787485114ec79",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_227.txt": {
-      "hash": "d9c4fafa8d861109efdd117a849f6732d364ac73d908f374a2075e20f724205c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_228.txt": {
-      "hash": "94440f5a933732717a9a3ae0192f1ffab017d6edac474c8dd658f4fc303cb7a6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_229.txt": {
-      "hash": "52f78769737c29e19aaeb71cf84bfd4231b39a98c8ae440755a27eea884a9c86",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_230.txt": {
-      "hash": "539dbcc51cdb954b7e59b849715ba18280a6e4a78c0f0ab2584c7ad4594f82e0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_231.txt": {
-      "hash": "8ccbb823bb7ebcbc59ff5e927934dccfdf249ad6d6bc5241af97ffca25931296",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_232.txt": {
-      "hash": "005e6ce835f4fbd6bb1112741c5c3a4c0fad1304aaf6dd010c0c72045d2293da",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_233.txt": {
-      "hash": "7f840fe7dc125eafd9028e57d9ba20938cefbcfec42ed51aa4fc6a381bce541f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_234.txt": {
-      "hash": "3fdf544edb247ac09d3f1dc65cbca2e537622c0001a8d63e9c3b9f4907b6193f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/animation_frames/frame_235.txt": {
-      "hash": "58b003bf4d6672f6bfe2d4c7a0ddd913aac98da5c5a5947e72458bde4a6f931c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "scripts/terminals/home/frames.json": {
-      "hash": "0bf864cc27076a0d3c65ab3b64ac1cfc23f816985e782a6e012764c955cb159d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "src/assets/brand/WeBank_Logo.svg": {
-      "hash": "8a56424eaa278db5f217396cb27286136c958aab503f0c1cc00078d5fa492f58",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "src/assets/brand/tshirt-front-logo-dark.svg": {
-      "hash": "cc43673644eb125fc0249830d19b2161cf2bdb4c50e83937df1af56d00f95959",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "src/assets/brand/tshirt-front-logo-light.svg": {
-      "hash": "2ab62313937520c7ac90ea1ddb6763880d06e7648a8628392a9f4bea92d38860",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "src/assets/brand/webank-logo-dark.svg": {
-      "hash": "c09392743ca7f1df099e3c20e5e90e3e300c0e24bd678172f01a39de732fefc7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "src/assets/brand/webank-logo-light.svg": {
-      "hash": "95f78660418738230489b81120a19ba90b70c3c7661401ba2331730c1f13d2fb",
-      "session_id": "8ead78d0",
+    "public/brand/photos/xiaohuiyan.jpg": {
+      "hash": "1bb3d62c21cd46173d04615e8cf63fe00026ab0067cdaee15d49a9dd40afff7b",
+      "session_id": "a03820f7",
       "tool": "Bash"
     },
     "tsconfig.tsbuildinfo": {
       "hash": "078bcdb7a07fadf2fdc6ddd3b634d87768ca07f747c11e316287f847fb3c4add",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_041.txt": {
-      "hash": "a941b374935040147dd248baad0d76945f63975166171a909cc83896ed7472e9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_042.txt": {
-      "hash": "f7d15404482affe508446a9109e7b745765786ec620164ef37f235701915079c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_043.txt": {
-      "hash": "ca188ed7bced155f2ec80e39259c20aec015574addd687c40266e03204e6b268",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_044.txt": {
-      "hash": "950d1ccc45047f7d0b86ca2ca128ef103c8c55dca70c5e80ecb71e62acc60cc1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_045.txt": {
-      "hash": "6d0c10152929b7c4b7b87be9249da4edb4c19e4470ec6cc84559772c70cc9069",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_046.txt": {
-      "hash": "ef6c87dc2550709708329b96d19286b3fc61b57fe256edae7e50d91ca6fb2c6c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_047.txt": {
-      "hash": "ab77d11c2b8038f5fbdde40743b446b880e4c0b023f25966421cdcbb11fadc48",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_048.txt": {
-      "hash": "8657d4bc9ace2bbacc20a5239ee8d245c389ea85168fec6ab248b92afce8d5bf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_049.txt": {
-      "hash": "370e8776715717a89ac7fd60023d9a48ad03c37ace2f7ea1874ad059a202a687",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_050.txt": {
-      "hash": "44759e2f22df092b8fbb8470293a6182a8cfed946e6551c91a1c0ae51eb9f179",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_051.txt": {
-      "hash": "ba520a66f0e4c1d960d2f4376966c13c25483576da4887c3c6445a42c32ad5d1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_052.txt": {
-      "hash": "c0344029b332b0eb453014fd0f140af7eba91192dcbfeef677f80e274e8e21e9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_053.txt": {
-      "hash": "2d8faef9b71296d9e47e8200544664c94abe06e4cc6b8474e709b3e58f54328b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_054.txt": {
-      "hash": "eeec16d59f69e0f8b43ffc5609fd3dbe829071e96305871818465b5aa8731b7c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_055.txt": {
-      "hash": "73f367a987e43f953072e47ff4a91acdf098eea439e11b4d006107ad79d66673",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_056.txt": {
-      "hash": "a91821713509d0060337a3dfdad0acba4f55e9f25daf5bee8e2b6e2dcef63863",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_057.txt": {
-      "hash": "368780bedc3ac463d6c2c79aa3a5ffc1b554ca571916065ff4ff268c628f426e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_058.txt": {
-      "hash": "8b9a876f3a56918f40b63bbf84da10d5b515b2a557b9f470045a1d252af148ac",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_059.txt": {
-      "hash": "bbd75c3134a670111c4ad742ce932941704aafa005e81d6d1a9b44f1e62af996",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_060.txt": {
-      "hash": "a79e9ceed3061e302c8fbdc77de6977f11e264181c2aeb63681f7ef97106a521",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_061.txt": {
-      "hash": "e3fd7752ee810964808dacc939a73b7bb8f045113220c9584e359199fc0984fb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_062.txt": {
-      "hash": "01f9d0849f1ab4e3ceecfcda50b6072a77b4b4fffbc478f2dd4277d99183bf87",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_063.txt": {
-      "hash": "9320aeeae06a9aeae084276425edce1e48b0261dff8760d9b09c995158bce923",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_064.txt": {
-      "hash": "dc952053571bffa5f881596cf4d267bb5b3578d5ed2298f4694bed25fa9a77a2",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_065.txt": {
-      "hash": "808ec7f7aed3b238370f9fe7f8d778d5b167eb6f8ec6d541225b3489d45ddf6e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_066.txt": {
-      "hash": "a23746ff987848b0a1cc69ad2f46277f3d896bf00adb4a5496ab29d8aabe1a8e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_067.txt": {
-      "hash": "c33122a40a853af52e23670a9c27581acac58649b859ae11ea112c7972a20b1b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_068.txt": {
-      "hash": "a821375a18f62f05191f97b68b79af8b24cd8395cd3865a3feedb652a229c7a2",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_069.txt": {
-      "hash": "d237647756dbaa2e9929d91d0feaa106542dd663463477726a35dffb0051ab3d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_070.txt": {
-      "hash": "b6e8f8c3632bf9d76f5bcacfb6e7fb67378d41bd5736c2b2a5696b8de6ee9826",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_071.txt": {
-      "hash": "3d8dbe43ec80a803414986fdb876dffcaf5fe9300fb99d78fb56ce170ee85ad4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_072.txt": {
-      "hash": "918fb2a7cfb90bc82dfc8549897dc961ad59bed9b3e169d730f43d6af4d6d8c1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_073.txt": {
-      "hash": "c09126dfbff360ff8e7a7b823fe719a42370434b90536830e9941e6cb13c3b55",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_074.txt": {
-      "hash": "d2c406975fafa0df16de09f7ee595da5d089b4ebe09384b3ee236b9729ea5bcd",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_075.txt": {
-      "hash": "a08fd239ebbe815125ffd3c49b29d3fa9fbf6f07884df0e1d2bf6d14ee86e02f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_076.txt": {
-      "hash": "dcece55b3ff793d6ba9249e35fcb74fb8507446191d60b3bbba1977b2e1eefb1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_077.txt": {
-      "hash": "ee008811d3bda88eaa5e65112330b6523da5a0ec965dfce3a0d86de60d269436",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_078.txt": {
-      "hash": "d72f482a8d04a87a48cde9633526c66da1dc3e0687db89f294420ecc6b1f519c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_079.txt": {
-      "hash": "967ed4c6dd3a287a1639c47671fcb299a09ea315229c76748128be9fccd3a8fb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_080.txt": {
-      "hash": "6f18c6c39d1c0f5581e0732a8591bdc0b833890a572f0092fa8af51dd8f8c158",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_081.txt": {
-      "hash": "d84c6719f9a59251305d4ba77efffd4d3d362cfcdbdb898b663776c06fde4ff5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_082.txt": {
-      "hash": "3c0b8c25f6a101271ea798ce7b1d406c5071b8c81be886175a861d0e788bf3e0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_083.txt": {
-      "hash": "14bf7af0ce72dd7f89f3d4fc00a2167a0dfa48a25de1fc09ac8aea2a711e6f5a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_084.txt": {
-      "hash": "4e4dfcb6c7eb4bf5c154ef2f16af22c120424264ac38c72101f09b3175c398b8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_085.txt": {
-      "hash": "c25eb8a3430472e9d13fdc6a7e55d0eb8449818aac3c0c38ea2184e44fca3143",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_086.txt": {
-      "hash": "acbf7622f1604fd55f31e7a5f9eb4215d7d8eb9ccafcd6db9ed3d5820c99e390",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_087.txt": {
-      "hash": "8adab5d6e9713ea1dd178d1b8d28515f0b9a77a9a98b389553d4072300dc05c9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_088.txt": {
-      "hash": "821c3df4872eabf2dbdbd8a42154b8c6becee290a0ea571092e4620dbf9ab80c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_089.txt": {
-      "hash": "51c537ff1cb68ac4b2f262e1d854482b65fd545ddbd9c44fe14057a8e3ba7085",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_090.txt": {
-      "hash": "ae2cc9212a654e062012732c48142abdc71a95313ff954b7ca2f876d7cf9839b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_091.txt": {
-      "hash": "99f7fdbc1ef1bbcb79b7e8f8df82bdc63edd4f7ebe658b64623d97bf110d0411",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_092.txt": {
-      "hash": "84555eddb390a51409a2be993357a682a6cadfe3324a4c8ba3806a84f6a602d6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_093.txt": {
-      "hash": "de4061f1a3f8403c517c2ac9eaebf91150758bd7906580e2e0ce34b5bc9fc5ed",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_094.txt": {
-      "hash": "f5e89d6e88ef7e5fe803f6e60b20b2eef3103706f6314a8d2b8c40c5ce235025",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_095.txt": {
-      "hash": "8fc8ea6bdeb6a5744f54a749cf0ba88b9cd87beefaffcf295869cd042c838999",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_096.txt": {
-      "hash": "ef4b56f28e522f58c8895355d0aacc7af843e0639cd07ba0cdc0f39cae3a9caf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_097.txt": {
-      "hash": "d94968bcbee7ab9ef197d1e2fb1a5167e55fb7cbd5fdde8fe736afc3d5676403",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_098.txt": {
-      "hash": "19f3d93ba94bdc75155dc663be1e4c90756d1cf289fb02f9582099dbe50de5af",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_099.txt": {
-      "hash": "c9fcf673e1be78fda36a534e8d98d6893fac2883cab7622c62467075e9260742",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_100.txt": {
-      "hash": "a57484b76b08e846396b0c36b61e8d1707d090164a0a01bc9c9d47e09af6bcaa",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_101.txt": {
-      "hash": "da0842e0908b6260ecca1435bad8bd4f685055b99826f16001e5ebca6718d1af",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_102.txt": {
-      "hash": "4e7d724e6c9193e44808f507007dda9be576b31d625f6722af7e862b5b863e04",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_103.txt": {
-      "hash": "6cc358ebe8c54e1630f159cae35f1dedd9c88a4c3caf88282b6a01e22d3a69ad",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_104.txt": {
-      "hash": "d6c6fcce7eaee404f7fc0f7b74a65824b054851bf277ec4f58eff0a1b60ccb02",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_105.txt": {
-      "hash": "852760cfc87274f8a61055553b12e659e6a3f09aee6e3956a199bb58c6ecbf58",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_106.txt": {
-      "hash": "694ab8bba4a4a5eed91c2d0ff600120fb17f4df521d9ceff459097fa5f12daaa",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_107.txt": {
-      "hash": "8c1465214e8da706061a55720e87685ed23001087da89d146a394d76bc3e5e9b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_108.txt": {
-      "hash": "1708d2700ede0b725dd0d899e0ea6ed87ab07dc6912a9b8b41f0ad40d1b1b716",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_109.txt": {
-      "hash": "6a1a576a5f2c90fc35897df70a275f399c9a4c49492444ee4d37a9916098d716",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_110.txt": {
-      "hash": "f9db6be7beed71b53b8b83e8d8e8f98746b495734136516fd162b46a2888db1b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_111.txt": {
-      "hash": "ccc984dcbcf08c2850f02e12ce1c84d665c8c8429ba9e0ebfecd2084ef910e0a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_112.txt": {
-      "hash": "8d98c8794c9eb25403799e47f5f12aca0b155be923c5b3343ec5fc8358ff2ef0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_113.txt": {
-      "hash": "fe68fa5fa90996e86f87c7d0763ce14cb35ec2722b4da240338662540b3f97fb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_114.txt": {
-      "hash": "ee11a0d8dde9c33a49fb6d4e6073cd7495171f2de358d21007c3a0ee1c5cf5cc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_115.txt": {
-      "hash": "9a65cd2b03c93b37a83f75b5a0ac2f390305f017cf9476364504d8241879fc87",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_116.txt": {
-      "hash": "c79dd24228d5cd979dec49b3847bd9b475d42975a82ac518aef2ee55f3fa8c71",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_117.txt": {
-      "hash": "8c8f5703bf163f2020b4e9b2f2c9f461ccd2565c5b7aeeb7fc15da48ef756bcd",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_118.txt": {
-      "hash": "909f649fc2b4908202867afcb5451b5b9d67a283964c2bd714cec23350c14980",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_119.txt": {
-      "hash": "8efa4e737f78ca16d4a1a56890f436cf03372f57bb7c1bd31d7f8b63a9af16de",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_120.txt": {
-      "hash": "20fabf8faaa8a46688138356a75e460c3c85678e99c372c2c0ab50b3a16a3801",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_121.txt": {
-      "hash": "8e2c12c4a806404b4917b264dca42bc7a38bb744eda0e53b658e5369eb31bcbe",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_122.txt": {
-      "hash": "21bd988a2384044b0a84f6ac069f182365dc8e3cc207dbb89901bd3f59659743",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_123.txt": {
-      "hash": "d59214327e80cb98754155535a17f7d736d006769e0d653c51fab285ab7b4aaf",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_124.txt": {
-      "hash": "c8278da982b6bb95043aa890bc747f23f618de4696d6974ca5a7425c00374758",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_125.txt": {
-      "hash": "d6274240248da73d2ce87fec6ec655eeb161dbd3e8d9459f4d2cba84f3338869",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_126.txt": {
-      "hash": "04879044f05d64d559d00d149abc2c2eb23fb727b03fc68d2b05072002e7b79e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_127.txt": {
-      "hash": "18da987f26581ae614e6bca5281303084688b8fb3bfb6c0f00a006506c7dee41",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_128.txt": {
-      "hash": "9a5697a882c6ba6436123a391e93ff519d0b79fa75a1df97b3b27a7552a752a6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_129.txt": {
-      "hash": "8f79f3e79ef35444f4d4a1c3438bfc46d85e5d617a71f63eb1cc5b236c6792a8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_130.txt": {
-      "hash": "cc9b32b00c2f86ade17e3c16c17065b438f9b9b3ea468c7d5873e6e274a7c331",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_131.txt": {
-      "hash": "814d927c596f470a4ddfcca186ac41a7a49e6e4fc04a8a005f2609ccdf864795",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_132.txt": {
-      "hash": "d588ab59a4b010e6fb1b70cc62b50d8087c682f8cc984343bd3f96a8f9e0695c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_133.txt": {
-      "hash": "c414ba3a4fe2ae373c6fccf19a838d1f5daf5674339f0b6f08a302728290e544",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_134.txt": {
-      "hash": "db5eb545685b98479210fbe71b2454d4083974a0a3575dd9a892d9e5ee742129",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_135.txt": {
-      "hash": "0a2a13d153a87423915ecf93684c9b5037bd868e166d049ed45f14b3589a953c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_136.txt": {
-      "hash": "f177d95696a3cee2fc1b570d8a843dcce3aacb41eb8a19157372e6895b1c4c30",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_137.txt": {
-      "hash": "c3174c87c0cd9eca72e430e711e0a442e8fe1f0bacfe296a14139bf1130039d3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_138.txt": {
-      "hash": "2bbc3bac62aecb87c3e311692a3e570562fb7644cfcab3977d3ab2ceca0b194c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_139.txt": {
-      "hash": "8f6ab89c31577d82aa2610b1a7d1f92fe409b2c12b64ea1cbc493260c3c8dfb9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_140.txt": {
-      "hash": "4d8aeee342e81e14843ff0d78b44ff37ecd2d77667325c29388e1a4cdc2a0564",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_141.txt": {
-      "hash": "ee187c8432cda4a98d1fd4945a5a301917c361e042431f1557c4d53c27eb225d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_142.txt": {
-      "hash": "b6393f999f485276c4ac31cf6ff686ffa6e47ee390cb7ec64b80831a28c4c788",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_143.txt": {
-      "hash": "32f24f7bd8c412d0360ef509470a7d50141b674d9706dfce0b40765a2dac01af",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_144.txt": {
-      "hash": "714d7351de2e46535720538a7975c2c81b24109d6ebd0f702b0d2260bd3ce061",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_145.txt": {
-      "hash": "921b50bdbfd1de2a529f662cff79654a04a9b9fe67ee8ff8ef4486650caffb32",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_146.txt": {
-      "hash": "0ac774dd0abd8c2ce3e310829908290eb48bc506578d6189c3a5a121f7bc95fc",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_147.txt": {
-      "hash": "c139a6c2c5751c5fccd6746cea2444dc9be73333de2f6d612acf6684fc841af1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_148.txt": {
-      "hash": "e97eb7a1c76936b3b69f68f09f176af080ecc3bfcab9b0291b8f31ad23c90579",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_149.txt": {
-      "hash": "bd45ac649d8a33e0bdb6765092516e11b11307150e2fd9b937cae612d63107b1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_150.txt": {
-      "hash": "8b0fa9cae25e46fe7873692ba0e16146242e83f82be1fea8d550cf947381b1d3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_151.txt": {
-      "hash": "ceb9d7f435c1f5540719ac107a1913589286eb72f8e504580ad68911a22564e5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_152.txt": {
-      "hash": "1a03edd03e5b2fbc608d165951de757090292db2aa71178b5b53e2f98e154048",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_153.txt": {
-      "hash": "ede0c6f942be8b9a9ec49cfeb515dc82cc01738a73ca4747cfc31c9d39bb6369",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_154.txt": {
-      "hash": "54b16398c4acf69ad7e180151f1323cfc8b53cd278cab1c10dfc9a9c85c4f8a8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_155.txt": {
-      "hash": "7e8ab0eb0b2c7c1332e01a4f24d5ebcfe209f6349fa8d2c334707fdfdcabda8e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_156.txt": {
-      "hash": "33ebc3b0dc6bb08bd3c815453f019bd0bbea480c7808a69e4489ea8dc6486320",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_157.txt": {
-      "hash": "035853166539e3bbdc57284a62e8ac8b96bfa9f67c8f3867c6d0cf9c497ac493",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_158.txt": {
-      "hash": "b07aa6095f94ef08b26d5162870087cd17caf6f0dd3ec4a7bec7344ebfb1755d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_159.txt": {
-      "hash": "3c41baaf340589f46f591382fd3ec0680fe55b675d73f337c9995cbcfdf23acd",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_160.txt": {
-      "hash": "832fa9e5bcebcbb234eb652e5120d241a632ec0dd4b3a5be7687ceeeb98f2e92",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_161.txt": {
-      "hash": "8480e750972c6df15b539d622dc2c9e54022c16b6482ed31da83dbe9b37472ba",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_162.txt": {
-      "hash": "c667a874b02c990fa6e1a69108847cb4ff948377733e8af018eac5682538a434",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_163.txt": {
-      "hash": "ed3868545d82f113423fe2be80843111256a3e5d7aacdfaedaf1c7dec54bf9cb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_164.txt": {
-      "hash": "6942e9a09c0da24a79ba8dd89d967e9b007e055565301f046dee941f6d33ead0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_165.txt": {
-      "hash": "479841af0013cad0183d72da30c7d5a20a23dd84e1d378159e4d1096a91ad76a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_166.txt": {
-      "hash": "c48f7c223b521caee254cf075d0733f696d6f27bc4160ddb69fb12f4dd690503",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_167.txt": {
-      "hash": "eae7f9ea5ba31495391fbfecbe6a672d02617d4ea64e294e855bc0b37155b577",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_168.txt": {
-      "hash": "88914c238f2cc4f2f7d5f81bcd6bfccfffceb7d02960f5f3e25984bf081403fa",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_169.txt": {
-      "hash": "6f06f5c0b235c419e190938947c65fbbfe3c32d2aecb187d20a8c606616f5348",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_170.txt": {
-      "hash": "f30c54ef02571cc3d013cbc2b5b2d9c552ab6d5a65e0515a1be2c6fe6ef448bb",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_171.txt": {
-      "hash": "06ac257833736b497290984e2c3b5b5fa2784acd9d9e91bebc4c506b96d021d1",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_172.txt": {
-      "hash": "94657cab895c2ff7fe353171abacc4f7264e017ea58c2f146d211a897b12eeb5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_173.txt": {
-      "hash": "78b4bdcc40fcdad435bc945e9f7e40a56d9ca8e8ebca7a4be846de620ad4d455",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_174.txt": {
-      "hash": "ef9be1e7be3c6c1161d89db93d5bf08a54fd2a5724cde008657a9a1b89aa877a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_175.txt": {
-      "hash": "4cbdb16244e2947aa4c5ffec88ab36acbfe683d5f2879c113969cc40dcf163e3",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_176.txt": {
-      "hash": "967357252c7ed115ec26d846265364351c67b399d924b7e749608705df251c0d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_177.txt": {
-      "hash": "80468d536057427aa1e07e1a42bec1268fdcd7c0b938d165601e5352fcb3ff23",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_178.txt": {
-      "hash": "2f14352c619a814abe0beae468e90f91a7af95c04535b22209f7f1515842ab21",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_179.txt": {
-      "hash": "20340e0a1df1832dbedde0a38349b5a667688f3212604362a56977cbc03956de",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_180.txt": {
-      "hash": "3dcda6ed7f723ec03749bff163b918949c573f9cd510f4c1de771a6b36cf556d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_181.txt": {
-      "hash": "566135b4cadc7acf3f307000d7cdcaa6da63ababbc3017ba830061768eaa93c4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_182.txt": {
-      "hash": "8216c60ddabf9e20a6e7c421d7084c779fb0ca5a1bba1d3360918d082ed508d6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_183.txt": {
-      "hash": "271caf750e31e6510855761c84fac996c5a015c15d0e0eea75fb6919a7f8b4de",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_184.txt": {
-      "hash": "b93db5046e38cca448e3b50bdcd5a65de900297abd02725744009e9f0ca81aa4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_185.txt": {
-      "hash": "0267cddcb069698c1b809923fe34a65549929c58652899470377e78f7d462b12",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_186.txt": {
-      "hash": "772a57d903e4a65f532b995340e34c59af40f0d51f05d240ea9fc5cfe2fca79f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_187.txt": {
-      "hash": "3056838576989262fe9ca89e681fb88f5c9665a14e72699ebf4da1559643370a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_188.txt": {
-      "hash": "a23002670eac1926e7644640b9bf19bcd9367a68b4a1701adaa6fcc207f3e0ae",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_189.txt": {
-      "hash": "003856ebba8937e277c134259b2bd6e689ea8fb2d5049adae9168be10a07da8f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_190.txt": {
-      "hash": "7a03dd3b90c3aec3fdb0b7e5950fdc179a29f779647e13f8cba747e2e36e4818",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_191.txt": {
-      "hash": "c8b1fd8e7e5a92c38fa9cd1dfe85d37356e7805706e43444a95c414bb6f4bae9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_192.txt": {
-      "hash": "0a3b21539d050c40ecef2ca94b51186d8111dc209fd8347e79e985623ddd8f24",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_193.txt": {
-      "hash": "c27d7f2df998656fb7e034fba0d0a340459511e762e29cde01ddd42c20ff0dd4",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_194.txt": {
-      "hash": "a67c2ea5ecd22724673ff23751615a42b40228d7af50d215b6bed8c6c66770f0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_195.txt": {
-      "hash": "8e42fb6e3b97d6bf6e2527dfb0b051de6902880370aa3096c3f11cc0a2436610",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_196.txt": {
-      "hash": "e3b1aa78042c42b034152f667ecc0f1c2381e4ff382f4385e8dc8284a5c0ad0a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_197.txt": {
-      "hash": "eaf7de3f144f639bf8665fc596326d49361c052392c9d98213ec74354b1ed51b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_198.txt": {
-      "hash": "5408e2f94e1aa263bc684786111f7a9e6132106d75591bbec8a411bed76621d5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_199.txt": {
-      "hash": "5909c6bbf5eda4889f1cc0fcc7ce569dbea72878845b2ff501ad48bda9a93d72",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_200.txt": {
-      "hash": "81bd3b119564937b1aa27b99578851778d1238e9b1c1f3aadc37b2aea26ce19e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_201.txt": {
-      "hash": "6bcf9e235a2765e63ab3d8b917e325693945bbd4c66dbb3a2ed5937aab7e2d6d",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_202.txt": {
-      "hash": "5cf6fb068ea0e069da1c204d41562cc30e82e539d621e0566bfd267e0508525a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_203.txt": {
-      "hash": "8b613dfd3a6877981083c3c33e50c6d37dc0af376b1ca54376312540b606e98a",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_204.txt": {
-      "hash": "403cc6d1b7e325ce2ac67a503ed7bae15a800487f18e1bd5ed3ce0ce8095eef5",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_205.txt": {
-      "hash": "0e5b62ff3f8dc7789bfc84ee68984c1ad7c53ddfb6a1daf69bc2e914c24652a7",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_206.txt": {
-      "hash": "cb746fe4dcc3ad5a62e39bdce963bf6a46cb817fcc320f70599a67b6e227074b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_207.txt": {
-      "hash": "208c53a8f37a03b9ec85f73d5ec4590ca149979dbbb25a176393f4cedbfd626f",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_208.txt": {
-      "hash": "bd7fdc8f4a8a7f2f276c24bb79c81061286eb73c97f2439a3b3593955274bc18",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_209.txt": {
-      "hash": "cbf1908f8ad172f27516324b42fffbfb8c295be38394ca68d214ecd169bbf03e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_210.txt": {
-      "hash": "31a772def06f13c31adb1d3cacbc28f953b563399d945432b843862cce269757",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_211.txt": {
-      "hash": "c766cf1300a61e920c6f6a197e7da02b541ba8e2ed98d1b131d7878d26d31163",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_212.txt": {
-      "hash": "cc22f30f6fcf4fa1baa9330c7ed9c2619a5ef0bc9de680a6e39a6d0b7d5139ad",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_213.txt": {
-      "hash": "a227d06486f4b3965a06bfa3d12344142d2fffa612722a6834c3af5330f23144",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_214.txt": {
-      "hash": "0b6cdfc960cb3498ed1c5130d98e8c1893aeb6837e99b6afff542e4af45f9d18",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_215.txt": {
-      "hash": "ec1b600edcd7211cf1147a5487824447db26ee0b384d3654a8c16343221f992e",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_216.txt": {
-      "hash": "44e2c4e61c332aa1410f06ecf410fad2099caa1a92af58ad225f25df0194cce2",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_217.txt": {
-      "hash": "82b67afc8aedb01bd7b2f96f511466eb8f76d054d801adaac732d808745476d9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_218.txt": {
-      "hash": "285705b959995fbb3389ec59e04a9c43be754c723693b7fb76dcdff380c90364",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_219.txt": {
-      "hash": "825b9ec54268227b80ff685bc26f63d21baa8eb32104ca7272a09a541b4048d8",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_220.txt": {
-      "hash": "342caf8ea646f9a0cac6eb60e5fffcefd9f2d36c5ed2bf81a9d339e7a9125afe",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_221.txt": {
-      "hash": "7f6a345144182516f445a150dc46bea9e0dc315a01fb2ae72946c7d48df774ed",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_222.txt": {
-      "hash": "2e15b45628bd42e71cf4476ef111ba975804073b671cc77ef510f2418c64b519",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_223.txt": {
-      "hash": "7fe7da99cdb82fe676991412df4a774ba4790cdb7d734bcf0fa71a0a07abce6b",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_224.txt": {
-      "hash": "f7fce7c1b02ddf082aa0b3bd0dd5cf584d1d6b6c4794774866c5a5b7f4d027c0",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_225.txt": {
-      "hash": "1f23269969dcd73573522f79a34ca7b4521caedb34748e5f50b7d3b9da33b1f9",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_226.txt": {
-      "hash": "3317c2b0163caa24f54226f9c8efc245026c5cd6378ef01c76c623c786eba828",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_227.txt": {
-      "hash": "76c95fee13474bb7d1d32cb60b0d094e000340776153acf6f93c8725067f3761",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_228.txt": {
-      "hash": "fd810d36b08a263263391a86128ee8d9359e133d72bcc717613234bbcb5a74f2",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_229.txt": {
-      "hash": "591a432c13b8b2b2ef268f34752f0d9a99c4256ba7fa241280aa7d461295efc6",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_230.txt": {
-      "hash": "b2b7066fb0c94d4a90b649ff7f0c4fc97f197e4b46cf0b5dca46e2861df74c52",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_231.txt": {
-      "hash": "7662d2a52c7965960dbea30d13017cab9dd8a146d71f793b7296d7e223a8f626",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_232.txt": {
-      "hash": "b86e41724dab61c7d1beff2ac1738eec26773ac6030f75188f55da7cfcb6ce78",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_233.txt": {
-      "hash": "66f682ea11cda60b6308a64604d499834ea7892abcdf5f93490e5a4be880153c",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_234.txt": {
-      "hash": "73517de6a830a3bc33250d5228b9c47fe7f0afe139ffbc7997111b59205f9554",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/animation_frames/frame_235.txt": {
-      "hash": "cedf7151d996489cffc8be8c4eb54d4b9c2b4262de621d8fe9d8f67774c57ece",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
-    },
-    "terminals/home/frames.json": {
-      "hash": "da74481a6d7f72bc8ab527af4044ac492681e1d888adfcabd8d587c9a281ae34",
-      "session_id": "8ead78d0",
-      "tool": "Bash"
+      "session_id": "a03820f7",
+      "tool": "Bash"
+    },
+    ".claude/ai-generated-files.json": {
+      "hash": "ca1bcdb3d8ec13363a7a3bd974fbc8a4cdac71eda1b2cf27bccc70c783d2ff55",
+      "session_id": "a03820f7",
+      "tool": "Bash"
+    },
+    ".claude/commands/gsd/add-backlog.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/add-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/add-tests.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/add-todo.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/ai-integration-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/analyze-dependencies.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/audit-fix.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/audit-milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/audit-uat.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/autonomous.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/check-todos.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/cleanup.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/code-review-fix.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/code-review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/complete-milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/debug.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/discuss-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/do.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/docs-update.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/eval-review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/execute-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/explore.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/extract_learnings.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/fast.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/forensics.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/from-gsd2.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/graphify.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/health.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/help.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/import.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/inbox.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/insert-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/intel.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/join-discord.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/list-phase-assumptions.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/list-workspaces.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/manager.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/map-codebase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/milestone-summary.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/new-milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/new-project.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/new-workspace.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/next.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/note.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/pause-work.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/plan-milestone-gaps.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/plan-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/plant-seed.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/pr-branch.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/profile-user.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/progress.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/quick.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/reapply-patches.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/remove-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/remove-workspace.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/research-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/resume-work.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/review-backlog.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/scan.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/secure-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/session-report.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/set-profile.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/settings.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/ship.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/sketch-wrap-up.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/sketch.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/spec-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/spike-wrap-up.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/spike.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/stats.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/thread.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/ui-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/ui-review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/undo.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/update.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/validate-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/verify-work.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/commands/gsd/workstreams.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/VERSION": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/gsd-tools.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/audit.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/commands.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/config.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/core.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/docs.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/frontmatter.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/graphify.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/gsd2-import.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/init.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/intel.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/learnings.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/milestone.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/model-profiles.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/phase.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/profile-output.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/profile-pipeline.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/roadmap.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/schema-detect.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/security.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/state.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/template.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/uat.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/verify.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/bin/lib/workstream.cjs": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/contexts/dev.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/contexts/research.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/contexts/review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/agent-contracts.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/ai-evals.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/ai-frameworks.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/artifact-types.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/autonomous-smart-discuss.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/checkpoints.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/common-bug-patterns.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/context-budget.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/continuation-format.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/debugger-philosophy.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/decimal-phase-calculation.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/domain-probes.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/executor-examples.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/few-shot-examples/plan-checker.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/few-shot-examples/verifier.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/gate-prompts.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/gates.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/git-integration.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/git-planning-commit.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/ios-scaffold.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/mandatory-initial-read.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/model-profile-resolution.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/model-profiles.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/phase-argument-parsing.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/planner-antipatterns.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/planner-gap-closure.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/planner-reviews.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/planner-revision.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/planner-source-audit.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/planning-config.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/project-skills-discovery.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/questioning.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/revision-loop.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/sketch-interactivity.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/sketch-theme-system.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/sketch-tooling.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/sketch-variant-patterns.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/tdd.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/thinking-models-debug.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/thinking-models-execution.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/thinking-models-planning.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/thinking-models-research.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/thinking-models-verification.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/thinking-partner.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/ui-brand.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/universal-anti-patterns.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/user-profiling.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/verification-overrides.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/verification-patterns.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/references/workstream-flag.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/AI-SPEC.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/DEBUG.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/SECURITY.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/UAT.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/UI-SPEC.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/VALIDATION.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/claude-md.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/architecture.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/concerns.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/conventions.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/integrations.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/stack.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/structure.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/codebase/testing.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/config.json": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/context.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/continue-here.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/copilot-instructions.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/debug-subagent-prompt.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/dev-preferences.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/discovery.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/discussion-log.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/milestone-archive.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/phase-prompt.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/planner-subagent-prompt.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/project.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/requirements.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/research-project/ARCHITECTURE.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/research-project/FEATURES.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/research-project/PITFALLS.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/research-project/STACK.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/research-project/SUMMARY.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/research.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/retrospective.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/roadmap.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/spec.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/state.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/summary-complex.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/summary-minimal.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/summary-standard.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/summary.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/user-profile.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/user-setup.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/templates/verification-report.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/add-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/add-tests.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/add-todo.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/ai-integration-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/analyze-dependencies.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/audit-fix.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/audit-milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/audit-uat.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/autonomous.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/check-todos.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/cleanup.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/code-review-fix.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/code-review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/complete-milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/diagnose-issues.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/discovery-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/discuss-phase-assumptions.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/discuss-phase-power.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/discuss-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/do.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/docs-update.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/eval-review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/execute-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/execute-plan.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/explore.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/extract_learnings.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/fast.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/forensics.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/health.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/help.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/import.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/inbox.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/insert-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/list-phase-assumptions.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/list-workspaces.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/manager.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/map-codebase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/milestone-summary.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/new-milestone.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/new-project.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/new-workspace.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/next.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/node-repair.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/note.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/pause-work.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/plan-milestone-gaps.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/plan-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/plant-seed.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/pr-branch.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/profile-user.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/progress.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/quick.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/remove-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/remove-workspace.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/research-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/resume-project.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/scan.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/secure-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/session-report.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/settings.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/ship.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/sketch-wrap-up.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/sketch.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/spec-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/spike-wrap-up.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/spike.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/stats.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/transition.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/ui-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/ui-review.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/undo.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/update.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/validate-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/verify-phase.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/get-shit-done/workflows/verify-work.md": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-check-update-worker.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-check-update.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-context-monitor.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-phase-boundary.sh": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-prompt-guard.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-read-guard.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-session-state.sh": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-statusline.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-validate-commit.sh": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/hooks/gsd-workflow-guard.js": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    ".claude/settings.json": {
+      "session_id": "a03820f7",
+      "tool": "Bash",
+      "status": "deleted"
+    },
+    "CONTEXT.md": {
+      "hash": "53340c640b3999b1af6068b4fe59dbc66ef228c1d2932a7e5c336d4f3ae8326a",
+      "session_id": "a03820f7",
+      "tool": "Write"
+    },
+    ".planning/quick/260611-fk8-get-started-brand-design-brand-report-ht/260611-fk8-PLAN.md": {
+      "hash": "1646788752b6dceaf2f188b74c59597fcdd62b65e8a3cc41aec0ccfaa327b597",
+      "session_id": "a03820f7",
+      "tool": "Write"
+    },
+    "src/app/HomeContent.tsx": {
+      "hash": "3e3875fe345e04df71b862a148508388a777f2f0f640a44a61da7068bf06968a",
+      "session_id": "a03820f7",
+      "tool": "Edit"
+    },
+    "next-env.d.ts": {
+      "hash": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
+      "session_id": "a03820f7",
+      "tool": "Bash"
+    },
+    ".planning/quick/260611-fk8-get-started-brand-design-brand-report-ht/260611-fk8-SUMMARY.md": {
+      "hash": "4db011bab460b18a9678c7c96928c846a62f135357e2eadd9aba194d6695551c",
+      "session_id": "a03820f7",
+      "tool": "Write"
     },
     ".planning/STATE.md": {
-      "hash": "6a9c05628b3464692eabb731feafaf31f6f692a930bed18c091b467acedb4a2f",
-      "session_id": "8ead78d0",
-      "tool": "Edit"
-    },
-    ".planning/milestones/v1.4-ROADMAP.md": {
-      "hash": "bab00251570f9dc1b7c9e547675d4c6b76da8c17ad2fb46370dbe73fa7cc4b71",
-      "session_id": "8ead78d0",
-      "tool": "Write"
-    },
-    ".planning/milestones/v1.4-REQUIREMENTS.md": {
-      "hash": "a191945a45b1f90367e51ddd85a9c592edff89963dfa073aa5c7fc6451a4eace",
-      "session_id": "8ead78d0",
-      "tool": "Write"
-    },
-    ".planning/MILESTONES.md": {
-      "hash": "66b9ac90e63b5570fe32cf877494ad54b1c2507c9128c1266e56063e6dcf38fc",
-      "session_id": "8ead78d0",
-      "tool": "Edit"
-    },
-    ".planning/ROADMAP.md": {
-      "hash": "7d381db1b2feb6814450025654b9a77b3079a52648500427d8ad7e53b8c15a80",
-      "session_id": "8ead78d0",
-      "tool": "Edit"
-    },
-    ".planning/PROJECT.md": {
-      "hash": "b62c7abce29db54b427de238d90f4f9aa7e62fd7c3b3fd02e41adb7819549d77",
-      "session_id": "8ead78d0",
+      "hash": "b4af21e4bfdfeffef60791058ee52bbc2fb311f2502e459834be7ae9263b8311",
+      "session_id": "a03820f7",
       "tool": "Edit"
     }
   }
